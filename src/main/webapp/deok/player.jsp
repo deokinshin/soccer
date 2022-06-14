@@ -1,3 +1,7 @@
+<%@page import="util.StringUtil"%>
+<%@page import="vo.Player"%>
+<%@page import="java.util.List"%>
+<%@page import="dao.PlayerDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -26,10 +30,19 @@
 	<jsp:param name="menu" value="home"/>
 </jsp:include>
 <div class="container">
+	<%
+	  
+	  	int playerNo = StringUtil.stringToInt(request.getParameter("playerNo"));
+	  	PlayerDao playerDao = PlayerDao.getInstance();
+	  	Player player = playerDao.getPlayerNoPlayer(playerNo);
+	  		
+	  	
+	  			
+	%>
 	<div class="row shadow-lg p-3 mb-5 bg-body rounded">
 		<div class="col-4">
 			<a href="">
-				<img alt="" src="player/100.png" style="height: 400; width: 300; object-fit: contain" class="img-thumbnail">
+				<img alt="" src="../player/<%=player.getPlayerNo() %>.png" style="height: 400; width: 300; object-fit: contain" class="img-thumbnail">
 			</a>
 		</div>
 		<div class="col-6 m-3">
@@ -38,15 +51,15 @@
             <div class="row">
               	<div class="col-6">
                 	<ul class="p-3">
-                  		<li style="list-style: none;" class="p-3"><i class="bi bi-chevron-right"></i> <strong>이름: </strong> <span>  스톤스</span></li>
-                  		<li style="list-style: none;" class="p-3"><i class="bi bi-chevron-right"></i> <strong>출생일: </strong> <span>  1994-05-28</span></li>
-                  		<li style="list-style: none;" class="p-3"><i class="bi bi-chevron-right"></i> <strong>국적: </strong> <span>  잉글랜드</span></li>
+                  		<li style="list-style: none;" class="p-3"><i class="bi bi-chevron-right"></i> <strong>이름: </strong> <span>  <%=player.getName() %></span></li>
+                  		<li style="list-style: none;" class="p-3"><i class="bi bi-chevron-right"></i> <strong>출생일: </strong> <span>  <%=player.getBirth() %></span></li>
+                  		<li style="list-style: none;" class="p-3"><i class="bi bi-chevron-right"></i> <strong>국적: </strong> <span>  <%=player.getNationality() %></span></li>
                		</ul>
               	</div>
               		<div class="col-6">
                 		<ul class="p-3">
-                  			<li style="list-style: none;" class="p-3"><i class="bi bi-chevron-right"></i> <strong>등번호: </strong> <span>  5</span></li>
-                  			<li style="list-style: none;" class="p-3"><i class="bi bi-chevron-right"></i> <strong>득점: </strong> <span>  5</span></li>
+                  			<li style="list-style: none;" class="p-3"><i class="bi bi-chevron-right"></i> <strong>등번호: </strong> <span>  <%=player.getUfNo() %></span></li>
+                  			<li style="list-style: none;" class="p-3"><i class="bi bi-chevron-right"></i> <strong>득점: </strong> <span>  <%=player.getGoal() %></span></li>
                 		</ul>
               		</div>
             	</div>
