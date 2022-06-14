@@ -17,12 +17,12 @@
 	<div class="row mb-3">
 		<div class="col-4">
 			<a href="league1.jsp?leagueNo=1" >
-				<img alt="" src="league/epl.png" style="height: 300px; width: 300px; object-fit: contain" class="rounded mx-auto d-block" >
+				<img alt="" src="../league/epl.png" style="height: 300px; width: 300px; object-fit: contain" class="rounded mx-auto d-block" >
 			</a>
 		</div>
 		<div class="col-4">
 			<a href="league1.jsp?leagueNo=2" >
-				<img alt="" src="league/laliga.png" style="height: 300px; width: 300px; object-fit: contain" class="rounded mx-auto d-block">
+				<img alt="" src="../league/laliga.png" style="height: 300px; width: 300px; object-fit: contain" class="rounded mx-auto d-block">
 			</a>
 		
 		</div>
@@ -31,12 +31,12 @@
 	<div class="row mb-3">
 		<div class="col-4">
 			<a href="league1.jsp?leagueNo=3" >
-				<img alt="" src="league/serieA.png" style="height: 300px; width: 300px; object-fit: contain" class="rounded mx-auto d-block">
+				<img alt="" src="../league/serieA.png" style="height: 300px; width: 300px; object-fit: contain" class="rounded mx-auto d-block">
 			</a>
 		</div>
 		<div class="col-4">
 			<a href="league1.jsp?leagueNo=4" >
-				<img alt="" src="league/bundesliga.png" style="height: 300px; width: 300px; object-fit: contain" class="rounded mx-auto d-block">
+				<img alt="" src="../league/bundesliga.png" style="height: 300px; width: 300px; object-fit: contain" class="rounded mx-auto d-block">
 			</a>
 		
 		</div>

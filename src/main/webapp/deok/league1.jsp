@@ -44,7 +44,7 @@
 	  %>
 		    <tr>
 			      <th scope="row"><%=club.getRank() %></th>
-			      <td><img src="club/<%=club.getClubNo() %>.png" width="32" height="32" alt="맨시티"><a href="club.jsp?clubNo=<%=club.getClubNo() %>"><%=club.getName() %></a></td>
+			      <td><img src="../club/<%=club.getClubNo() %>.png" width="32" height="32" alt="맨시티"><a href="club.jsp?clubNo=<%=club.getClubNo() %>"><%=club.getName() %></a></td>
 			      <td><%=club.getFoundingDate() %></td>
 			      <td><%=club.getOintment() %></td>
 			      <td><%=club.getClubHome() %></td>

@@ -1,3 +1,5 @@
+<%@page import="vo.Player"%>
+<%@page import="dao.PlayerDao"%>
 <%@page import="vo.Club"%>
 <%@page import="java.util.List"%>
 <%@page import="dao.ClubDao"%>
@@ -27,7 +29,7 @@
 		
 	%>
 		<div class="col-3">
-			<img alt="<%=club.getClubCoach() %>" src="coach/coach<%=club.getClubNo() %>.png" width="250" height="250">
+			<img alt="<%=club.getClubCoach() %>" src="../coach/coach<%=club.getClubNo() %>.png" width="250" height="250">
 		</div>
 		<div class="col-2">
 			<dl>
@@ -75,186 +77,106 @@
 			</div>
 		</div>
 		<div class="col-3">
-			<img alt="<%=club.getName() %>" src="club/<%=club.getClubNo() %>.png" width="250" height="250">
+			<img alt="<%=club.getName() %>" src="../club/<%=club.getClubNo() %>.png" width="250" height="250">
 		</div>
 	<% 
   		}
 	%>
 	</div> 
+	
 	<div class="row p-5 mb-4 bg-light rounded-3" >
 		<h3>골키퍼</h3>
+	<%
+		PlayerDao playerDao = PlayerDao.getInstance();
+		List<Player> playerList = playerDao.getClubNoPlayer(clubNo);
+		for (Player player : playerList) {
+			if (player.getPosition().equals("골키퍼")) {
+	%>
 		<div class="col-3">
 			<div class="card">
-				<a href="player.jsp">
-					<img alt="" src="player/103.png" class="card-img-top" width="100">
+				<a href="player.jsp?playerNo=<%=player.getPlayerNo() %>">
+					<img alt="" src="../player/<%=player.getPlayerNo() %>.png" class="card-img-top" width="200px" height="300px">
 				</a>
 				<div class="card-body">
-					<h5 class="card-title">아 이 유 <strong class="text-success end">8</strong></h5>
+					<h5 class="card-title"><%=player.getName() %> <strong class="text-success end"><%=player.getUfNo() %></strong></h5>
 				</div>
 			</div>
 		</div>
-		<div class="col-3">
-			<div class="card">
-				<a href="player.jsp">
-					<img alt="" src="player/103.png" class="card-img-top" width="100">
-				</a>
-				<div class="card-body">
-					<h5 class="card-title">아 이 유 <strong class="text-success end">8</strong></h5>
-				</div>
-			</div>
-		</div>
-		<div class="col-3">
-			<div class="card">
-				<a href="player.jsp">
-					<img alt="" src="player/103.png" class="card-img-top" width="100">
-				</a>
-				<div class="card-body">
-					<h5 class="card-title">아 이 유 <strong class="text-success end">8</strong></h5>
-				</div>
-			</div>
-		</div>
-		
-		<div class="col-3">
-			<div class="card">
-				<a href="player.jsp">
-					<img alt="" src="player/103.png" class="card-img-top" width="100">
-				</a>
-				<div class="card-body">
-					<h5 class="card-title">아 이 유 <strong class="text-success end">8</strong></h5>
-				</div>
-			</div>
-		</div>
+	<%
+				
+			}
+		}
+	%>	
 		
 	</div>
 	<div class="row p-5 mb-4 bg-light rounded-3" >
 		<h3>수비수</h3>
+	<%
+		playerList = playerDao.getClubNoPlayer(clubNo);
+		for (Player player : playerList) {
+			if (player.getPosition().equals("수비수")) {
+	%>
 		<div class="col-3">
 			<div class="card">
-				<a href="player.jsp">
-					<img alt="" src="player/103.png" class="card-img-top" width="100">
+				<a href="player.jsp?playerNo=<%=player.getPlayerNo() %>">
+					<img alt="" src="../player/<%=player.getPlayerNo() %>.png" class="card-img-top" width="200px" height="300px">
 				</a>
 				<div class="card-body">
-					<h5 class="card-title">아 이 유 <strong class="text-success end">8</strong></h5>
+					<h5 class="card-title"><%=player.getName() %> <strong class="text-success end"><%=player.getUfNo() %></strong></h5>
 				</div>
 			</div>
 		</div>
-		<div class="col-3">
-			<div class="card">
-				<a href="player.jsp">
-					<img alt="" src="player/103.png" class="card-img-top" width="100">
-				</a>
-				<div class="card-body">
-					<h5 class="card-title">아 이 유 <strong class="text-success end">8</strong></h5>
-				</div>
-			</div>
-		</div>
-		<div class="col-3">
-			<div class="card">
-				<a href="player.jsp">
-					<img alt="" src="player/103.png" class="card-img-top" width="100">
-				</a>
-				<div class="card-body">
-					<h5 class="card-title">아 이 유 <strong class="text-success end">8</strong></h5>
-				</div>
-			</div>
-		</div>
-		<div class="col-3">
-			<div class="card">
-				<a href="player.jsp">
-					<img alt="" src="player/103.png" class="card-img-top" width="100">
-				</a>
-				<div class="card-body">
-					<h5 class="card-title">아 이 유 <strong class="text-success end">8</strong></h5>
-				</div>
-			</div>
-		</div>
-		
+	<%
+				
+			}
+		}
+	%>	
 	</div>
 	<div class="row p-5 mb-4 bg-light rounded-3" >
 		<h3>미드필더</h3>
+	<%
+		playerList = playerDao.getClubNoPlayer(clubNo);
+		for (Player player : playerList) {
+			if (player.getPosition().equals("미드필더")) {
+	%>
 		<div class="col-3">
 			<div class="card">
-				<a href="player.jsp">
-					<img alt="" src="player/103.png" class="card-img-top" width="100">
+				<a href="player.jsp?playerNo=<%=player.getPlayerNo() %>">
+					<img alt="" src="../player/<%=player.getPlayerNo() %>.png" class="card-img-top" width="200px" height="300px">
 				</a>
 				<div class="card-body">
-					<h5 class="card-title">아 이 유 <strong class="text-success end">8</strong></h5>
+					<h5 class="card-title"><%=player.getName() %> <strong class="text-success end"><%=player.getUfNo() %></strong></h5>
 				</div>
 			</div>
 		</div>
-		<div class="col-3">
-			<div class="card">
-				<a href="player.jsp">
-					<img alt="" src="player/103.png" class="card-img-top" width="100">
-				</a>
-				<div class="card-body">
-					<h5 class="card-title">아 이 유 <strong class="text-success end">8</strong></h5>
-				</div>
-			</div>
-		</div>
-		<div class="col-3">
-			<div class="card">
-				<a href="player.jsp">
-					<img alt="" src="player/103.png" class="card-img-top" width="100">
-				</a>
-				<div class="card-body">
-					<h5 class="card-title">아 이 유 <strong class="text-success end">8</strong></h5>
-				</div>
-			</div>
-		</div>
-		<div class="col-3">
-			<div class="card">
-				<a href="player.jsp">
-					<img alt="" src="player/103.png" class="card-img-top" width="100">
-				</a>
-				<div class="card-body">
-					<h5 class="card-title">아 이 유 <strong class="text-success end">8</strong></h5>
-				</div>
-			</div>
-		</div>
+	<%
+				
+			}
+		}
+	%>	
 	</div>
 	<div class="row p-5 mb-4 bg-light rounded-3" >
 		<h3>공격수</h3>
+	<%
+		playerList = playerDao.getClubNoPlayer(clubNo);
+		for (Player player : playerList) {
+			if (player.getPosition().equals("공격수")) {
+	%>
 		<div class="col-3">
 			<div class="card">
-				<a href="player.jsp">
-					<img alt="" src="player/103.png" class="card-img-top" width="100">
+				<a href="player.jsp?playerNo=<%=player.getPlayerNo() %>">
+					<img alt="" src="../player/<%=player.getPlayerNo() %>.png" class="card-img-top" width="200px" height="300px">
 				</a>
 				<div class="card-body">
-					<h5 class="card-title">아 이 유 <strong class="text-success end">8</strong></h5>
+					<h5 class="card-title"><%=player.getName() %> <strong class="text-success end"><%=player.getUfNo() %></strong></h5>
 				</div>
 			</div>
 		</div>
-		<div class="col-3">
-			<div class="card">
-				<a href="player.jsp">
-					<img alt="" src="player/103.png" class="card-img-top" width="100">
-				</a>
-				<div class="card-body">
-					<h5 class="card-title">아 이 유 <strong class="text-success end">8</strong></h5>
-				</div>
-			</div>
-		</div>
-		<div class="col-3">
-			<div class="card">
-				<a href="player.jsp">
-					<img alt="" src="player/103.png" class="card-img-top" width="100">
-				</a>
-				<div class="card-body">
-					<h5 class="card-title">아 이 유 <strong class="text-success end">8</strong></h5>
-				</div>
-			</div>
-		</div>
-		<div class="col-3">
-			<div class="card">
-				<a href="player.jsp">
-					<img alt="" src="player/103.png" class="card-img-top" width="100">
-				</a>
-				<div class="card-body">
-					<h5 class="card-title">아 이 유 <strong class="text-success end">8</strong></h5>
-				</div>
-			</div>
-		</div>
+	<%
+				
+			}
+		}
+	%>	
 	</div>
 
 </div>
