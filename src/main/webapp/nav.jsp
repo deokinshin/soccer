@@ -9,7 +9,9 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-	
+	<div class="container center">
+		<img alt="메인" src="images/soccer.png">
+	</div>
 	<nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark mb-3 ">
 		<div class="container">
 	    	<a class="navbar-brand" href="#">soccer</a>
@@ -54,16 +56,7 @@
 	    	</div>
 	  	</div>
 	</nav>
-	<div class="container">
-    <header class="d-flex justify-content-center py-3">
-      <ul class="nav nav-pills">
-        <li class="nav-item"><a href="#" class="nav-link active" aria-current="page">Home</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">리그</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">굿즈</a></li>
-        <li class="nav-item"><a href="#" class="nav-link">뉴스</a></li>
-      </ul>
-    </header>
-	</div>
+	
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 </body>

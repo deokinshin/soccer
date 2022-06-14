@@ -22,8 +22,11 @@
 </style>
 </head>
 <body>
+<jsp:include page="nav.jsp">
+	<jsp:param name="menu" value="home"/>
+</jsp:include>
 <div class="container">
-	<div class="row mb-3 bg-secondary rounded">
+	<div class="row shadow-lg p-3 mb-5 bg-body rounded">
 		<div class="col-4">
 			<a href="">
 				<img alt="" src="player/100.png" style="height: 400; width: 300; object-fit: contain" class="img-thumbnail">
