@@ -10,7 +10,25 @@ public class User {
 	private String name;
 	private String email;
 	private Date createdDate;
+	private String tel;
+	private String address;
 	
+	public String getTel() {
+		return tel;
+	}
+
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
 	public User() {}
 
 	public int getNo() {
