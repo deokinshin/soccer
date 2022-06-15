@@ -13,6 +13,43 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>클럽</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+      span {
+      	    -webkit-text-size-adjust: 100%;
+		    font: normal 14px Helvetica,Arial,sans-serif;
+		    list-style-type: none;
+		    letter-spacing: normal;
+		    word-spacing: normal;
+		    white-space: normal;
+		    box-sizing: inherit;
+		    -webkit-font-smoothing: antialiased;
+		    font-family: Gotham Narrow SSm A,Gotham Narrow SSm B,sans-serif;
+		    font-weight: 700;
+		    color: #2f3133;
+		    text-transform: uppercase;
+		    font-size: 24px;
+		    line-height: .92;
+		    padding-left: 0;
+		    padding-right: 0;
+      }
+      .name {
+      	    -webkit-text-size-adjust: 100%;
+		    font: normal 14px Helvetica,Arial,sans-serif;
+		    list-style-type: none;
+		    letter-spacing: normal;
+		    word-spacing: normal;
+		    white-space: normal;
+		    box-sizing: inherit;
+		    -webkit-font-smoothing: antialiased;
+		    font-size: 13px;
+		    line-height: 1.23;
+		    color: #696b6d;
+		    padding-bottom: 8px;
+		    padding-left: 0;
+		    padding-right: 0;
+      }
+      
+</style>
 </head>
 <body>
 <jsp:include page="../common/nav3.jsp">
@@ -32,63 +69,73 @@
 		
 	%>
 		<div class="col-3">
-			<img alt="<%=club.getClubCoach() %>" src="../coach/coach<%=club.getClubNo() %>.png" width="250" height="250">
-		</div>
-		<div class="col-2">
-			<dl>
-               <dt><%=club.getName() %></dt>
-           	</dl>
-			<dl>
-               <dt>감독</dt>
-               <dd><%=club.getClubCoach() %></dd>
-           	</dl>
-           	<dl>
-               <dt>구장</dt>
-               <dd><%=club.getClubHome() %></dd>
-           	</dl>	
-			
-		</div>
-		<div class="col">
-			<div class="col-3">
-			
-				<dl>
-	               <dt>순위</dt>
-	               <dd><%=club.getRank() %></dd>
-	
-	           	</dl>
-			</div>
-			<div class="col-3">
-				<dl>
-	               <dt>승</dt>
-	               <dd><%=club.getWin() %></dd>
-	           	</dl>
-			
-			</div>
-			<div class="col-3">
-	           	<dl>
-	               <dt>무</dt>
-	               <dd><%=club.getDraw() %></dd>
-	           	</dl>	
-			
-			</div>
-			<div class="col-3">
-	           	<dl>
-	               <dt>패</dt>
-	               <dd><%=club.getDefeat() %></dd>
-	           	</dl>	
-			
-			</div>
+			<img alt="<%=club.getClubCoach() %>" src="../coach/coach<%=club.getClubNo() %>.png" style="object-fit: cover;" width="250px" height="300px">
 		</div>
 		<div class="col-3">
-			<img alt="<%=club.getName() %>" src="../club/<%=club.getClubNo() %>.png" width="250" height="250">
+			<div>
+                <span class="name"> 클럽명 </span> 
+            </div>
+			<div>
+                <span> <%=club.getName() %> </span> 
+            </div>
+            <hr>
+			<div>
+				<span class="name"> 감독 </span> 
+            </div>
+            <div class="mb-3">
+                <span>  <%=club.getClubCoach() %></span>
+            </div>
+            <hr>
+            <div>
+				<span class="name"> 구장 </span> 
+            </div>
+            <div class="mb-3">
+                <span>  <%=club.getClubHome() %></span>
+            </div>
+			
 		</div>
+		<div class="col-3">
+			<div>
+				<span class="name"> 순위 </span> 
+            </div>
+          	<div class="mb-3">
+               	<span>  <%=club.getRank() %></span>
+           	</div>
+           	<hr>
+			<div>
+				<span class="name"> 승 </span> 
+           	</div>
+           	<div class="mb-3">
+               	<span>  <%=club.getWin() %></span>
+           	</div>
+           	<hr>
+			<div>
+				<span class="name"> 무 </span> 
+           	</div>
+           	<div class="mb-3">
+               	<span>  <%=club.getDraw() %></span>
+           	</div>
+           	<hr>
+			<div>
+				<span class="name"> 패 </span> 
+           	</div>
+           	<div class="mb-3">
+               	<span>  <%=club.getDefeat() %></span>
+           	</div>
+		</div>
+		<div class="col-3">
+			<img alt="<%=club.getName() %>" src="../club/<%=club.getClubNo() %>.png" width="250px" height="300px" >
+		</div>
+			
+	               
+	</div>
+
 	<% 
   		}
 	%>
-	</div> 
 	
-	<div class="row p-5 mb-4 bg-light rounded-3" >
-		<h3>골키퍼</h3>
+	<div class="row p-4 mb-4 bg-light rounded-3" >
+		<h3 class="mb-3">골키퍼</h3>
 	<%
 		PlayerDao playerDao = PlayerDao.getInstance();
 		List<Player> playerList = playerDao.getClubNoPlayer(clubNo);
@@ -112,8 +159,8 @@
 	%>	
 		
 	</div>
-	<div class="row p-5 mb-4 bg-light rounded-3" >
-		<h3>수비수</h3>
+	<div class="row p-4 mb-4 bg-light rounded-3" >
+		<h3 class="mb-3">수비수</h3>
 	<%
 		playerList = playerDao.getClubNoPlayer(clubNo);
 		for (Player player : playerList) {
@@ -135,8 +182,8 @@
 		}
 	%>	
 	</div>
-	<div class="row p-5 mb-4 bg-light rounded-3" >
-		<h3>미드필더</h3>
+	<div class="row p-4 mb-4 bg-light rounded-3" >
+		<h3 class="mb-3">미드필더</h3>
 	<%
 		playerList = playerDao.getClubNoPlayer(clubNo);
 		for (Player player : playerList) {
@@ -158,8 +205,8 @@
 		}
 	%>	
 	</div>
-	<div class="row p-5 mb-4 bg-light rounded-3" >
-		<h3>공격수</h3>
+	<div class="row p-4 mb-4 bg-light rounded-3" >
+		<h3 class="mb-3">공격수</h3>
 	<%
 		playerList = playerDao.getClubNoPlayer(clubNo);
 		for (Player player : playerList) {
