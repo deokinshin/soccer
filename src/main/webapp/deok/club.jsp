@@ -152,7 +152,7 @@
 		<div class="col-3 mb-3">
 			<div class="card">
 				<a href="player.jsp?playerNo=<%=player.getPlayerNo() %>">
-					<img alt="" src="../player/<%=player.getPlayerNo() %>.png" class="card-img-top" width="200px" height="300px">
+					<img alt="" src="../player/<%=player.getFileName() %>" class="card-img-top" width="200px" height="300px">
 				</a>
 				<div class="card-body">
 					<h5 class="card-title"><%=player.getName() %> <strong class="text-success end"><%=player.getUfNo() %></strong></h5>
@@ -177,7 +177,7 @@
 		<div class="col-3 mb-3">
 			<div class="card">
 				<a href="player.jsp?playerNo=<%=player.getPlayerNo() %>">
-					<img alt="" src="../player/<%=player.getPlayerNo() %>.png" class="card-img-top" width="200px" height="300px">
+					<img alt="" src="../player/<%=player.getFileName() %>" class="card-img-top" width="200px" height="300px">
 				</a>
 				<div class="card-body">
 					<h5 class="card-title"><%=player.getName() %> <strong class="text-success end"><%=player.getUfNo() %></strong></h5>
@@ -200,7 +200,7 @@
 		<div class="col-3 mb-3">
 			<div class="card">
 				<a href="player.jsp?playerNo=<%=player.getPlayerNo() %>">
-					<img alt="" src="../player/<%=player.getPlayerNo() %>.png" class="card-img-top" width="200px" height="300px">
+					<img alt="" src="../player/<%=player.getFileName() %>" class="card-img-top" width="200px" height="300px">
 				</a>
 				<div class="card-body">
 					<h5 class="card-title"><%=player.getName() %> <strong class="text-success end"><%=player.getUfNo() %></strong></h5>
@@ -223,7 +223,7 @@
 		<div class="col-3 mb-3">
 			<div class="card">
 				<a href="player.jsp?playerNo=<%=player.getPlayerNo() %>">
-					<img alt="" src="../player/<%=player.getPlayerNo() %>.png" class="card-img-top" width="200px" height="300px">
+					<img alt="" src="../player/<%=player.getFileName() %>" class="card-img-top" width="200px" height="300px">
 				</a>
 				<div class="card-body">
 					<h5 class="card-title"><%=player.getName() %> <strong class="text-success end"><%=player.getUfNo() %></strong></h5>

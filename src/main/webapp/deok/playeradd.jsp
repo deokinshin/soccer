@@ -1,3 +1,4 @@
+<%@page import="vo.User"%>
 <%@page import="dao.PlayerDao"%>
 <%@page import="java.text.SimpleDateFormat"%>
 <%@page import="vo.Player"%>
@@ -7,7 +8,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
-	
+//	User user = (User) session.getAttribute("LOGINED_USER");
+//	if (user.getNo() != 1) {
+//		throw new RuntimeException("선수등록은 관리자만 가능합니다.");
+//	}	
+
+
 	MultipartRequest mr = new MultipartRequest(request, "C:\\eclipse\\workspace-web\\soccer\\src\\main\\webapp\\player");	
 
 	String name = mr.getParameter("name");

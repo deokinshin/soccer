@@ -43,7 +43,7 @@ public class PlayerDao {
 			player.setNationality(rs.getString("PLAYER_NATIONALITY"));
 			player.setGoal(rs.getInt("PLAYER_GOAL"));
 			player.setPosition(rs.getString("PLAYER_POSITION"));
-			
+			player.setFileName(rs.getString("PLAYER_FILE_NAME"));
 			return player;
 		},clubNo );
 	}
@@ -64,7 +64,8 @@ public class PlayerDao {
 			player.setNationality(rs.getString("PLAYER_NATIONALITY"));
 			player.setGoal(rs.getInt("PLAYER_GOAL"));
 			player.setPosition(rs.getString("PLAYER_POSITION"));
-			
+			player.setFileName(rs.getString("PLAYER_FILE_NAME"));
+
 			return player;
 		},playerNo );
 	}

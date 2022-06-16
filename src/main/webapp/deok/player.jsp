@@ -73,7 +73,7 @@
 	<div class="row shadow-lg p-3 mb-5 bg-body rounded">
 		<div class="col-4">
 			<a href="">
-				<img alt="" src="../player/<%=player.getPlayerNo() %>.png" style="height: 400px; width: 300px; object-fit: contain" class="img-thumbnail">
+				<img alt="" src="../player/<%=player.getFileName() %>" style="height: 400px; width: 300px; object-fit: contain" class="img-thumbnail">
 			</a>
 		</div>
 		<div class="col-6 m-3">
