@@ -66,6 +66,10 @@
 	  	
 	  			
 	%>
+	<div class="p-3">
+		<h1>선수 상세 정보</h1>
+	</div>
+	<hr>
 	<div class="row shadow-lg p-3 mb-5 bg-body rounded">
 		<div class="col-4">
 			<a href="">

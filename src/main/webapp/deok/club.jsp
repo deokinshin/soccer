@@ -59,7 +59,11 @@
 	<jsp:param name="menu" value="home"/>
 </jsp:include>
 <div class="container mb-3">
-	<div class="row p-5 mb-4 bg-light rounded-3" >
+	<div class="p-3">
+		<h1>팀 정보</h1>
+	</div>	
+	<hr>
+	<div class="row p-5 mb-4 rounded-3" style="background: #ECE9E6">
 	<%
 		int clubNo = StringUtil.stringToInt(request.getParameter("clubNo"));
 		ClubDao clubDao = ClubDao.getInstance();
@@ -133,7 +137,10 @@
 	<% 
   		}
 	%>
-	
+	<div class="p-3">
+		<h1>스쿼드</h1>
+	</div>	
+	<hr>
 	<div class="row p-4 mb-4 bg-light rounded-3" >
 		<h3 class="mb-3">골키퍼</h3>
 	<%
@@ -142,7 +149,7 @@
 		for (Player player : playerList) {
 			if (player.getPosition().equals("골키퍼")) {
 	%>
-		<div class="col-3">
+		<div class="col-3 mb-3">
 			<div class="card">
 				<a href="player.jsp?playerNo=<%=player.getPlayerNo() %>">
 					<img alt="" src="../player/<%=player.getPlayerNo() %>.png" class="card-img-top" width="200px" height="300px">
@@ -159,6 +166,7 @@
 	%>	
 		
 	</div>
+	
 	<div class="row p-4 mb-4 bg-light rounded-3" >
 		<h3 class="mb-3">수비수</h3>
 	<%
@@ -166,7 +174,7 @@
 		for (Player player : playerList) {
 			if (player.getPosition().equals("수비수")) {
 	%>
-		<div class="col-3">
+		<div class="col-3 mb-3">
 			<div class="card">
 				<a href="player.jsp?playerNo=<%=player.getPlayerNo() %>">
 					<img alt="" src="../player/<%=player.getPlayerNo() %>.png" class="card-img-top" width="200px" height="300px">
@@ -189,7 +197,7 @@
 		for (Player player : playerList) {
 			if (player.getPosition().equals("미드필더")) {
 	%>
-		<div class="col-3">
+		<div class="col-3 mb-3">
 			<div class="card">
 				<a href="player.jsp?playerNo=<%=player.getPlayerNo() %>">
 					<img alt="" src="../player/<%=player.getPlayerNo() %>.png" class="card-img-top" width="200px" height="300px">
@@ -212,7 +220,7 @@
 		for (Player player : playerList) {
 			if (player.getPosition().equals("공격수")) {
 	%>
-		<div class="col-3">
+		<div class="col-3 mb-3">
 			<div class="card">
 				<a href="player.jsp?playerNo=<%=player.getPlayerNo() %>">
 					<img alt="" src="../player/<%=player.getPlayerNo() %>.png" class="card-img-top" width="200px" height="300px">
@@ -228,7 +236,7 @@
 		}
 	%>	
 	</div>
-
+	
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 </body>

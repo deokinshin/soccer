@@ -16,6 +16,16 @@ public class PlayerDao {
 	
 	private DaoHelper helper = DaoHelper.getInstance();
 
+	public void insertPlayer(Player player) throws SQLException {
+		String sql = "insert into SOCCER_PLAYERS "
+				   + "(PLAYER_NO, CLUB_NO, PLAYER_NAME, PLAYER_UF_NO, PLAYER_BIRTH,"
+				   + "PLAYER_NATIONALITY, PLAYER_GOAL, PLAYER_POSITION, PLAYER_FILE_NAME)"
+				   + "values "
+				   + "(PLAYER_SEQ.nextval, ?, ?, ?, ?, ?, ?, ?, ?)";
+		
+		helper.insert(sql, player.getClubNo(), player.getName(), player.getUfNo(), player.getBirth(),
+				player.getNationality(), player.getGoal(), player.getPosition(), player.getFileName());
+	}
 	
 	public List<Player> getClubNoPlayer(int clubNo) throws SQLException {
 		String sql = "select * "
@@ -58,5 +68,5 @@ public class PlayerDao {
 			return player;
 		},playerNo );
 	}
-
+	
 }
