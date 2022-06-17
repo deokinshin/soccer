@@ -68,7 +68,7 @@ public class UserDao {
 			user.setEmail(rs.getString("user_email"));
 			user.setCreatedDate(rs.getDate("user_created_date"));
 			user.setTel(rs.getString("user_tel"));	
-      user.setAddress(rs.getString("user_address"));
+			user.setAddress(rs.getString("user_address"));
 			return user;
 		}, email);
 	}

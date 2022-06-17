@@ -8,6 +8,8 @@
 <title>리그선택창</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://webfontworld.github.io/NanumBarunGothic/NanumBarunGothic.css" rel="stylesheet">
+<link href="/soccer/favicon.ico" rel="icon" type="image/x-icon" />
+
 
 <style type="text/css">
 .container1 {

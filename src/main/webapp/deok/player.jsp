@@ -10,6 +10,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>선수</title>
+<link href="/soccer/favicon.ico" rel="icon" type="image/x-icon" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <style>
@@ -132,8 +133,34 @@
 		</div>
 		<hr>	
 	</div>
+	
+</div>
+	<div class="row p-4 mb-4 bg-light rounded-3" >
+		<h3 class="mb-3">소속팀 다른<%=player.getPosition() %></h3>
+	<%
+		List<Player> playerList = playerDao.getClubNoPlayer(player.getClubNo());
+		for (Player players : playerList) {
+			
+			
+			if (players.getPosition().equals(player.getPosition()) && players.getPlayerNo() != player.getPlayerNo()) {
+	%>
+		<div class="col-3 mb-3">
+			<div class="card">
+				<a href="player.jsp?playerNo=<%=players.getPlayerNo() %>">
+					<img alt="" src="../player/<%=players.getFileName() %>" class="card-img-top" width="200px" height="300px">
+				</a>
+				<div class="card-body">
+					<h5 class="card-title"><%=players.getName() %> <strong class="text-success end"><%=players.getUfNo() %></strong></h5>
+				</div>
+			</div>
+		</div>
+	<%
+				
+			}
+		}
+	%>	
 		
-</div> 
+	</div> 
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
