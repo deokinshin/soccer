@@ -8,7 +8,7 @@
 <nav class="navbar navbar light bg-light">
 	<div class="container">
 		<a class="navbar-brand" href="/soccer/home.jsp">
-   			<img src="images/soccer_logo.jpg" alt="로고" width="150" height="70">	
+   			<img src="../images/soccer.png" alt="로고" width="150" height="70">	
 		</a>
 	</div>
 	
