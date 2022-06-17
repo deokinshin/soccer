@@ -15,7 +15,7 @@
 	                <a class="nav-link" href="/soccer/deok/league.jsp">LEAGUE</a>
 	            </li>
 	            <li class="nav-item">
-	                <a class="nav-link" href="/soccer/goodsform.jsp">GOODS</a>
+	                <a class="nav-link" href="/soccer/goods.jsp">GOODS</a>
 	            </li>
 	            <li class="nav-item">
 	                <a class="nav-link" href="/soccer/newsform.jsp">NEWS</a>
