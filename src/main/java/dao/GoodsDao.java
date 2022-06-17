@@ -53,7 +53,9 @@ public class GoodsDao {
 	 * @throws SQLException
 	 */
 	public List<Goods> getAllGoods() throws SQLException {
-		String sql = "select goods_no, goods_name, goods_price "
+
+		String sql = "select goods_no, goods_name, goods_price, club_no "
+
 				   + "from soccer_goods "
 				   + "order by goods_no desc ";
 		
@@ -64,9 +66,11 @@ public class GoodsDao {
 		ResultSet rs = pstmt.executeQuery();
 		while (rs.next()) {
 			Goods good = new Goods();
+			
 			good.setGoodsNo(rs.getInt("goods_no"));
 			good.setGoodsName(rs.getString("goods_name"));
 			good.setGoodsPrice(rs.getInt("goods_price"));
+			good.setClubNo(rs.getInt("club_no"));
 			
 			goods.add(good);
 		}
