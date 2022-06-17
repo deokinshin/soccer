@@ -13,6 +13,7 @@ public class User {
 	private String tel;
 	private String address;
 	
+
 	public User() {}
 
 	public int getNo() {
