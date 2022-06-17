@@ -7,8 +7,8 @@
 	      <a class="navbar-brand" href="/soccer/home.jsp"><img src="/soccer/common/logo.jpg" width="160px" height="65px"/>
 			</a>
 	      <div class="col-md-3 text-end">
-	        <button type="button" class="btn btn-outline-secondary me-2" onclick="location.href='loginform.jsp'">Login</button>
-	        <button type="button" class="btn btn-outline-secondary" onclick="location.href='registerform.jsp'">Sign-up</button>
+	        <button type="button" class="btn btn-outline-secondary me-2" onclick="location.href='/soccer/loginform.jsp'">Login</button>
+	        <button type="button" class="btn btn-outline-secondary" onclick="location.href='/soccer/registerform.jsp'">Sign-up</button>
 	      </div>
       	</header>
 	</div>

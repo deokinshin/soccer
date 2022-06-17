@@ -1,3 +1,4 @@
+<%@page import="vo.User"%>
 <%@page import="vo.Player"%>
 <%@page import="dao.PlayerDao"%>
 <%@page import="vo.Club"%>
@@ -13,6 +14,8 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>클럽</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="/soccer/favicon.ico" rel="icon" type="image/x-icon" />
+
 <style>
       span {
       	    -webkit-text-size-adjust: 100%;
@@ -59,9 +62,27 @@
 	<jsp:param name="menu" value="home"/>
 </jsp:include>
 <div class="container mb-3">
+
+	
 	<div class="p-3">
 		<h1>팀 정보</h1>
+	<%
+		User user = (User) session.getAttribute("LOGINED_USER");
+		if (user.getNo() == 1) {
+	%>	
+			
+		<div class="col-12 text-end mb-3">
+			<button type="submit" class="btn btn-outline-secondary" onclick="location.href='playerform.jsp'">선수등록</button>
+		</div>
+	<%
+		} else {	
+	%>
+		
+	<%
+		}
+	%>
 	</div>	
+	
 	<hr>
 	<div class="row p-5 mb-4 rounded-3" style="background: #ECE9E6">
 	<%

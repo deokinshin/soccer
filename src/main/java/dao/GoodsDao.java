@@ -52,7 +52,7 @@ public class GoodsDao {
 	 * @return 전체 굿즈정보 목록
 	 * @throws SQLException
 	 */
-	public List<Goods> getallGoods() throws SQLException {
+	public List<Goods> getAllGoods() throws SQLException {
 		String sql = "select goods_no, goods_name, goods_price "
 				   + "from soccer_goods "
 				   + "order by goods_no desc ";
@@ -76,6 +76,8 @@ public class GoodsDao {
 		
 		return goods;
 	}
+	
+
 	
 	public List<Goods> getGoods(int beginIndex, int endIndex) throws SQLException {
 		String sql = "select goods_no, goods_name, goods_price "

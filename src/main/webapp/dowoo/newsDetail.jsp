@@ -10,7 +10,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-betal/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<jsp:include page="common/nav_news.jsp">
+<jsp:include page="../common/nav_news.jsp">
 	<jsp:param name="menu" value="news"/>
 </jsp:include>
 <div class="container">
