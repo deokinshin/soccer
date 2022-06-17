@@ -11,7 +11,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>NEWS</title>
-<link href="soccer.ico" rel="icon" type="../image/x-icon" />
+<link href="/soccer/favicon.ico" rel="icon" type="image/x-icon" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -42,7 +42,7 @@
 			<div class="card mb-2" style="max-width: 100%;">
 		  		<div class="row g-0">
 		    		<div class="col-md-4">
-		      			<img src="../News/<%=news.getNewsNo() %>.png" class="img-fluid rounded-start" style="width:100%" alt="<%=news.getNewsName() %>">
+		      			<img src="../news-img/<%=news.getNewsNo() %>.png" class="img-fluid rounded-start" style="width:100%" alt="<%=news.getNewsName() %>">
 		    		</div>
 		   			 <div class="col-md-8">
 		      			<div class="card-body">
@@ -59,33 +59,35 @@
 		%>
 	</div>
 </div>
-<div class="row">
-	<div class="col-4">
-		<nav>
-			<ul class="pagination justify-content-center">
-				<li class="page-item">
-					<a class="page-link <%=pagination.getCurrentPage() == 1 ? "disabled" : "" %>" href="javascript:clickPageNo(<%=pagination.getCurrentPage() - 1 %>)">이전</a>
-				</li>
-		<%
-			for (int num = pagination.getBeginPage(); num <= pagination.getEndPage(); num++) {
-		%>
-							
-				<li class="page-item">
-					<a class="page-link <%=pagination.getCurrentPage() == num ? "active" : "" %>" href="javascript:clickPageNo(<%=num %>)"><%=num %></a>
-				</li>
-		<%
-			}
-		%>
-				<li class="page-item">
-					<a class="page-link<%=pagination.getCurrentPage() == pagination.getTotalPages() ? "disabled" : "" %>" href="javascript:clickPageNo(<%=pagination.getCurrentPage() + 1 %>)">다음</a>
-				</li>
-		 	</ul>
-		</nav>
+<div class="container">
+	<div class="row">
 		<div class="col-4">
-			<form id="news-form" class="row g-3" method="get" action="news.jsp">
-				<input type="hidden" name="page" />
-				<input type="hidden" name="rows" />
-			</form>
+			<nav>
+				<ul class="pagination justify-content-center">
+					<li class="page-item">
+						<a class="page-link <%=pagination.getCurrentPage() == 1 ? "disabled" : "" %>" href="javascript:clickPageNo(<%=pagination.getCurrentPage() - 1 %>)">이전</a>
+					</li>
+			<%
+				for (int num = pagination.getBeginPage(); num <= pagination.getEndPage(); num++) {
+			%>
+								
+					<li class="page-item">
+						<a class="page-link <%=pagination.getCurrentPage() == num ? "active" : "" %>" href="javascript:clickPageNo(<%=num %>)"><%=num %></a>
+					</li>
+			<%
+				}
+			%>
+					<li class="page-item">
+						<a class="page-link<%=pagination.getCurrentPage() == pagination.getTotalPages() ? "disabled" : "" %>" href="javascript:clickPageNo(<%=pagination.getCurrentPage() + 1 %>)">다음</a>
+					</li>
+			 	</ul>
+			</nav>
+			<div class="col-4">
+				<form id="news-form" class="row g-3" method="get" action="news.jsp">
+					<input type="hidden" name="page" />
+					<input type="hidden" name="rows" />
+				</form>
+			</div>
 		</div>
 	</div>
 </div>
