@@ -16,7 +16,7 @@ public class UserDao {
 	private DaoHelper helper = DaoHelper.getInstance();
 	
 	public void insertUser(User user) throws SQLException {
-		String sql = "insert into sample_board_users "
+		String sql = "insert into soccer_users "
 				   + "(user_no, user_id, user_password, user_name, user_email, user_tel, user_address) "
 				   + "values "
 				   + "(soccer_users_seq.nextval, ?, ?, ?, ?, ?, ?)";
@@ -25,7 +25,7 @@ public class UserDao {
 	
 	public User getUserById(String id) throws SQLException {
 		String sql = "select * "
-				   + "from sample_board_users "
+				   + "from soccer_users "
 				   + "where user_id = ? ";
 		
 		return helper.selectOne(sql, rs -> {
@@ -45,7 +45,7 @@ public class UserDao {
 	
 	public User getUserByEmail(String email) throws SQLException {
 		String sql = "select * "
-				   + "from sample_board_users "
+				   + "from soccer_users "
 				   + "where user_email = ? ";
 		
 		return helper.selectOne(sql, rs -> {
