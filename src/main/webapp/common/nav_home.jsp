@@ -12,10 +12,10 @@
 		<div class="collapse navbar-collapse" id="navbarNav">
 			<ul id="nav" class="navbar-nav me-auto mb-2 mb-lg-0 ">
 	            <li class="nav-item">
-	                <a class="nav-link" href="/soccer/leagueform.jsp">LEAGUE</a>
+	                <a class="nav-link" href="/soccer/deok/league.jsp">LEAGUE</a>
 	            </li>
 	            <li class="nav-item">
-	                <a class="nav-link" href="/soccer/goodsform.jsp">GOODS</a>
+	                <a class="nav-link" href="/soccer/goods.jsp">GOODS</a>
 	            </li>
 	            <li class="nav-item">
 	                <a class="nav-link" href="/soccer/newsform.jsp">NEWS</a>

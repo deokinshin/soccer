@@ -3,14 +3,14 @@
 <!-- py-3 mb-4 border-bottom -->
 <nav>
 	<div class="container">
-	    <header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between ">
-	      <a class="navbar-brand" href="/soccer/home.jsp"><img src="common/logo.jpg" width="160 px" height="65 px"/>
+    	<header class="d-flex flex-wrap align-items-center justify-content-center justify-content-md-between ">
+	      <a class="navbar-brand" href="/soccer/home.jsp"><img src="/soccer/common/logo.jpg" width="160px" height="65px"/>
 			</a>
 	      <div class="col-md-3 text-end">
-	        <button type="button" class="btn btn-outline-secondary me-2" onclick="location.href='loginform.jsp'">Login</button>
-	        <button type="button" class="btn btn-outline-secondary" onclick="location.href='registerform.jsp'">Sign-up</button>
+	        <button type="button" class="btn btn-outline-secondary me-2" onclick="location.href='/soccer/loginform.jsp'">Login</button>
+	        <button type="button" class="btn btn-outline-secondary" onclick="location.href='/soccer/registerform.jsp'">Sign-up</button>
 	      </div>
-	      </header>
+      	</header>
 	</div>
 </nav>
 

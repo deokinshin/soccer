@@ -28,11 +28,13 @@ public class NewsDao {
 	
 	public List<News> getNews(int beginIndex, int endIndex) throws SQLException{
 		String sql = "select news_no, club_no, league_no, news_name, news_content, news_title, news_created_date, news_updated_date "
+
 				+ "from (select row_number() over (order by news_no asc) row_number, "
 				+ "			   news_no, club_no, league_no, news_name, news_content, news_title, news_created_date, news_updated_date "
 				+ "		from soccer_news)"
 				+ "where row_number >= ? and row_number <= ? "
 				+ "order by news_no";
+
 
 		return helper.selectList(sql, rs -> {
 
