@@ -147,8 +147,24 @@
 	<div class="row">
 			<h1>로그인</h1>
 	</div>
-	<form method="post" action="register.jsp" enctype="multipart/form-data">
-	
+
+		<%
+			String fail = request.getParameter("fail");
+		%>
+			<!--
+				아이디 혹은 비밀번호가 일치하지 않는 경우 아래 내용이 출력된다.
+			-->
+		<%
+			if ("invalid".equals(fail)) {
+		%>
+			<div class="col-xs-6 mb-4" align="center">
+				<p style="color:yellow;"><strong>로그인 실패</strong> 아이디 혹은 비밀번호가 올바르지 않습니다.</p>
+			</div>
+		<%
+			}
+		%>
+	 
+	<form method="post" action="login.jsp">
 		<div class="row input-container">
 				<div class="col-xs-6">
 					<div class="styled-input wide">
@@ -158,7 +174,7 @@
 				</div>
 				<div class="col-xs-6">
 					<div class="styled-input wide">
-						<input type="text" name="password" />
+						<input type="password" name="password" />
 						<label>비밀번호</label> 
 					</div>
 
@@ -172,12 +188,28 @@
 			
 			</div>
 		</div>
-	</form>
-</div>
+		</form>
+	</div>
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript">
-
+	function submitLoginForm() {
+		let idField = document.querySelector("input[name=id]");
+		if (idField.value === '') {
+			alert("아이디는 필수입력값입니다.");
+			idField.focus();
+			return false;
+		}
+		let passwordField = document.querySelector("input[name=password]");
+		if (passwordField.value === '') {
+			alert("비밀번호는 필수입력값입니다.");
+			passwordField.focus();
+			return false;
+		}
+		return true;
+	}
 </script>
 </body>
 </html>
