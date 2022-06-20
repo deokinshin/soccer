@@ -5,14 +5,6 @@
 		String menu = request.getParameter("menu");
    %>
     
-<nav class="navbar navbar light bg-light">
-	<div class="container">
-		<a class="navbar-brand" href="/soccer/home.jsp">
-   			<img src="../images/soccer.png" alt="로고" width="150" height="70">	
-		</a>
-	</div>
-	
-</nav>
 <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark mb-5">
 	<div class="container">		
 		<div class ="navbar-toggler">
@@ -41,10 +33,9 @@
    			 	<a class="navbar-toggler-icon" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"></a>
     			<ul class="dropdown-menu">
       				<li><a class="dropdown-item" href="/soccer/home.jsp">홈</a></li>
-     				<li><a class="dropdown-item" href="/soccer/league.jsp">리그</a></li>
-      				<li><a class="dropdown-item" href="/soccer/home.jsp">굿즈</a></li>
-      				<li><hr class="dropdown-divider"></li>
-      				<li><a class="dropdown-item" href="/soccer/news.jsp">뉴스</a></li>
+     				<li><a class="dropdown-item" href="/soccer/deok/league.jsp">리그</a></li>
+      				<li><a class="dropdown-item" href="/soccer/goods.jsp">굿즈</a></li>
+      				<li><a class="dropdown-item" href="/soccer/dowoo/news.jsp">뉴스</a></li>
     			</ul>
   			</li>
   		</ul>
