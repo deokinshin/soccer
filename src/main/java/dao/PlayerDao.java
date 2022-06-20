@@ -104,9 +104,17 @@ public class PlayerDao {
 				   + "		PLAYER_FILE_NAME = ?, "
 				   + "where player_no = ? ";
 		helper.update(sql, player.getClubNo(), player.getName(), player.getUfNo(), player.getBirth(),
-				player.getNationality(), player.getGoal(), player.getPosition(), player.getFileName());
+				player.getNationality(), player.getGoal(), player.getPosition(), player.getFileName(), player.getPlayerNo());
 				
 		
+		
+	}
+	
+	public void deletedPlayer(int playerNo) throws SQLException {
+		String sql = "delete from soccer_players "
+				   + "where player_no = ? ";
+		
+		helper.delete(sql, playerNo);
 		
 	}
 }
