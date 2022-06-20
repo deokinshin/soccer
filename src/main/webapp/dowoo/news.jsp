@@ -18,8 +18,8 @@
 <jsp:include page="../common/nav3.jsp">
 	<jsp:param name="menu" value="home"/>
 </jsp:include>
-<jsp:include page="../common/nav_home.jsp">
-	<jsp:param name="menu" value="home"/>
+<jsp:include page="../common/nav_news.jsp">
+	<jsp:param name="menu" value="news"/>
 </jsp:include>
 <div class="contaniner">
 
@@ -41,7 +41,7 @@
 		<%
 			for (News news : newsList) {
 		%>
-		<div class="container" style=" cursor: pointer;" onclick="location.href='article.jsp';">
+		<div class="container" style=" cursor: pointer;" onclick="location.href='article.jsp?no=<%=news.getNewsNo() %>';">
 			<div class="card mb-2" style="max-width: 100%;">
 		  		<div class="row g-0">
 		    		<div class="col-md-4">
@@ -61,7 +61,7 @@
 			}
 		%>
 		<div class="row justify-content-center">
-			<div class="col-1">
+			<div class="col-2">
 				<nav>
 					<ul class="pagination">
 						<li class="page-item">
