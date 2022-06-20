@@ -133,7 +133,10 @@
 		</div>
 		<hr>	
 	</div>
-	
+	<div class="col-12 text-end mb-3">
+		<button type="submit" class="btn btn-outline-secondary" onclick="location.href='modifyform.jsp?playerNo=<%=playerNo %>'">선수수정</button>
+		<button type="submit" class="btn btn-outline-secondary" onclick="location.href='playerform.jsp'">선수삭제</button>
+	</div>
 </div>
 	<div class="row p-4 mb-4 bg-light rounded-3" >
 		<h3 class="mb-3">소속팀 다른<%=player.getPosition() %></h3>
