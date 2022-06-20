@@ -149,7 +149,7 @@
 			<h1>선수 추가</h1>
 	</div>
 
-	<form method="post" action="playeradd.jsp" enctype="multipart/form-data">
+	<form method="post" action="playeradd.jsp" enctype="multipart/form-data" onsubmit="return submitModifyForm()">
 	
 		<div class="row input-container">
 				<div class="col-xs-6">
@@ -235,5 +235,36 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript">
+function submitModifyForm() {
+	let nameField = document.querySelector("input[name=name]");
+	if (nameField.value === '') {
+		alert("이름은 필수입력값입니다.");
+		nameField.focus();
+		return false;
+	}
+	let ufNoField = document.querySelector("input[name=ufNo]");
+	if (ufNoField.value === '') {
+		alert("등번호는 필수입력값입니다.");
+		ufNoField.focus();
+		return false;
+	}
+	let nationalityField = document.querySelector("input[name=nationality]");
+	if (nationalityField.value === '') {
+		alert("국적 필수입력값입니다.");
+		nationalityField.focus();
+		return false;
+	}
+	let birthField = document.querySelector("input[name=birth]");
+	if (birthField.value === '') {
+		alert("생일은 필수입력값입니다.");
+		birthField.focus();
+		return false;
+	}
+	
+	return true;
+}
+
+</script>
 </body>
 </html>
