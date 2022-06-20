@@ -45,7 +45,7 @@
 			<div class="card mb-2" style="max-width: 100%;">
 		  		<div class="row g-0">
 		    		<div class="col-md-4">
-		      			<img src="../news-img/<%=news.getNewsNo() %>.png" class="img-fluid rounded-start" style="width:100%" alt="<%=news.getNewsName() %>">
+		      			<img src="../news/<%=news.getNewsNo() %>.png" class="img-fluid rounded-start" style="width:100%" alt="<%=news.getNewsName() %>">
 		    		</div>
 		   			 <div class="col-md-8">
 		      			<div class="card-body">

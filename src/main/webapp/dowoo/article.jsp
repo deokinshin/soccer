@@ -52,7 +52,7 @@
 	</div>
 	<div class ="container" style="min-width: 800px; max-width:1000px">
 		<span class="border">
-			<img src="../news-img/<%=newsNo %>.png" class="img-fluid rounded-start" style="width:100%" alt="<%=news.getNewsName() %>">
+			<img src="../news/<%=newsNo %>.png" class="img-fluid rounded-start" style="width:100%" alt="<%=news.getNewsName() %>">
 		</span>
 		<P><%=news.getNewsTitle() %></P>
 		<h5><%=news.getNewsContent1() %></h5>
