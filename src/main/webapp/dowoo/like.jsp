@@ -39,8 +39,8 @@
 	newsDao.insertNewsDislikeUser(newsDislikeUser);
 	
 	// 게시글의 추천자 수를 1증가시키고 변경내용을 데이터베이스 반영시킨다.
-	news.setLikeCount(news.getLikeCount() + 1);
-	news.setDislikeCount(news.getDislikeCount() + 1);
+	news.setNewsLikeCount(news.getNewsLikeCount() + 1);
+	news.setNewsDislikeCount(news.getNewsDislikeCount() + 1);
 	newsDao.updateNews(news);
 	
 	// 재요청 URL을 응답으로 보낸다.
