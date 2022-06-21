@@ -150,6 +150,7 @@
 
 		<%
 			String fail = request.getParameter("fail");
+			String id = (String)session.getAttribute("id");
 		%>
 			<!--
 				아이디 혹은 비밀번호가 일치하지 않는 경우 아래 내용이 출력된다.

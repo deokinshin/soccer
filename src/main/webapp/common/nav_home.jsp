@@ -18,7 +18,7 @@
 	                <a class="nav-link" href="/soccer/goodsform.jsp">GOODS</a>
 	            </li>
 	            <li class="nav-item">
-	                <a class="nav-link" href="/soccer/newsform.jsp">NEWS</a>
+	                <a class="nav-link" href="/soccer/dowoo/news.jsp">NEWS</a>
 	            </li>
 			</ul>
 		</div>

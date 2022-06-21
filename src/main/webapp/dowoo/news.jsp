@@ -10,14 +10,17 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<jsp:include page="../common/nav_news.jsp">
-	<jsp:param name="menu" value="news"/>
+<jsp:include page="/common/nav3.jsp">
+	<jsp:param name="menu" value="home"/>
+</jsp:include>
+<jsp:include page="/common/nav_home.jsp">
+	<jsp:param name="menu" value="home"/>
 </jsp:include>
 <div class="container" style=" cursor: pointer;" onclick="location.href='/soccer2/newsDetail.jsp';">
 	<div class="card mb-2" style="max-width: 100%;">
   		<div class="row g-0">
     		<div class="col-md-4">
-      			<img src="news/1.png" class="img-fluid rounded-start" style="width:100%" alt="레알마드리드 우승">
+      			<img src="/soccer/News/1.png" class="img-fluid rounded-start" style="width:100%" alt="레알마드리드 우승">
     		</div>
    			 <div class="col-md-8">
       			<div class="card-body">
@@ -32,7 +35,7 @@
 	<div class="card mb-2" style="max-width: 100%;">
   		<div class="row g-0">
     		<div class="col-md-4">
-      			<img src="news/1.png" class="img-fluid rounded-start" style="width:100%" alt="레알마드리드 우승">
+      			<img src="/soccer/News/1.png" class="img-fluid rounded-start" style="width:100%" alt="레알마드리드 우승">
     		</div>
    			 <div class="col-md-8">
       			<div class="card-body">
@@ -47,7 +50,7 @@
 	<div class="card mb-2" style="max-width: 100%;">
   		<div class="row g-0">
     		<div class="col-md-4">
-      			<img src="news/1.png" class="img-fluid rounded-start" style="width:100%" alt="레알마드리드 우승">
+      			<img src="/soccer/News/1.png" class="img-fluid rounded-start" style="width:100%" alt="레알마드리드 우승">
     		</div>
    			 <div class="col-md-8">
       			<div class="card-body">
