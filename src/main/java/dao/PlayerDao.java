@@ -94,15 +94,15 @@ public class PlayerDao {
 	public void updatePlayer(Player player) throws SQLException {
 		String sql = "update soccer_players "
 				   + "set "
-				   + "		CLUB_NO = ?, "
-				   + "		PLAYER_NAME = ?, "
-				   + "		PLAYER_UF_NO = ?, "
-				   + "		PLAYER_BIRTH = ?, "
-				   + "		PLAYER_NATIONALITY = ?, "
-				   + "		PLAYER_GOAL = ?, "
-				   + "      PLAYER_POSITION = ?, "
-				   + "		PLAYER_FILE_NAME = ?, "
-				   + "where player_no = ? ";
+				   + "	CLUB_NO = ?, "
+				   + "	PLAYER_NAME = ?, "
+				   + "	PLAYER_UF_NO = ?, "
+				   + "	PLAYER_BIRTH = ?, "
+				   + "	PLAYER_NATIONALITY = ?, "
+				   + " 	PLAYER_GOAL = ?, "
+				   + "  PLAYER_POSITION = ?, "
+				   + "	PLAYER_FILE_NAME = ? "
+				   + "WHERE PLAYER_NO = ? ";
 		helper.update(sql, player.getClubNo(), player.getName(), player.getUfNo(), player.getBirth(),
 				player.getNationality(), player.getGoal(), player.getPosition(), player.getFileName(), player.getPlayerNo());
 				
