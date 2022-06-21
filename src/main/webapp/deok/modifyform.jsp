@@ -212,10 +212,10 @@
 					<label>포지션</label> 
 					<div class="styled-input wide">
 						<select class="form-select" name="position">
-							<option value="공격수" <%=player.getPosition() == "공격수" ? "selected" : ""%>> 공격수</option>
-							<option value="수비수" <%=player.getPosition() == "수비수" ? "selected" : ""%>> 수비수</option>
-							<option value="미드필더" <%=player.getPosition() == "미드필더" ? "selected" : ""%>> 미드필더</option>
-							<option value="골키퍼" <%=player.getPosition() == "골키퍼" ? "selected" : ""%>> 골키퍼</option>
+							<option value="공격수" <%=player.getPosition().equals("공격수") ? "selected" : ""%>> 공격수</option>
+							<option value="수비수" <%=player.getPosition().equals("수비수") ? "selected" : ""%>> 수비수</option>
+							<option value="미드필더" <%=player.getPosition().equals("미드필더") ? "selected" : ""%>> 미드필더</option>
+							<option value="골키퍼" <%=player.getPosition().equals("골키퍼") ? "selected" : ""%>> 골키퍼</option>
 						</select>
 					</div>
 				</div>
@@ -228,7 +228,9 @@
 				<div class="col-xs-12">
 					<label>사진</label> 
 					<div class="styled-input wide">
-						<input type="file" class="form-control" name="upFile" value="../player/<%=player.getFileName() %>"/>
+						<input type="file" class="form-control mb-2" name="upFile" onchange="readURL(this);"/>
+						<img alt="미리보기" src="../player/<%=player.getFileName() %>" style="width: 200px; height: 200px"  id="preview">
+						<input type="hidden" name="file" value="<%=player.getFileName() %>" />
 					</div>
 				</div>
 				
@@ -270,6 +272,18 @@
 		}
 		return true;
 	}
+	function readURL(input) {
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function(e) {
+		    	document.getElementById('preview').src = e.target.result;
+			};
+			reader.readAsDataURL(input.files[0]);
+		} else {
+			document.getElementById('preview').src = "";
+		}
+	}	
+	
 </script>
 </body>
 </html>
