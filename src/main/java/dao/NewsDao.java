@@ -5,14 +5,19 @@ import java.util.List;
 
 import helper.DaoHelper;
 import vo.News;
+
+
 import vo.NewsDislikeUser;
 import vo.NewsLikeUser;
+
 
 public class NewsDao {
 
 	private static NewsDao instance = new NewsDao();
 	private NewsDao() {}
+
 	
+
 	public static NewsDao getInstance() {
 		return instance;
 	}
@@ -21,7 +26,10 @@ public class NewsDao {
 	
 	public int getTotalRows() throws SQLException {
 		String sql = "select count(*) cnt "
+
+
 				   + "from soccer_news1 ";
+
 		
 		return helper.selectOne(sql, rs -> {
 			return rs.getInt("cnt");
@@ -30,6 +38,7 @@ public class NewsDao {
 		
 	
 	public List<News> getNews(int beginIndex, int endIndex) throws SQLException{
+
 		String sql = "select news_no, club_no, league_no, news_name, news_content1, news_content2, news_title, news_created_date, news_updated_date, "
 				   + "		 news_view_count, news_like_count, news_dislike_count "		
 				   + "from (select row_number() over (order by news_no asc) row_number, "
@@ -74,10 +83,13 @@ public class NewsDao {
 			news.setNewsTitle(rs.getString("NEWS_TITLE"));
 			news.setNewsContent1(rs.getString("NEWS_CONTENT1"));
 			news.setNewsContent2(rs.getString("NEWS_CONTENT2"));
+
 			news.setClubNo(rs.getInt("CLUB_NO"));
 			news.setLeagueNo(rs.getInt("LEAGUE_NO"));
 			news.setNewsCreatedDate(rs.getDate("NEWS_CREATED_DATE"));
 			news.setNewsUpdatedDate(rs.getDate("NEWS_UPDATED_DATE"));
+
+
 			news.setNewsLikeCount(rs.getInt("NEWS_LIKE_COUNT"));
 			news.setNewsDislikeCount(rs.getInt("NEWS_DISLIKE_COUNT"));
 				
@@ -179,4 +191,5 @@ public class NewsDao {
 			return new NewsDislikeUser(newsNo, userNo);
 		}, newsNo, userNo);
 	}
+
 }

@@ -9,6 +9,7 @@ public class News {
 	private int leagueNo;
 	private String newsName;
 	private String newsTitle;
+
 	private String newsContent1;
 	private String newsContent2;
 	private Date newsCreatedDate;
@@ -16,6 +17,7 @@ public class News {
 	private int newsLikeCount;
 	private int newsDislikeCount;
 	private int newsViewCount;
+
 	
 	public News () {}
 
@@ -59,6 +61,7 @@ public class News {
 		this.newsTitle = newsTitle;
 	}
 
+
 	public Date getNewsCreatedDate() {
 		return newsCreatedDate;
 	}
@@ -74,6 +77,7 @@ public class News {
 	public void setNewsUpdatedDate(Date newsUpdatedDate) {
 		this.newsUpdatedDate = newsUpdatedDate;
 	}
+
 
 	public int getNewsLikeCount() {
 		return newsLikeCount;
@@ -117,5 +121,5 @@ public class News {
 
 	
 		
-	
+
 }
