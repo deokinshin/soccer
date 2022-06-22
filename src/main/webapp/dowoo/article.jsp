@@ -78,8 +78,8 @@
 					}
 				}
 			%>
-			<a href="like.jsp?no=<%=newsNo %>" class="btn btn-success float-end <%=isDisabled ? "disabled" : "" %>">비추천</a>
-			<a href="like.jsp?no=<%=newsNo %>" class="btn btn-success float-end <%=isDisabled ? "disabled" : "" %>">추천</a>
+			<a href="like.jsp?no=<%=newsNo %>" class="btn btn-light float-end <%=isDisabled ? "disabled" : "" %>">비추천</a>
+			<a href="like.jsp?no=<%=newsNo %>" class="btn btn-light float-end <%=isDisabled ? "disabled" : "" %>">추천</a>
 		</div>
 	</div>	
 </div>

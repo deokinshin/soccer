@@ -4,11 +4,14 @@ import java.sql.SQLException;
 import java.util.List;
 
 import helper.DaoHelper;
+import vo.Club;
+import vo.League;
 import vo.News;
 
 
 import vo.NewsDislikeUser;
 import vo.NewsLikeUser;
+import vo.Player;
 
 
 public class NewsDao {
@@ -192,4 +195,40 @@ public class NewsDao {
 		}, newsNo, userNo);
 	}
 
+	public List<Player> getRankNoLeague(int leagueNo) throws SQLException {
+		String sql = "SELECT * "
+				   + "FROM (SELECT RANK() OVER (ORDER BY P.PLAYER_GOAL DESC) AS RANK, P.PLAYER_NO, P.PLAYER_NAME, P.PLAYER_BIRTH, "
+				   + 							"P.PLAYER_NATIONALITY, P.PLAYER_GOAL, C.CLUB_NO, C.CLUB_NAME, L.LEAGUE_NO, L.LEAGUE_NAME "
+				   + 		"FROM SOCCER_PLAYERS P, SOCCER_CLUBS C, SOCCER_LEAGUES L "
+				   +		"WHERE P.CLUB_NO = C.CLUB_NO "
+				   +		"AND C.LEAGUE_NO = L.LEAGUE_NO "
+				   +		"AND C.LEAGUE_NO = ? ) "
+				   + "WHERE RANK <= 4 " ;
+		
+		return helper.selectList(sql, rs -> {
+			Player player = new Player();
+			
+			player.setPlayerNo(rs.getInt("PLAYER_NO"));
+			player.setName(rs.getString("PLAYER_NAME"));
+			player.setBirth(rs.getDate("PLAYER_BIRTH"));
+			player.setNationality(rs.getString("PLAYER_NATIONALITY"));
+			player.setGoal(rs.getInt("PLAYER_GOAL"));
+			player.setRank(rs.getInt("RANK"));
+			
+			Club club = new Club();
+			
+			club.setClubNo(rs.getInt("CLUB_NO"));
+			club.setName(rs.getString("CLUB_NAME"));
+			player.setClub(club);
+			
+			League league = new League();
+			
+			league.setLeagueNo(rs.getInt("LEAGUE_NO"));
+			league.setName(rs.getString("LEAGUE_NAME"));
+			player.setLeague(league);
+			
+			
+			return player;
+		}, leagueNo);
+	}
 }
