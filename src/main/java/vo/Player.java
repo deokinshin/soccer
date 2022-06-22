@@ -14,6 +14,9 @@ public class Player {
 	private String position;
 	private String fileName;
 	private Club club;
+	private League league;	
+	private int rank;
+	
 	public Player () {}
 
 	public int getClubNo() {
@@ -95,7 +98,22 @@ public class Player {
 	public void setClub(Club club) {
 		this.club = club;
 	}
-	
+
+	public League getLeague() {
+		return league;
+	}
+
+	public void setLeague(League league) {
+		this.league = league;
+	}
+
+	public int getRank() {
+		return rank;
+	}
+
+	public void setRank(int rank) {
+		this.rank = rank;
+	}
 	
 	
 }
