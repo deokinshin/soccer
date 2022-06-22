@@ -13,7 +13,7 @@ public class Player {
 	private int goal;
 	private String position;
 	private String fileName;
-	
+	private Club club;
 	public Player () {}
 
 	public int getClubNo() {
@@ -86,6 +86,14 @@ public class Player {
 
 	public void setFileName(String fileName) {
 		this.fileName = fileName;
+	}
+
+	public Club getClub() {
+		return club;
+	}
+
+	public void setClub(Club club) {
+		this.club = club;
 	}
 	
 	
