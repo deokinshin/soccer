@@ -9,9 +9,15 @@ public class News {
 	private int leagueNo;
 	private String newsName;
 	private String newsTitle;
-	private String newsContent;
+
+	private String newsContent1;
+	private String newsContent2;
 	private Date newsCreatedDate;
 	private Date newsUpdatedDate;
+	private int newsLikeCount;
+	private int newsDislikeCount;
+	private int newsViewCount;
+
 	
 	public News () {}
 
@@ -55,13 +61,6 @@ public class News {
 		this.newsTitle = newsTitle;
 	}
 
-	public String getNewsContent() {
-		return newsContent;
-	}
-
-	public void setNewsContent(String newsContent) {
-		this.newsContent = newsContent;
-	}
 
 	public Date getNewsCreatedDate() {
 		return newsCreatedDate;
@@ -78,5 +77,49 @@ public class News {
 	public void setNewsUpdatedDate(Date newsUpdatedDate) {
 		this.newsUpdatedDate = newsUpdatedDate;
 	}
+
+
+	public int getNewsLikeCount() {
+		return newsLikeCount;
+	}
+
+	public void setNewsLikeCount(int newsLikeCount) {
+		this.newsLikeCount = newsLikeCount;
+	}
+
+	public int getNewsViewCount() {
+		return newsViewCount;
+	}
+
+	public void setNewsViewCount(int newsViewCount) {
+		this.newsViewCount = newsViewCount;
+	}
+
+	public int getNewsDislikeCount() {
+		return newsDislikeCount;
+	}
+
+	public void setNewsDislikeCount(int newsDislikeCount) {
+		this.newsDislikeCount = newsDislikeCount;
+	}
+
+	public String getNewsContent1() {
+		return newsContent1;
+	}
+
+	public void setNewsContent1(String newsContent1) {
+		this.newsContent1 = newsContent1;
+	}
+
+	public String getNewsContent2() {
+		return newsContent2;
+	}
+
+	public void setNewsContent2(String newsContent2) {
+		this.newsContent2 = newsContent2;
+	}
+
+	
+		
 
 }

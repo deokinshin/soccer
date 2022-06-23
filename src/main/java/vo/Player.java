@@ -12,6 +12,7 @@ public class Player {
 	private String nationality;
 	private int goal;
 	private String position;
+	private String fileName;
 	
 	public Player () {}
 
@@ -77,6 +78,14 @@ public class Player {
 
 	public void setPosition(String position) {
 		this.position = position;
+	}
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
 	}
 	
 	
