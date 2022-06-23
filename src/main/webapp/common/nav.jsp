@@ -1,4 +1,3 @@
-
 <%@page import="vo.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -19,13 +18,13 @@
 		<div class="collapse navbar-collapse justify-content-center" id="navbarNav">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0">
 				<li class="nav-item">
-					<a class="nav-link <%="goods".equals(menu) ? "active" : "" %>" aria-current="page" href="/soccer2/league.jsp">LEAGUE</a>
+					<a class="nav-link <%="league".equals(menu) ? "active" : "" %>" aria-current="page" href="/soccer2/league.jsp">LEAGUE</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link <%="goods".equals(menu) ? "active" : "" %>" aria-current="page" href="/soccer2/goods.jsp?page=1">GOODS</a>
+					<a class="nav-link <%="goods".equals(menu) ? "active" : "" %>" aria-current="page" href="/soccer2/goods/goods.jsp?page=1">GOODS</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link <%="book".equals(menu) ? "active" : "" %>" aria-current="page" href="/soccer2/news.jsp?page=2">NEWS</a>
+					<a class="nav-link <%="news".equals(menu) ? "active" : "" %>" aria-current="page" href="/soccer2/news.jsp?page=2">NEWS</a>
 				</li>
 			</ul>
 			
@@ -63,4 +62,3 @@
 		</div>
 	</div>
 </nav>
-

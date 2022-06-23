@@ -35,7 +35,7 @@ public class GoodsDao {
 			goods.setGoodsName(rs.getString("goods_name"));
 			goods.setGoodsPrice(rs.getInt("goods_price"));
 			goods.setClubNo(rs.getInt("club_no"));
-			goods.setGoodsCreated(rs.getDate("good_created_date"));
+			goods.setGoodsCreated(rs.getDate("goods_created_date"));
 			goods.setGoodsUpdated(rs.getDate("goods_updated_date"));
 			goods.setGoodsLikeCount(rs.getInt("goods_like_count"));
 			goods.setGoodsReviewCount(rs.getInt("goods_review_count"));
@@ -53,9 +53,7 @@ public class GoodsDao {
 	 * @throws SQLException
 	 */
 	public List<Goods> getAllGoods() throws SQLException {
-
 		String sql = "select goods_no, goods_name, goods_price, club_no "
-
 				   + "from soccer_goods "
 				   + "order by goods_no desc ";
 		
@@ -81,12 +79,10 @@ public class GoodsDao {
 		return goods;
 	}
 	
-
-	
 	public List<Goods> getGoods(int beginIndex, int endIndex) throws SQLException {
-		String sql = "select goods_no, goods_name, goods_price "
+		String sql = "select goods_no, goods_name, goods_price, club_no "
 				   + "from (select row_number() over (order by goods_no desc) row_number, "
-				   + "             goods_no, goods_name, goods_price "
+				   + "             goods_no, goods_name, goods_price, club_no "
 				   + "      from soccer_goods) "
 				   + "where row_number >= ? and row_number <= ? ";
 		
@@ -102,7 +98,7 @@ public class GoodsDao {
 			good.setGoodsNo(rs.getInt("goods_no"));
 			good.setGoodsName(rs.getString("goods_name"));
 			good.setGoodsPrice(rs.getInt("goods_price"));
-			
+			good.setClubNo(rs.getInt("club_no"));
 			goods.add(good);
 		}
 		rs.close();

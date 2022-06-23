@@ -20,7 +20,7 @@ public class GoodsReviewDao {
 	
 	public List<GoodsReviewDto> getgoodsReviewDtos(int goodsNo) throws SQLException {
 		String sql = "select R.review_no, R.user_no, R.goods_no, R.review_content, R.review_created_date, U.user_no, U.user_name "
-				   + "from goods_reviews R, soccer_users U "
+				   + "from soccer_goods_reviews R, soccer_users U "
 				   + "where R.user_no = U.user_no "
 				   + "and R.goods_no = ? ";
 		
