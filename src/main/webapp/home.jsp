@@ -13,9 +13,7 @@
 </jsp:include>
 
 <style>
-	body {
-		background-color:#444442;
-	}
+
 </style>
 </head>
 
@@ -57,7 +55,8 @@
 	     	 </div>
 	    </div>
 	    <div class="carousel-item">
-	      <img src="images/news1.jpg" class="d-block w-100" height="500px" alt="news3">
+	      <a href="http://localhost/soccer/dowoo/article.jsp?no=3">
+	      <img src="/soccer/news/3.png" class="d-block w-100" height="500px" alt="news3"></a>
 	      <div class="carousel-caption d-none d-md-block">
 	        <h5>클롭"우리는 최고였어.사랑한다.모두고생했어"</h5>
 	      </div>
@@ -76,7 +75,7 @@
 <div class="container" style="width:1270; height:500; padding: 30px 0px 0px 0px; float:left ">
 	<div style="float:left; box-shadow: 0px 0px 10px #000;">
 		<a href="http://localhost/soccer/deok/player.jsp?playerNo=144">
-		<img src="images/mvp.jpg"  width="404px" height="670px"></a>
+		<img src="/soccer/images/mvp.jpg"  width="404px" height="670px"></a>
 	</div>
 <div id="carouselExampleCaptions2" class="carousel slide" data-bs-ride="carousel"  style="width: 850px; hegiht:670px; float:right; 	box-shadow: 0px 0px 10px #000;">
 <div class="carousel-indicators">
