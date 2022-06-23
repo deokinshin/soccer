@@ -40,5 +40,5 @@
 
 	userDao.insertUser(user);
 
-		response.sendRedirect("complete.jsp");
+	response.sendRedirect("complete.jsp");
 %>
