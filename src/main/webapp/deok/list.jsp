@@ -221,10 +221,15 @@ main {
 	int rows = 9;
 	String position = request.getParameter("position");
 	
+	if (position==null) {
+		
+		position = "";
+	}
+	
 	PlayerDao playerDao = PlayerDao.getInstance();
 	
 	int totalRows = 0;
-	if (position.isEmpty()){
+	if (position.equals("")){
 		
 		totalRows = playerDao.getTotalRows();
 	} else {
@@ -237,7 +242,7 @@ main {
 	
 	List<Player> playerList = null;
 	
-	if (position.isEmpty()){
+	if (position.equals("")){
 		
 		playerList = playerDao.getPlayers(pagination.getBeginIndex(), pagination.getEndIndex());
 	} else {
@@ -248,17 +253,17 @@ main {
 %>
 <div class="responsive-container">
 	<div class="row">
-	<div class="col-9 mb-3">
-		<h1>선수</h1>
-	</div>
-	<div class="col-3">
-		<select class="form-control form-control-sm w-25 float-end" name="position" onchange="changePositions()">
-			<option value="" <%=position == null ? "selected" : "" %> >  전포지션</option>
-			<option value="공격수" <%=position == "공격수" ? "selected" : "" %>>  공격수</option>
-			<option value="미드필더" <%=position == "미드필더" ? "selected" : "" %>> 미드필더</option> 
-			<option value="수비수" <%=position == "수비수" ? "selected" : "" %>> 수비수</option>
-			<option value="골키퍼" <%=position == "골키퍼" ? "selected" : "" %>> 골키퍼</option>
-		</select>
+	<div class="col-12 mb-3">
+		<h1>선수
+		
+			<select class="form-control form-control-sm w-25 float-end" name="position" onchange="changePositions()">
+				<option value="" <%=position.equals("") ? "selected" : "" %> >  전포지션</option>
+				<option value="공격수" <%=position.equals("공격수") ? "selected" : "" %>>  공격수</option>
+				<option value="미드필더" <%=position.equals("미드필더") ? "selected" : "" %>> 미드필더</option> 
+				<option value="수비수" <%=position.equals("수비수") ? "selected" : "" %>> 수비수</option>
+				<option value="골키퍼" <%=position.equals("골키퍼") ? "selected" : "" %>> 골키퍼</option>
+			</select>
+		</h1>
 	</div>
 	</div>
 	<div class="grid mb-3">

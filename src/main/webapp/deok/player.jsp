@@ -134,12 +134,16 @@
 		<hr>	
 	</div>
 	<div class="col-12 text-end mb-3">
-		<button type="submit" class="btn btn-outline-secondary" onclick="location.href='modifyform.jsp?playerNo=<%=playerNo %>'">선수수정</button>
-		<button type="submit" class="btn btn-outline-secondary" onclick="location.href='delete.jsp?playerNo=<%=playerNo %>'">선수삭제</button>
+		<button type="button" class="btn btn-outline-secondary" onclick="location.href='modifyform.jsp?playerNo=<%=playerNo %>'">선수수정</button>
+		<button type="button" class="btn btn-outline-secondary" onclick="location.href='delete.jsp?playerNo=<%=playerNo %>'">선수삭제</button>
 	</div>
 </div>
 	<div class="row p-4 mb-4 bg-light rounded-3" >
-		<h3 class="mb-3">소속팀 다른<%=player.getPosition() %></h3>
+		<h3 class="mb-3">소속팀 다른<%=player.getPosition() %>
+			<button type="button" class="btn btn-outline-secondary float-end" onclick="location.href='list.jsp'">다른선수 보기</button>
+		</h3>
+		
+		
 	<%
 		List<Player> playerList = playerDao.getClubNoPlayer(player.getClubNo());
 		for (Player players : playerList) {

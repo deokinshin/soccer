@@ -65,19 +65,19 @@
 
 	
 	<div class="p-3">
-		<h1>팀 정보</h1>
 	<%
 		//User user = (User) session.getAttribute("LOGINED_USER");
 		//if (user == null) {
 	%>	
 			
-		
+		<%-- <h1>팀 정보</h1>--%>
 	<%
 		//} else if(user.getNo() == 1){	
 	%>
-		<div class="col-12 text-end mb-3">
-			<button type="submit" class="btn btn-outline-secondary" onclick="location.href='playerform.jsp'">선수등록</button>
-		</div>
+		<h1>팀 정보
+		
+			<button type="submit" class="btn btn-outline-secondary float-end" onclick="location.href='playerform.jsp'">선수등록</button>
+		</h1>
 	<%
 		//}
 	%>
