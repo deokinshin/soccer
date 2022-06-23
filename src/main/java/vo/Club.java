@@ -15,6 +15,7 @@ public class Club {
 	private int draw;
 	private int defeat;
 	private int point;
+	private League league;
 	
 	public Club () {}
 
@@ -113,6 +114,15 @@ public class Club {
 	public void setPoint(int point) {
 		this.point = point;
 	}
+
+	public League getLeague() {
+		return league;
+	}
+
+	public void setLeague(League league) {
+		this.league = league;
+	}
+	
 	
 	
 }

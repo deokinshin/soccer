@@ -221,7 +221,8 @@
 				<div class="col-xs-12">
 					<label>사진</label> 
 					<div class="styled-input wide">
-						<input type="file" class="form-control" name="upFile" />
+						<input type="file" class="form-control mb-2" name="upFile" onchange="readURL(this);" />
+						<img alt="미리보기" id="preview" style="width: 200px; height: 200px">
 					</div>
 				</div>
 				
@@ -236,35 +237,45 @@
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript">
-function submitModifyForm() {
-	let nameField = document.querySelector("input[name=name]");
-	if (nameField.value === '') {
-		alert("이름은 필수입력값입니다.");
-		nameField.focus();
-		return false;
+	function submitModifyForm() {
+		let nameField = document.querySelector("input[name=name]");
+		if (nameField.value === '') {
+			alert("이름은 필수입력값입니다.");
+			nameField.focus();
+			return false;
+		}
+		let ufNoField = document.querySelector("input[name=ufNo]");
+		if (ufNoField.value === '') {
+			alert("등번호는 필수입력값입니다.");
+			ufNoField.focus();
+			return false;
+		}
+		let nationalityField = document.querySelector("input[name=nationality]");
+		if (nationalityField.value === '') {
+			alert("국적 필수입력값입니다.");
+			nationalityField.focus();
+			return false;
+		}
+		let birthField = document.querySelector("input[name=birth]");
+		if (birthField.value === '') {
+			alert("생일은 필수입력값입니다.");
+			birthField.focus();
+			return false;
+		}
+		
+		return true;
 	}
-	let ufNoField = document.querySelector("input[name=ufNo]");
-	if (ufNoField.value === '') {
-		alert("등번호는 필수입력값입니다.");
-		ufNoField.focus();
-		return false;
+	function readURL(input) {
+		if (input.files && input.files[0]) {
+			var reader = new FileReader();
+			reader.onload = function(e) {
+		    	document.getElementById('preview').src = e.target.result;
+			};
+			reader.readAsDataURL(input.files[0]);
+		} else {
+			document.getElementById('preview').src = "";
+		}
 	}
-	let nationalityField = document.querySelector("input[name=nationality]");
-	if (nationalityField.value === '') {
-		alert("국적 필수입력값입니다.");
-		nationalityField.focus();
-		return false;
-	}
-	let birthField = document.querySelector("input[name=birth]");
-	if (birthField.value === '') {
-		alert("생일은 필수입력값입니다.");
-		birthField.focus();
-		return false;
-	}
-	
-	return true;
-}
-
 </script>
 </body>
 </html>
