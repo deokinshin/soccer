@@ -5,8 +5,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>로그인</title>
-<link href="favicon.ico" rel="icon" type="image/x-icon" />
+<title>Bootstrap demo</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
 <style type="text/css">
 	body {
@@ -145,72 +144,72 @@
 <body>
 <div class="container">
 	<div class="row">
-			<h1>로그인</h1>
+			<h1>선수 추가</h1>
 	</div>
-
-		<%
-			String fail = request.getParameter("fail");
-			String id = (String)session.getAttribute("id");
-		%>
-			<!--
-				아이디 혹은 비밀번호가 일치하지 않는 경우 아래 내용이 출력된다.
-			-->
-		<%
-			if ("invalid".equals(fail)) {
-		%>
-			<div class="col-xs-6 mb-4" align="center">
-				<p style="color:yellow;"><strong>로그인 실패</strong> 아이디 혹은 비밀번호가 올바르지 않습니다.</p>
-			</div>
-		<%
-			}
-		%>
-	 
-	<form method="post" action="login.jsp" onsubmit="return submitLoginForm()">
+	<form method="post" action="playeradd.jsp" enctype="multipart/form-data">
+	
 		<div class="row input-container">
 				<div class="col-xs-6">
 					<div class="styled-input wide">
-						<input type="text" name="id" />
-						<label>아이디</label> 
+						<input type="text" name="name" />
+						<label>선수이름</label> 
 					</div>
 				</div>
 				<div class="col-xs-6">
 					<div class="styled-input wide">
-						<input type="password" name="password" />
-						<label>비밀번호</label> 
+						<input type="text" name="ufNo" />
+						<label>등번호</label> 
 					</div>
-
-				
-				<div class="col-xs-6 mb-4">
-					<button type="submit" class="btn btn-secondary" style="width:100%; height:75px">로그인</button>
 				</div>
-				<div class="col-xs-6 mb-4">
-					<button type="button" onclick="location.href='/soccer/home.jsp' "class="btn btn-light" style="width:100%; height:75px">취소</button>
+				<div class="col-xs-6">
+					<div class="styled-input wide">
+						<input type="text" name="nationality" />
+						<label>국적</label> 
+					</div>
+				</div>
+				<div class="col-xs-6">
+					<div class="styled-input wide">
+						<input type="text" name="position" />
+						<label>포지션</label> 
+					</div>
+				</div>
+				<div class="col-xs-6">
+					<div class="styled-input wide">
+						<input type="text" name="goal" />
+						<label>골</label> 
+					</div>
+				</div>
+				<div class="col-xs-6">
+					<label>클럽</label> 
+					<div class="styled-input wide">
+						<select class="form-select" name="clubNo">
+							<option value="" selected="selected" disabled="disabled"> 선택하세요</option>
+							<option value="1"> 맨시티</option>
+						</select>
+					</div>
+				</div>
+				<div class="col-xs-6">
+					<label>생년월일</label> 
+					<div class="styled-input wide">
+						<input type="date" class="form-control" name="birth">
+					</div>
+				</div>
+				<div class="col-xs-12">
+					<label>사진</label> 
+					<div class="styled-input wide">
+						<input type="file" class="form-control" name="upFile" />
+					</div>
+				</div>
+				
+				
+				<div class="col-12 text-end mb-3">
+					<button type="submit" class="btn btn-primary">등록</button>
 				</div>
 			
-			</div>
 		</div>
-		</form>
-	</div>
-
-
+	</form>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
-<script type="text/javascript">
-	function submitLoginForm() {
-		let idField = document.querySelector("input[name=id]");
-		if (idField.value === '') {
-			alert("아이디를 입력하세요.");
-			idField.focus();
-			return false;
-		}
-		let passwordField = document.querySelector("input[name=password]");
-		if (passwordField.value === '') {
-			alert("비밀번호를 입력하세요");
-			passwordField.focus();
-			return false;
-		}
-		return true;
-	}
-</script>
 </body>
 </html>

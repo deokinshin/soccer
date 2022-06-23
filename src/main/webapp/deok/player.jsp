@@ -1,3 +1,4 @@
+<%@page import="vo.User"%>
 <%@page import="util.StringUtil"%>
 <%@page import="vo.Player"%>
 <%@page import="java.util.List"%>
@@ -14,7 +15,7 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <style>
-      span {
+      .span2 {
       	    -webkit-text-size-adjust: 100%;
 		    font: normal 14px Helvetica,Arial,sans-serif;
 		    list-style-type: none;
@@ -32,7 +33,7 @@
 		    padding-left: 0;
 		    padding-right: 0;
       }
-      strong {
+      .name {
       	    -webkit-text-size-adjust: 100%;
 		    font: normal 14px Helvetica,Arial,sans-serif;
 		    list-style-type: none;
@@ -48,6 +49,15 @@
 		    padding-left: 0;
 		    padding-right: 0;
       }
+    h1,h3 {
+		font-family: 'GmarketSansBold';
+	}
+	@font-face {
+    font-family: 'GmarketSansBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+	}
 </style>
 </head>
 <body>
@@ -83,60 +93,78 @@
             <div class="row">
               	<div class="col-6 p-5">
               		<div>
-                  		<strong> 이름 </strong> 
+                  		<span class="name"> 이름 </span> 
               		</div>
               		<div class="mb-3">
-                  		<span>  <%=player.getName() %></span>
+                  		<span class="span2">  <%=player.getName() %></span>
               		</div>
               		<hr>
               		<div>
-                  		 <strong>출생일 </strong> 
+                  		 <span class="name">출생일 </span> 
               		</div>
               		<div class="mb-3">
-                  		 <span>  <%=player.getBirth() %></span>
+                  		 <span class="span2">  <%=player.getBirth() %></span>
               		</div>
               		<hr>
               		<div>
-                  		 <strong>국적 </strong>
+                  		 <span class="name">국적 </span>
               		</div>
               		<div>
-                  		  <span>  <%=player.getNationality() %></span>
+                  		  <span class="span2">  <%=player.getNationality() %></span>
               		</div>
               	</div>
               	<div class="col-6 p-5">
               		<div>
-                  			<strong>등번호 </strong> 
+                  			<span class="name">등번호 </span> 
               		</div>
               		<div class="mb-3">
-                  			<span>  <%=player.getUfNo() %></span>
+                  			<span class="span2">  <%=player.getUfNo() %></span>
               		</div>
               		<hr>
               		<div>
               		
-                  			<strong>득점 </strong> 
+                  			<span class="name">득점 </span> 
               		</div>
               		<div>
               		
-                  			<span>  <%=player.getGoal() %></span>
+                  			<span class="span2">  <%=player.getGoal() %></span>
               		</div>
               		<hr>
               		<div>
               		
-                  			<strong>포지션 </strong> 
+                  			<span class="name">포지션 </span> 
               		</div>
               		<div>
               		
-                  			<span>  <%=player.getPosition() %></span>
+                  			<span class="span2">  <%=player.getPosition() %></span>
               		</div>
             	</div>
           	
 		</div>
 		<hr>	
 	</div>
+	<%
+		User user = (User) session.getAttribute("LOGINED_USER");
+		if (user == null) {
+	%>	
 	
+	<%
+		} else if(user.getNo() == 1){	
+	%>
+	<div class="col-12 text-end mb-3">
+		<button type="button" class="btn btn-outline-secondary" onclick="location.href='modifyform.jsp?playerNo=<%=playerNo %>'">선수수정</button>
+		<button type="button" class="btn btn-outline-secondary" onclick="location.href='delete.jsp?playerNo=<%=playerNo %>'">선수삭제</button>
+	</div>
+	<%
+		}
+	%>
 </div>
 	<div class="row p-4 mb-4 bg-light rounded-3" >
-		<h3 class="mb-3">소속팀 다른<%=player.getPosition() %></h3>
+		<h3 class="mb-3">소속팀 다른<%=player.getPosition() %>
+			<button type="button" class="btn btn-outline-secondary float-end" onclick="location.href='list.jsp'">다른선수 보기</button>
+		</h3>
+		
+		
 	<%
 		List<Player> playerList = playerDao.getClubNoPlayer(player.getClubNo());
 		for (Player players : playerList) {
@@ -163,5 +191,6 @@
 	</div> 
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

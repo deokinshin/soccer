@@ -1,3 +1,6 @@
+<%@page import="vo.User"%>
+<%@page import="dao.UserDao"%>
+<%@page import="util.StringUtil"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -5,9 +8,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>로그인</title>
-<link href="favicon.ico" rel="icon" type="image/x-icon" />
+<title>정보 수정</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="/soccer/favicon.ico" rel="icon" type="image/x-icon" />
+
 <style type="text/css">
 	body {
     background-color: #444442;
@@ -145,72 +149,44 @@
 <body>
 <div class="container">
 	<div class="row">
-			<h1>로그인</h1>
+			<h1>정보 수정</h1>
 	</div>
+	<%
+		User user = (User) session.getAttribute("LOGINED_USER");
+	%>
 
-		<%
-			String fail = request.getParameter("fail");
-			String id = (String)session.getAttribute("id");
-		%>
-			<!--
-				아이디 혹은 비밀번호가 일치하지 않는 경우 아래 내용이 출력된다.
-			-->
-		<%
-			if ("invalid".equals(fail)) {
-		%>
-			<div class="col-xs-6 mb-4" align="center">
-				<p style="color:yellow;"><strong>로그인 실패</strong> 아이디 혹은 비밀번호가 올바르지 않습니다.</p>
-			</div>
-		<%
-			}
-		%>
-	 
-	<form method="post" action="login.jsp" onsubmit="return submitLoginForm()">
-		<div class="row input-container">
+	<form method="post" action="mypage.jsp">
+	
+		<div class="row input-container">	
 				<div class="col-xs-6">
 					<div class="styled-input wide">
-						<input type="text" name="id" />
-						<label>아이디</label> 
+						<input type="text" name="email" value="<%=user.getEmail() %>" />
+						<label>이메일</label> 
 					</div>
 				</div>
 				<div class="col-xs-6">
 					<div class="styled-input wide">
-						<input type="password" name="password" />
-						<label>비밀번호</label> 
+						<input type="text" name="tel" value="<%=user.getTel() %>" />
+						<label>전화번호</label> 
 					</div>
-
-				
-				<div class="col-xs-6 mb-4">
-					<button type="submit" class="btn btn-secondary" style="width:100%; height:75px">로그인</button>
 				</div>
-				<div class="col-xs-6 mb-4">
-					<button type="button" onclick="location.href='/soccer/home.jsp' "class="btn btn-light" style="width:100%; height:75px">취소</button>
+				<div class="col-xs-6">
+					<div class="styled-input wide">
+						<input type="text" name="address" value="<%=user.getAddress() %>" />
+						<label>주소</label> 
+					</div>
 				</div>
 			
-			</div>
+				<div class="col-12 text-end">
+						<a href="myinfo.jsp" class="btn btn-light">취소</a>
+						<button type="submit" class="btn btn-secondary">수정</button>
+					</div>
+			
 		</div>
-		</form>
-	</div>
-
-
+	</form>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
-<script type="text/javascript">
-	function submitLoginForm() {
-		let idField = document.querySelector("input[name=id]");
-		if (idField.value === '') {
-			alert("아이디를 입력하세요.");
-			idField.focus();
-			return false;
-		}
-		let passwordField = document.querySelector("input[name=password]");
-		if (passwordField.value === '') {
-			alert("비밀번호를 입력하세요");
-			passwordField.focus();
-			return false;
-		}
-		return true;
-	}
-</script>
+
 </body>
 </html>

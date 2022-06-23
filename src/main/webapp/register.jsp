@@ -21,10 +21,10 @@
 		return;
 	}
 
-	savedUser = userDao.getUserByEmail(email);
-	if (savedUser != null) {
-		response.sendRedirect("registerform.jsp?fail=email&email=" + email);
-	}
+	//savedUser = userDao.getUserByEmail(email);
+	//if (savedUser != null) {
+	//	response.sendRedirect("registerform.jsp?fail=email&email=" + email);
+	//}
 	
 	String secretPassword = PasswordUtil.generateSecretPassword(id, password);
 	
@@ -39,7 +39,6 @@
 	
 
 	userDao.insertUser(user);
-	
 
 	response.sendRedirect("complete.jsp");
 %>

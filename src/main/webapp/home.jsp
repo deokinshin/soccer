@@ -21,17 +21,17 @@
 	<jsp:param name="menu" value="home"/>
 </jsp:include>
 
-<div class="container" style="width:1296; height:500;">
+<div class="container" style="width:1296; height:500; ">
 
-<div style="float:left;">
+<div style="float:left; box-shadow: 0px 0px 10px #000;">
 	<img src="/soccer/images/matchuplogo.jpg" width="60px" height="500px">
 </div>
 
-<div style="float:left;">
+<div style="float:left; box-shadow: 0px 0px 10px #000;">
 	<img src="/soccer/images/matchup.jpg" width="343px" height="500px">
 </div>
 
-<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel"  style="width: 850px; hegiht:500px; float:right;">
+<div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel"  style="width: 850px; hegiht:500px; float:right; box-shadow: 0px 0px 20px #000;">
 	<div class="carousel-indicators">
 	  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
 	  <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -39,24 +39,26 @@
 	</div>
 	<div class="carousel-inner" style="width: 850px; height: 500px;">
 	    <div class="carousel-item active">
-	      	<img src="images/news1.jpg" class="d-block w-100" height="500px" alt="news1">
+	    	<a href="http://localhost/soccer/dowoo/article.jsp?no=1">
+	      	<img src="/soccer/news/1.png" class="d-block w-100" height="500px" alt="news1"></a>
 	      	<div class="carousel-caption d-none d-md-block">
-	      	 	<h5>First slide label</h5>
-	      	 	<p>Some representative placeholder content for the first slide.</p>
+	      	 	<h5>비니시우스 결승골 레알 마드리드, 리버풀에 1-0승</h5>
+	      	 	<p></p>
 	     	</div>
 	    </div>
 	    <div class="carousel-item">
-	      	<img src="images/news2.jpg" class="d-block w-100" height="500px" alt="news2">
+	    	<a href="http://localhost/soccer/dowoo/article.jsp?no=2">
+	      	<img src="/soccer/news/2.png" class="d-block w-100" height="500px" alt="news2"></a>
 	      	<div class="carousel-caption d-none d-md-block">
-	        <h5>Second slide label</h5>
-	        <p>Some representative placeholder content for the second slide.</p>
+	        <h5>결승전 MVP 쿠르투아, 9개 선방으로 레알 우승 이끌었다.</h5>
+	        <p></p>
 	     	 </div>
 	    </div>
 	    <div class="carousel-item">
-	      <img src="images/news1.jpg" class="d-block w-100" height="500px" alt="news3">
+	      <a href="http://localhost/soccer/dowoo/article.jsp?no=3">
+	      <img src="/soccer/news/3.png" class="d-block w-100" height="500px" alt="news3"></a>
 	      <div class="carousel-caption d-none d-md-block">
-	        <h5>Third slide label</h5>
-	        <p>Some representative placeholder content for the third slide.</p>
+	        <h5>클롭"우리는 최고였어.사랑한다.모두고생했어"</h5>
 	      </div>
 	    </div>
 		 </div>
@@ -70,12 +72,12 @@
 		  </button>
 	</div>
 
-<div class="container" style="width:1296; height:500; padding: 30px 0px 0px 0px; float:left">
-	<div style="float:left;">
+<div class="container" style="width:1270; height:500; padding: 30px 0px 0px 0px; float:left ">
+	<div style="float:left; box-shadow: 0px 0px 10px #000;">
 		<a href="http://localhost/soccer/deok/player.jsp?playerNo=144">
-		<img src="images/mvp.jpg"  width="404px" height="670px"></a>
+		<img src="/soccer/images/mvp.jpg"  width="404px" height="670px"></a>
 	</div>
-<div id="carouselExampleCaptions2" class="carousel slide" data-bs-ride="carousel"  style="width: 850px; hegiht:670px; float:right;">
+<div id="carouselExampleCaptions2" class="carousel slide" data-bs-ride="carousel"  style="width: 850px; hegiht:670px; float:right; 	box-shadow: 0px 0px 10px #000;">
 <div class="carousel-indicators">
   <button type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
   <button type="button" data-bs-target="#carouselExampleCaptions2" data-bs-slide-to="1" aria-label="Slide 2"></button>
