@@ -140,6 +140,7 @@
 	  color: #f00;
 	  font-style: normal;
 	}
+	
 </style>
 </head>
 <body>
@@ -160,8 +161,10 @@
 			if ("id".equals(fail)) {
 				String duplicatedId =  request.getParameter("id");
 		%>
-			<div class="alert alert-danger">
+			<div align=center>
+			<div class="alert alert-danger" style="width:50%">
 				<strong>회원가입 실패</strong> [<%=duplicatedId %>]은 이미 사용중인 아이디 입니다.
+			</div>
 			</div>
 		<%
 			}
@@ -180,8 +183,8 @@
 		<%
 			}
 		%>
-	
-	<form method="post" action="register.jsp">	
+		
+	<form method="post" action="register.jsp" onsubmit="return submitRegisterForm()">	
 		<div class="row input-container">
 				<div class="col-xs-6">
 					<div class="styled-input wide">
@@ -291,6 +294,12 @@ function emailCheck() {
 
 function submitRegisterForm() {
 	let idField = document.querySelector("input[name=id]");
+	let passwordField = document.querySelector("input[name=password]");
+	let nameField = document.querySelector("input[name=name]");
+	let emailField = document.querySelector("input[name=email]");
+	let telField = document.querySelector("input[name=tel]");
+	let AddressField = document.querySelector("input[name=address]");
+	
 	if (idField.value === '') {
 		alert("아이디는 필수입력값입니다.");
 		idField.focus();
@@ -303,25 +312,35 @@ function submitRegisterForm() {
 		return false;
 	}
 	
-	let passwordField = document.querySelector("input[name=password]");
 	if (passwordField.value === '') {
 		alert("비밀번호는 필수입력값입니다.");
 		passwordField.focus();
 		return false;
 	}
-	let nameField = document.querySelector("input[name=name]");
+
 	if (nameField.value === '') {
 		alert("이름은 필수입력값입니다.");
 		nameField.focus();
 		return false;
 	}
-	let emailField = document.querySelector("input[name=email]");
+
 	if (emailField.value === '') {
 		alert("이메일은 필수입력값입니다.");
 		emailField.focus();
 		return false;
 	}
 	
+	if (telField.value === '') {
+		alert("전화번호는 필수입력값입니다.");
+		telFieldField.focus();
+		return false;
+	}
+	
+	if (AddressField.value === '') {
+		alert("주소는 필수입력값입니다.");
+		AddressField.focus();
+		return false;
+	}
 	return true;
 }
 </script>

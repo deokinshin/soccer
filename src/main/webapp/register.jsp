@@ -38,8 +38,7 @@
 	user.setAddress(address);
 	
 
-	//userDao.insertUser(user);
-	
+	userDao.insertUser(user);
 
-	response.sendRedirect("complete.jsp");
+		response.sendRedirect("complete.jsp");
 %>
