@@ -19,7 +19,7 @@
 <jsp:include page="../common/nav3.jsp">
 	<jsp:param name="menu" value="home"/>
 </jsp:include>
-<jsp:include page="../common/nav_news.jsp">
+<jsp:include page="../common/nav_home.jsp">
 	<jsp:param name="menu" value="news"/>
 </jsp:include>
 <div class="contaniner">

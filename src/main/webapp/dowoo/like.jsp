@@ -5,7 +5,7 @@
 <%@page import="util.StringUtil"%>
 <%@page import="vo.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" errorPage="error/500.jsp"%>
+    pageEncoding="UTF-8" %>
 <%
 	User user = (User) session.getAttribute("LOGINED_USER");
 	if (user == null) {
@@ -13,6 +13,7 @@
 	}
 	
 	int newsNo = StringUtil.stringToInt(request.getParameter("no"));
+	int currentPage = StringUtil.stringToInt(request.getParameter("page"), 1);
 	
 	NewsDao newsDao = NewsDao.getInstance();
 	News news = newsDao.getArticleByNO(newsNo);
@@ -44,6 +45,6 @@
 	newsDao.updateNews(news);
 	
 	// 재요청 URL을 응답으로 보낸다.
-	response.sendRedirect("article.jsp?no=" + newsNo);
+	response.sendRedirect("article.jsp?no=" + newsNo + "&page=" + currentPage);
 	
 %>

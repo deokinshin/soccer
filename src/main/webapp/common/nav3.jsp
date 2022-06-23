@@ -26,8 +26,10 @@
 	      	if (user == null) {
 	      %>
 	      	<div class="col-md-3 text-end">
+
 	        <button type="button" class="btn btn-outline-secondary me-2" onclick="location.href='/soccer/loginform.jsp'">Login</button>
 	        <button type="button" class="btn btn-outline-secondary" onclick="location.href='/soccer/registerform.jsp'">Sign-up</button>
+
 	        </div>
 	      <%
 	      	} else {
@@ -37,6 +39,7 @@
 	        <button type="button" class="btn btn-outline-secondary" onclick="location.href='/soccer/myinfo.jsp'">MyPage</button>
 	      	<button type="button" class="btn btn-outline-secondary me-2" onclick="location.href='/soccer/logout.jsp'">Logout</button>
       		</div>
+
 	      <%
 	      	}
 	      %>     

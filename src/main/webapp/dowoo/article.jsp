@@ -31,12 +31,16 @@
 	<%
 		int newsNo = StringUtil.stringToInt(request.getParameter("no"));
 		int leagueNo = StringUtil.stringToInt(request.getParameter("leagueNo"));
+		int currentPage = StringUtil.stringToInt(request.getParameter("page"),1);
 		
 		NewsDao newsDao = NewsDao.getInstance();
 		News news = newsDao.getArticleByNO(newsNo);
 		
+		news.setNewsViewCount(news.getNewsViewCount() + 1);
+		newsDao.updateNews(news);
 		
 		List<News> newsList = newsDao.getLeagueNoNews(leagueNo);
+		
 	%>
 	<div class="container">
 		<div class=row>
@@ -78,18 +82,12 @@
 					}
 				}
 			%>
-			<a href="like.jsp?no=<%=newsNo %>" class="btn btn-light float-end <%=isDisabled ? "disabled" : "" %>">비추천</a>
-			<a href="like.jsp?no=<%=newsNo %>" class="btn btn-light float-end <%=isDisabled ? "disabled" : "" %>">추천</a>
+			<a href="like.jsp?no=<%=newsNo %>&page=<%=currentPage %>" class="btn btn-light float-center <%=isDisabled ? "disabled" : "" %>">추천</a>
+			<a href="like.jsp?no=<%=newsNo %>&page=<%=currentPage %>" class="btn btn-light float-center <%=isDisabled ? "disabled" : "" %>">비추천</a>
 		</div>
 	</div>	
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
-<script type="text/javascript">
-function changeLeagueNo() {
-	document.querySelector("input[name=leagueNo]").value = document.querySelector("select[name=leaugeNo]").value;
-	
-	document.getElementById("article-form").submit();
-}
-</script>
+
 </body>
 </html>

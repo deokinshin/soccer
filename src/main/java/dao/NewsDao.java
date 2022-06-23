@@ -154,13 +154,13 @@ public class NewsDao {
 	public void updateNews(News news) throws SQLException {
 		String sql = "update soccer_news1 "
 				   + "set "
-				   + "		news_updated_date = sysdate "
+				   + "		news_updated_date = sysdate, "
+				   + "		news_like_count = ?, "
+				   + "		news_dislike_count = ?, "
 				   + "		news_view_count = ? "
-				   + "		news_like_count = ? "
-				   + "		news_dislike_count = ? "
 				   + "where news_no = ? " ;
 		
-		helper.update(sql, news.getNewsLikeCount(), news.getNewsDislikeCount(), news.getNewsLikeCount() );
+		helper.update(sql, news.getNewsLikeCount(), news.getNewsDislikeCount(), news.getNewsViewCount(), news.getNewsNo() );
 	}
 	
 	public void insertNewsLikeUser(NewsLikeUser newsLikeUser) throws SQLException {

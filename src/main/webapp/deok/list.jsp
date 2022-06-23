@@ -13,6 +13,7 @@
 <title>선수 리스트</title>
 <link href="/soccer/favicon.ico" rel="icon" type="image/x-icon" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="https://webfontworld.github.io/vitro/VitroCore.css" rel="stylesheet">
 <style type="text/css">
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
 
@@ -36,6 +37,12 @@ blockquote,
 dl,
 dd {
   margin: 0;
+}
+
+h1 {
+	font-family: 'GmarketSansBold';
+
+	
 }
 
 body {
@@ -207,6 +214,12 @@ main {
     }
   }
 }
+@font-face {
+    font-family: 'GmarketSansBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
 </style>
 </head>
 <body>
@@ -252,9 +265,9 @@ main {
 	
 %>
 <div class="responsive-container">
-	<div class="row">
+	<div class="row mb-3">
 	<div class="col-12 mb-3">
-		<h1>선수
+		<h1>전체 선수
 		
 			<select class="form-control form-control-sm w-25 float-end" name="position" onchange="changePositions()">
 				<option value="" <%=position.equals("") ? "selected" : "" %> >  전포지션</option>
@@ -265,6 +278,7 @@ main {
 			</select>
 		</h1>
 	</div>
+	 
 	</div>
 	<div class="grid mb-3">
 	<%
