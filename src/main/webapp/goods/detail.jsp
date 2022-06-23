@@ -1,3 +1,4 @@
+<%@page import="util.StringUtil"%>
 <%@page import="dto.GoodsReviewDto"%>
 <%@page import="java.util.List"%>
 <%@page import="dao.GoodsReviewDao"%>
@@ -10,7 +11,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GOODS STORE</title>
+<title>GOODS DETAIL</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
@@ -18,43 +19,76 @@
 	<jsp:param name="menu" value="goods" />
 </jsp:include>
 <div class="container">
-	<div class="row">
+	<div class="row mb-3">
 		<div class="col">
-			<h1 class="fs-4 border p-2">GOODS</h1>
+			<h1 class="fs-4 border p-2">상품 상세페이지 입니다.</h1>
 		</div>
 	</div>
 	<div class="row mb-3">
 		<div class="col">
+
 		<%
-			int goodsNo = Integer.parseInt(request.getParameter("goodsNo"));
+			// localhost/soccer2/goods/detail.jsp?goodsNo=100
+			
+			int goodsNo = StringUtil.stringToInt(request.getParameter("goodsNo"));
 			
 			GoodsDao goodsDao = GoodsDao.getInstance();
-			Goods good = goodsDao.getGoodsByNo(goodsNo);
+			Goods goods = goodsDao.getGoodsByNo(goodsNo);
 			
 			GoodsReviewDao goodsReviewDao = GoodsReviewDao.getInstance();
 			List<GoodsReviewDto> reviews = goodsReviewDao.getgoodsReviewDtos(goodsNo);
-		%>
-			<p>상품 상세정보를 확인하세요.</p>
-			<table class="table">
-				<colgroup>
-					<col style="width: 10%;">
-					<col style="width: 40%;">
-					<col style="width: 10%;">
-					<col style="width: 40%;">
-				</colgroup>
-				<tbody>
-					<tr>
-						<th>번호</th>
-						<td><%=good.getGoodsNo()%></td>
-						<th>이름</th>
-						<td><%=good.getGoodsName()%></td>
-					</tr>
-					<tr>
-						<th>가격</th>
-						<td><%=good.getGoodsPrice()%> 원</td>
-					</tr>
-				</tbody>
-			</table>
+			
+		%>  				
+				<img src="../images/<%=goods.getClubNo() %>/<%=goods.getGoodsNo() %>.JPG" alt="<%=goods.getGoodsNo() %>" style="width: 700px; height: 600px; float: left;"/>
+				<table class="table" style="width: 300px; float: none;">				
+					<tbody>
+						<tr>
+							<th>번호</th>
+							<td><%=goods.getGoodsNo()%></td>
+						</tr>
+						<tr>
+							<th>이름</th>
+							<td><%=goods.getGoodsName()%></td>
+						</tr>
+						<tr>
+							<th>가격</th>
+							<td><%=goods.getGoodsPrice()%> 원</td>
+						</tr>
+					</tbody>
+				</table>
+				
+				<button type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"">
+					장바구니 담기
+				</button>
+				
+				<div class="accordion mb-3" id="accordionExample">
+  						<div class="accordion-item">
+    						<h2 class="accordion-header" id="headingOne">
+    						<style>
+    							#accordion-header{
+    							width:600px;
+    							margin:auto;
+    							}
+    							#headingOne{
+        						width:fit-content;
+        						margin:auto;
+    							}
+   							</style>
+     				 			<button class="accordion-button justify-content-center" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"">
+        							상세페이지 펼쳐보기
+      				 			</button>
+    						</h2>
+   		 			<div id="collapseOne" style="text-align:center;" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      					<% 
+							for(int i=1; i<=11; i++) {
+						%>
+					<div class="image-container" overflow: hidden; display: flex; text-align: center; align-items: center;>
+						<img src="../images/detail/<%=goods.getClubNo() %>/<%=i%>.JPG">
+					</div>
+				<% 
+					}
+				%>
+    				</div>
 		</div>
 	</div>
 	<div class="row mb-3">
@@ -97,7 +131,7 @@
 									<p class="mb-0"><%=review.getReviewCountent() %></p>
 								</div>
 								<div class="col-1 text-end">
-									<a href="../review/delete.jsp" class="btn btn-outline-secondary btn-sm">X</a>
+									<a href="../goods/delete.jsp" class="btn btn-outline-secondary btn-sm">X</a>
 								</div>
 							</div>
 						</div>
