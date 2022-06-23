@@ -10,6 +10,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>선수</title>
+<link href="/soccer/favicon.ico" rel="icon" type="image/x-icon" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <style>
@@ -66,10 +67,14 @@
 	  	
 	  			
 	%>
+	<div class="p-3">
+		<h1>선수 상세 정보</h1>
+	</div>
+	<hr>
 	<div class="row shadow-lg p-3 mb-5 bg-body rounded">
 		<div class="col-4">
 			<a href="">
-				<img alt="" src="../player/<%=player.getPlayerNo() %>.png" style="height: 400px; width: 300px; object-fit: contain" class="img-thumbnail">
+				<img alt="" src="../player/<%=player.getFileName() %>" style="height: 400px; width: 300px; object-fit: contain" class="img-thumbnail">
 			</a>
 		</div>
 		<div class="col-6 m-3">
@@ -128,9 +133,43 @@
 		</div>
 		<hr>	
 	</div>
+	<div class="col-12 text-end mb-3">
+		<button type="button" class="btn btn-outline-secondary" onclick="location.href='modifyform.jsp?playerNo=<%=playerNo %>'">선수수정</button>
+		<button type="button" class="btn btn-outline-secondary" onclick="location.href='delete.jsp?playerNo=<%=playerNo %>'">선수삭제</button>
+	</div>
+</div>
+	<div class="row p-4 mb-4 bg-light rounded-3" >
+		<h3 class="mb-3">소속팀 다른<%=player.getPosition() %>
+			<button type="button" class="btn btn-outline-secondary float-end" onclick="location.href='list.jsp'">다른선수 보기</button>
+		</h3>
 		
-</div> 
+		
+	<%
+		List<Player> playerList = playerDao.getClubNoPlayer(player.getClubNo());
+		for (Player players : playerList) {
+			
+			
+			if (players.getPosition().equals(player.getPosition()) && players.getPlayerNo() != player.getPlayerNo()) {
+	%>
+		<div class="col-3 mb-3">
+			<div class="card">
+				<a href="player.jsp?playerNo=<%=players.getPlayerNo() %>">
+					<img alt="" src="../player/<%=players.getFileName() %>" class="card-img-top" width="200px" height="300px">
+				</a>
+				<div class="card-body">
+					<h5 class="card-title"><%=players.getName() %> <strong class="text-success end"><%=players.getUfNo() %></strong></h5>
+				</div>
+			</div>
+		</div>
+	<%
+				
+			}
+		}
+	%>	
+		
+	</div> 
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>

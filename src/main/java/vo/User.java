@@ -13,21 +13,6 @@ public class User {
 	private String tel;
 	private String address;
 	
-	public String getTel() {
-		return tel;
-	}
-
-	public void setTel(String tel) {
-		this.tel = tel;
-	}
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
 
 	public User() {}
 
@@ -78,5 +63,29 @@ public class User {
 	public void setCreatedDate(Date createdDate) {
 		this.createdDate = createdDate;
 	}
+
+	public String getTel() {
+		return tel;
+	}
+
+	public void setTel(String tel) {
+		this.tel = tel;
+	}
+
+	public String getAddress() {
+		return address;
+	}
+
+	public void setAddress(String address) {
+		this.address = address;
+	}
+
+	@Override
+	public String toString() {
+		return "User [no=" + no + ", id=" + id + ", password=" + password + ", name=" + name + ", email=" + email
+				+ ", createdDate=" + createdDate + ", tel=" + tel + ", address=" + address + "]";
+	}
+
 	
+
 }

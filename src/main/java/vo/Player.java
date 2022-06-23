@@ -12,6 +12,10 @@ public class Player {
 	private String nationality;
 	private int goal;
 	private String position;
+	private String fileName;
+	private Club club;
+	private League league;	
+	private int rank;
 	
 	public Player () {}
 
@@ -78,7 +82,38 @@ public class Player {
 	public void setPosition(String position) {
 		this.position = position;
 	}
-	
+
+	public String getFileName() {
+		return fileName;
+	}
+
+	public void setFileName(String fileName) {
+		this.fileName = fileName;
+	}
+
+	public Club getClub() {
+		return club;
+	}
+
+	public void setClub(Club club) {
+		this.club = club;
+	}
+
+	public League getLeague() {
+		return league;
+	}
+
+	public void setLeague(League league) {
+		this.league = league;
+	}
+
+	public int getRank() {
+		return rank;
+	}
+
+	public void setRank(int rank) {
+		this.rank = rank;
+	}
 	
 	
 }
