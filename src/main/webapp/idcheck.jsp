@@ -1,16 +1,20 @@
-<%@page import="com.google.gson.Gson"%>
+
 <%@page import="java.util.HashMap"%>
 <%@page import="java.util.Map"%>
+<%@page import="com.google.gson.Gson"%>
 <%@page import="vo.User"%>
 <%@page import="dao.UserDao"%>
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="application/json; charset=UTF-8"
+    pageEncoding="UTF-8" trimDirectiveWhitespaces="true"%>
+
 <%
 	// 요청 파라미터로 중복체크를 의뢰할 아이디를  조회
 	String userId = request.getParameter("id");
 	
 	UserDao userDao = UserDao.getInstance();
-	// 아이디에 해당하는 사용자 정보를 조회ㅏ
+
+	// 아이디에 해당하는 사용자 정보를 조회
+
 	User user = userDao.getUserById(userId);
 	
 	// 아이디 존재여부를 저장하는 HashMap객체 생성
