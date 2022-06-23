@@ -16,8 +16,9 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="/soccer/favicon.ico" rel="icon" type="image/x-icon" />
 
+
 <style>
-      span {
+      .span2 {
       	    -webkit-text-size-adjust: 100%;
 		    font: normal 14px Helvetica,Arial,sans-serif;
 		    list-style-type: none;
@@ -51,7 +52,15 @@
 		    padding-left: 0;
 		    padding-right: 0;
       }
-      
+     h1,h3 {
+	font-family: 'GmarketSansBold';
+	}
+	@font-face {
+    font-family: 'GmarketSansBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansBold.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+	}
 </style>
 </head>
 <body>
@@ -66,20 +75,27 @@
 	
 	<div class="p-3">
 	<%
-		//User user = (User) session.getAttribute("LOGINED_USER");
-		//if (user == null) {
+		User user = (User) session.getAttribute("LOGINED_USER");
+		if (user == null) {
 	%>	
 			
-		<%-- <h1>팀 정보</h1>--%>
+		<h1>팀 정보</h1>
 	<%
-		//} else if(user.getNo() == 1){	
+		} else if(user.getNo() == 1){	
 	%>
 		<h1>팀 정보
 		
 			<button type="submit" class="btn btn-outline-secondary float-end" onclick="location.href='playerform.jsp'">선수등록</button>
 		</h1>
 	<%
-		//}
+		} else if(user.getNo() != 1){
+			
+		
+	%>
+		<h1>팀 정보</h1>
+		
+	<%
+		}
 	%>
 	</div>	
 	
@@ -101,21 +117,21 @@
                 <span class="name"> 클럽명 </span> 
             </div>
 			<div>
-                <span> <%=club.getName() %> </span> 
+                <span class="span2"> <%=club.getName() %> </span> 
             </div>
             <hr>
 			<div>
 				<span class="name"> 감독 </span> 
             </div>
             <div class="mb-3">
-                <span>  <%=club.getClubCoach() %></span>
+                <span class="span2">  <%=club.getClubCoach() %></span>
             </div>
             <hr>
             <div>
 				<span class="name"> 구장 </span> 
             </div>
             <div class="mb-3">
-                <span>  <%=club.getClubHome() %></span>
+                <span class="span2">  <%=club.getClubHome() %></span>
             </div>
 			
 		</div>
@@ -124,28 +140,28 @@
 				<span class="name"> 순위 </span> 
             </div>
           	<div class="mb-3">
-               	<span>  <%=club.getRank() %></span>
+               	<span class="span2">  <%=club.getRank() %></span>
            	</div>
            	<hr>
 			<div>
 				<span class="name"> 승 </span> 
            	</div>
            	<div class="mb-3">
-               	<span>  <%=club.getWin() %></span>
+               	<span class="span2">  <%=club.getWin() %></span>
            	</div>
            	<hr>
 			<div>
 				<span class="name"> 무 </span> 
            	</div>
            	<div class="mb-3">
-               	<span>  <%=club.getDraw() %></span>
+               	<span class="span2">  <%=club.getDraw() %></span>
            	</div>
            	<hr>
 			<div>
 				<span class="name"> 패 </span> 
            	</div>
            	<div class="mb-3">
-               	<span>  <%=club.getDefeat() %></span>
+               	<span class="span2">  <%=club.getDefeat() %></span>
            	</div>
 		</div>
 		<div class="col-3">

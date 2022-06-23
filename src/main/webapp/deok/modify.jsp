@@ -9,11 +9,11 @@
     pageEncoding="UTF-8"%>
 <%
 	
-	//User user = (User) session.getAttribute("LOGINED_USER");
-	//if (user.getNo() == 1) {
-	//	throw new RuntimeException("관리자만 접근 가능합니다.");
+	User user = (User) session.getAttribute("LOGINED_USER");
+	if (user.getNo() == 1) {
+		throw new RuntimeException("관리자만 접근 가능합니다.");
 
-	//} 
+	} 
 	MultipartRequest mr = new MultipartRequest(request, "C:\\eclipse\\workspace-web\\soccer\\src\\main\\webapp\\player");
 	int playerNo = StringUtil.stringToInt(mr.getParameter("playerNo"));
 	String name = mr.getParameter("name");
