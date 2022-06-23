@@ -37,7 +37,7 @@
 	user.setTel(tel);
 	user.setAddress(address);
 	
-
+	
 	userDao.insertUser(user);
 	
 

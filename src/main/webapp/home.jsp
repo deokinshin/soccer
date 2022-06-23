@@ -13,7 +13,9 @@
 </jsp:include>
 
 <style>
-
+	body {
+		background-color:#444442;
+	}
 </style>
 </head>
 
@@ -46,7 +48,8 @@
 	     	</div>
 	    </div>
 	    <div class="carousel-item">
-	      	<img src="images/news2	.jpg" class="d-block w-100" height="500px" alt="news2">
+	    	<a href="http://localhost/soccer2/newsDetail.jsp">
+	      	<img src="images/news2	.jpg" class="d-block w-100" height="500px" alt="news2"></a>
 	      	<div class="carousel-caption d-none d-md-block">
 	        <h5>비니시우스 결승골 레알 마드리드, 리버풀에 1-0승</h5>
 	        <p></p>
