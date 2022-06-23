@@ -14,7 +14,10 @@
 	      <%
 	      	if (user != null) {
 	      %>
+	      <div>
+	      <div style= "padding:10px 10px 0px 0px; float:left;">
 	      	<span class="navbar-text" style="color:black"><strong class="text-black"><%=user.getName() %></strong>님 환영합니다.</span>
+	      </div>
 	      <%
 	      	}
 	      %>
@@ -25,14 +28,18 @@
 	      	<div class="col-md-3 text-end">
 	        <button type="button" class="btn btn-outline-secondary me-2" onclick="location.href='loginform.jsp'">Login</button>
 	        <button type="button" class="btn btn-outline-secondary" onclick="location.href='registerform.jsp'">Sign-up</button>
+	        </div>
 	      <%
 	      	} else {
 	      %>
-	      	<button type="button" class="btn btn-outline-secondary" onclick="location.href='logout.jsp'">Logout</button>
+	      	<div class="text-end" style="float:right">
+	      	<button type="button" class="btn btn-outline-secondary me-2" onclick="location.href='logout.jsp'">Logout</button>
+	      	<button type="button" class="btn btn-outline-secondary" onclick="location.href='mypapge.jsp'">MyPage</button>
+      		</div>
 	      <%
 	      	}
-	      %>
-	      </div>
+	      %>     
+	      </div> 
       	</header>
 	</div>
 </nav>
