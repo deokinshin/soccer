@@ -41,25 +41,25 @@
 	</div>
 	<div class="carousel-inner" style="width: 850px; height: 500px;">
 	    <div class="carousel-item active">
-	      	<img src="/soccer/News/1.png" class="d-block w-100" height="500px" alt="news1">
+	    	<a href="http://localhost/soccer/dowoo/article.jsp?no=1">
+	      	<img src="/soccer/news/1.png" class="d-block w-100" height="500px" alt="news1"></a>
 	      	<div class="carousel-caption d-none d-md-block">
 	      	 	<h5>비니시우스 결승골 레알 마드리드, 리버풀에 1-0승</h5>
 	      	 	<p></p>
 	     	</div>
 	    </div>
 	    <div class="carousel-item">
-	    	<a href="http://localhost/soccer2/newsDetail.jsp">
-	      	<img src="images/news2	.jpg" class="d-block w-100" height="500px" alt="news2"></a>
+	    	<a href="http://localhost/soccer/dowoo/article.jsp?no=2">
+	      	<img src="/soccer/news/2.png" class="d-block w-100" height="500px" alt="news2"></a>
 	      	<div class="carousel-caption d-none d-md-block">
-	        <h5>비니시우스 결승골 레알 마드리드, 리버풀에 1-0승</h5>
+	        <h5>결승전 MVP 쿠르투아, 9개 선방으로 레알 우승 이끌었다.</h5>
 	        <p></p>
 	     	 </div>
 	    </div>
 	    <div class="carousel-item">
 	      <img src="images/news1.jpg" class="d-block w-100" height="500px" alt="news3">
 	      <div class="carousel-caption d-none d-md-block">
-	        <h5>Third slide label</h5>
-	        <p>Some representative placeholder content for the third slide.</p>
+	        <h5>클롭"우리는 최고였어.사랑한다.모두고생했어"</h5>
 	      </div>
 	    </div>
 		 </div>
