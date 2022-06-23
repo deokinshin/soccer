@@ -26,15 +26,16 @@
 	      	if (user == null) {
 	      %>
 	      	<div class="col-md-3 text-end">
-	        <button type="button" class="btn btn-outline-secondary me-2" onclick="location.href='loginform.jsp'">Login</button>
-	        <button type="button" class="btn btn-outline-secondary" onclick="location.href='registerform.jsp'">Sign-up</button>
+	        <button type="button" class="btn btn-outline-secondary me-2" onclick="location.href='/soccer/loginform.jsp'">Login</button>
+	        <button type="button" class="btn btn-outline-secondary" onclick="location.href='/soccer/registerform.jsp'">Sign-up</button>
 	        </div>
 	      <%
 	      	} else {
 	      %>
 	      	<div class="text-end" style="float:right">
-	      	<button type="button" class="btn btn-outline-secondary me-2" onclick="location.href='logout.jsp'">Logout</button>
-	      	<button type="button" class="btn btn-outline-secondary" onclick="location.href='mypapge.jsp'">MyPage</button>
+	      	<img src="/soccer/images/cart.png" width="40px" height="40px" style="margin-right:10px; marign-left:10px">
+	        <button type="button" class="btn btn-outline-secondary" onclick="location.href='/soccer/myinfo.jsp'">MyPage</button>
+	      	<button type="button" class="btn btn-outline-secondary me-2" onclick="location.href='/soccer/logout.jsp'">Logout</button>
       		</div>
 	      <%
 	      	}

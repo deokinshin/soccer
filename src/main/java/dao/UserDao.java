@@ -63,5 +63,24 @@ public class UserDao {
 		}, email);
 	}
 	
+	public void updateUser(User user) throws SQLException {
+		String sql  = "update soccer_users "
+					+ "set "
+					+ "user_email = ?, " 
+					+ "user_tel = ?, " 
+					+ "user_address = ? "
+					+ "where user_no = ? ";
+		
+		helper.update(sql, user.getEmail(), user.getTel(), user.getAddress(), user.getNo());
+	}
 	
+	public void updateUserPassword(User user) throws SQLException {
+		String sql  = "update soccer_users "
+					+ "set "
+					+ "user_password = ? "
+					+ "where user_no = ? ";
+		
+		helper.update(sql, user.getPassword(), user.getNo());
+		
+	}
 }
