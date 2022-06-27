@@ -27,7 +27,7 @@ ul li {
 				</li>
 				<li class="nav-item">
 
-					<a class="nav-link <%="goods".equals(menu) ? "active" : "" %>" aria-current="page" href="/soccer/goods.jsp">GOODS</a>
+					<a class="nav-link <%="goods".equals(menu) ? "active" : "" %>" aria-current="page" href="/soccer/goods/goods.jsp">GOODS</a>
 
 				</li>
 				<li class="nav-item">
