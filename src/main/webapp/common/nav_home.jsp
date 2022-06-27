@@ -18,16 +18,18 @@
 		<div class="collapse navbar-collapse justify-content-around" id="navbarNav">
 			<ul class="navbar-nav justify-content-around">
 				<li class="nav-item">
-					<a class="nav-link <%="news".equals(menu) ? "active" : "" %>" aria-current="page" href="/soccer/deok/league.jsp">LEAGUE</a>
+					<a class="nav-link <%="league".equals(menu) ? "active" : "" %>" aria-current="page" href="/soccer/deok/league.jsp">LEAGUE</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link <%="goal".equals(menu) ? "active" : "" %>" aria-current="page" href="/soccer/goods/goods.jsp">GOODS</a>
+
+					<a class="nav-link <%="goods".equals(menu) ? "active" : "" %>" aria-current="page" href="/soccer/goods.jsp">GOODS</a>
+
 				</li>
 				<li class="nav-item">
-					<a class="nav-link <%="goal".equals(menu) ? "active" : "" %>" aria-current="page" href="/soccer/dowoo/news.jsp">NEWS</a>
+					<a class="nav-link <%="news".equals(menu) ? "active" : "" %>" aria-current="page" href="/soccer/dowoo/news.jsp">NEWS</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link <%="goal".equals(menu) ? "active" : "" %>" aria-current="page" href="/soccer/deok/list.jsp">PLAYER</a>
+					<a class="nav-link <%="player".equals(menu) ? "active" : "" %>" aria-current="page" href="/soccer/deok/list.jsp">PLAYER</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link <%="goal".equals(menu) ? "active" : "" %>" aria-current="page" href="/soccer/dowoo/goals.jsp">GOALS</a>

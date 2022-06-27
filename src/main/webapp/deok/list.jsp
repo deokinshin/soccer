@@ -14,6 +14,8 @@
 <link href="/soccer/favicon.ico" rel="icon" type="image/x-icon" />
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="https://webfontworld.github.io/vitro/VitroCore.css" rel="stylesheet">
+<link href="hover.css" rel="stylesheet">
+
 <style type="text/css">
 @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap');
 
@@ -74,7 +76,7 @@ button {
   background-color: transparent;
 }
 
-// The code
+
 
 body {
   font-family: "DM Sans", sans-serif;
@@ -220,6 +222,10 @@ main {
     font-weight: normal;
     font-style: normal;
 }
+h2 {
+	font-family: 'GmarketSansBold';
+
+}
 </style>
 </head>
 <body>
@@ -267,7 +273,7 @@ main {
 <div class="responsive-container">
 	<div class="row mb-3">
 	<div class="col-12 mb-3">
-		<h1>전체 선수
+		<h1>선수 목록
 		
 			<select class="form-control form-control-sm w-25 float-end" name="position" onchange="changePositions()">
 				<option value="" <%=position.equals("") ? "selected" : "" %> >  전포지션</option>
@@ -287,14 +293,18 @@ main {
 		<div class="grid-column">
 			<a class="player" href="player.jsp?playerNo=<%=player.getPlayerNo() %>">
 				<div class="player-image">
+					<figure class="snip1585">
 					<img src="../player/<%=player.getFileName() %>" class="img" />
+					<figcaption>
+					    <h3><%=player.getClub().getName() %> <img src="../club/<%=player.getClubNo() %>.png" width="32" height="32" alt="<%=player.getClub().getName() %>"> <span><%=player.getName() %></span></h3>
+					</figcaption>
+					</figure>
 				</div>
 				<div class="player-content">
 					<div class="player-info">
 						<h2 class="player-name"><%=player.getName() %></h2>
-						<p class="player-club"><%=player.getClub().getName() %></p>
 					</div>
-						<p><%=player.getPosition() %></p>
+						<p><%=player.getPosition() %> <img alt="" src="../position/<%=player.getPosition() %>.png"></p>
 				</div>
 			</a>
 		</div>
@@ -348,7 +358,18 @@ main {
 		document.querySelector("input[name=position]").value = document.querySelector("select[name=position]").value;
 		document.getElementById("player-form").submit();
 	}
-
+	var snippet = [].slice.call(document.querySelectorAll('.hover'));
+	if (snippet.length) {
+	  snippet.forEach(function (snippet) {
+	    snippet.addEventListener('mouseout', function (event) {
+	      if (event.target.parentNode.tagName === 'figure') {
+	        event.target.parentNode.classList.remove('hover')
+	      } else {
+	        event.target.parentNode.classList.remove('hover')
+	      }
+	    });
+	  });
+	}
 </script>
 </body>
 </html>

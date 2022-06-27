@@ -10,7 +10,7 @@
 <%
 	
 	User user = (User) session.getAttribute("LOGINED_USER");
-	if (user.getNo() == 1) {
+	if (user.getNo() != 1) {
 		throw new RuntimeException("관리자만 접근 가능합니다.");
 
 	} 
