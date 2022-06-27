@@ -107,28 +107,23 @@
 		</div>
 	</div>
 </div>
-	<%
-		User user2 =(User) session.getAttribute("LOGINED_USER");
-			boolean isDisabled2 = true;
-				
-			isDisabled2 = true;
-			
-			if (user != null) {
-				NewsLikeUser newsLikeUser = newsDao.getNewsLikeUser(news.getNewsNo(), user.getNo());
-				NewsDislikeUser newsDislikeUser = newsDao.getNewsDislikeUser(news.getNewsNo(), user.getNo());
-				
-				if (newsLikeUser == null && newsDislikeUser == null ){
-					isDisabled = false;
-				}
-			}
-	%>
 <div class="row mb-3">
 	<div class="col">
 		<h3>댓글 목록</h3>
 			<div class="card-body">
-				<form class="row g-3">
+				<form class="row g-3" action="reply.jsp">
+					<input type="hidden" name="newsNo" value="<%=newsNo %>">
 					<div class="col-11">
-						<textarea rows="2" class="form-control" placeholder="로그인 후 댓글 작성이 가능합니다. "></textarea>
+					<%
+						String textContent;
+					
+						if (user == null) {
+							textContent = "로그인 후 댓글 작성이 가능합니다. ";
+						} else {
+							textContent = "댓글을 작성해 주세요 ";
+						}
+					%>					
+						<textarea rows="2" class="form-control" placeholder="<%=textContent %>"></textarea>		
 					</div>
 					<div class="col-1">
 						<button type="submit" class="btn btn-outline-secondary w-100 h-100 ">등록</button>
@@ -158,7 +153,7 @@
 								<p class="mb-0"><%=reply.getContent() %></p>
 							</div>
 							<div class="col-1 text-end">
-									<a href="../review/delete.jsp" class="btn btn-outline-secondary btn-sm">X</a>
+									<a href="delete.jsp" class="btn btn-outline-secondary btn-sm">X</a>
 							</div>
 						</div>
 					</div>
