@@ -21,7 +21,7 @@
 	<jsp:param name="menu" value="home"/>
 </jsp:include>
 
-<div class="container" style="width:1296; height:500; ">
+<div class="container" style="width:1296; height:500;">
 
 <div style="float:left; box-shadow: 0px 0px 10px #000;">
 	<img src="/soccer/images/matchuplogo.jpg" width="60px" height="500px">

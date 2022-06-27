@@ -31,6 +31,6 @@
 	   
 	   userDao.updateUserPassword(user);
 	   
-	   response.sendRedirect("myinfo.jsp");
+	   response.sendRedirect("pwcomplete.jsp");
 	   
 %>

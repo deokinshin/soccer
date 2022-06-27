@@ -149,7 +149,7 @@
 <body>
 <div class="container">
 	<div class="row">
-		<h1>비밀번호 수정</h1>
+		<h1>비밀번호 변경</h1>
 			<div class="col-xs-6 mb-4" align="center">
 				<p style="color:yellow;"><strong>변경할 비밀번호를 입력하세요.</strong></p>
 			</div>
@@ -160,9 +160,9 @@
 	<%
 		if("invalid".equals(fail)) {
 	%>
-		<div class="alert alert-danger">
-			<strong>현재비밀번호가 맞지 않습니다.</strong>
-		</div>
+			<div class="col-xs-6 mb-4" align="center">
+				<p style="color:red;"><strong>현재비밀번호가 맞지 않습니다.</strong>
+			</div>
 	<%
 		}
 	%>
