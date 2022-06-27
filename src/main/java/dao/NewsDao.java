@@ -11,7 +11,9 @@ import vo.News;
 
 import vo.NewsDislikeUser;
 import vo.NewsLikeUser;
+import vo.NewsReply;
 import vo.Player;
+import vo.User;
 
 
 public class NewsDao {
@@ -231,4 +233,50 @@ public class NewsDao {
 			return player;
 		}, leagueNo);
 	}
+	
+	public void insertNewsReply(NewsReply newsReply) throws SQLException {
+		String sql = "insert into soccer_news_replys "
+				   + "(reply_no, user_no, reply_contents) "
+				   + "values "
+				   + "(soccer_news_replys_seq.nextval, ?, ?)";
+		helper.insert(sql, newsReply.getUserNo(), newsReply.getContent());
+	}
+	
+	
+	public List<NewsReply> getNewsReply(int newsNo) throws SQLException {
+		String sql = "select R.reply_no, R.reply_contents, U.user_no, U.user_id, R.reply_created_date, R.reply_updated_date "
+				   + "from soccer_news_replys R, soccer_users U "
+				   + "where R.user_no = U.user_no "
+				   + "and R.news_no = ? ";
+		
+		return helper.selectList(sql, rs -> {
+			
+			NewsReply newsReply = new NewsReply();
+			
+			newsReply.setReplyNo(rs.getInt("REPLY_NO"));
+			newsReply.setContent(rs.getLong("REPLY_CONTENTS"));
+			newsReply.setCreatedDate(rs.getDate("REPLY_CREATED_DATE"));
+			newsReply.setUpdatedDate(rs.getDate("REPLY_UPDATED_DATE"));
+			
+			User user  = new User();
+			
+			user.setNo(rs.getInt("USER_NO"));
+			user.setId(rs.getString("USER_ID"));
+			newsReply.setUser(user);
+			
+			return newsReply;
+			
+		},newsNo);	
+	}
+	
+	public void updateNewsReply(NewsReply newsReply) throws SQLException {
+		String sql = "update soccer_news_replys "
+				   + "set "
+				   + "		reply_updated_date = sysdate, "
+				   + "		reply_contents = ?, "
+				   + "where news_no = ? " ;
+		
+		helper.update(sql, newsReply.getUpdatedDate(), newsReply.getContent(), newsReply.getNewsNo() );
+	}
+	
 }
