@@ -22,5 +22,5 @@
 	CartItemDao cartItemDao = CartItemDao.getInstance();
 	cartItemDao.mergeCartItem(cartItem);
 	
-	response.sendRedirect("../goods/detail.jsp?goodsNo="+goodsNo);
+	response.sendRedirect("../goods/detail.jsp?cartadd=YES&goodsNo="+goodsNo);
 %>
