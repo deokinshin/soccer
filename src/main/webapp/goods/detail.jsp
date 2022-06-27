@@ -15,9 +15,14 @@
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body>
-<jsp:include page="../common/nav.jsp">
+<jsp:include page="../common/nav3.jsp">
 	<jsp:param name="menu" value="goods" />
 </jsp:include>
+
+<jsp:include page="../common/nav_home.jsp">
+	<jsp:param name="menu" value="home"/>
+</jsp:include>
+
 <div class="container">
 	<div class="row mb-3">
 		<div class="col">
@@ -38,9 +43,11 @@
 			GoodsReviewDao goodsReviewDao = GoodsReviewDao.getInstance();
 			List<GoodsReviewDto> reviews = goodsReviewDao.getgoodsReviewDtos(goodsNo);
 			
-		%>  				
+		%>  		
+			<div class="img mb-3">		
 				<img src="../images/<%=goods.getClubNo() %>/<%=goods.getGoodsNo() %>.JPG" alt="<%=goods.getGoodsNo() %>" style="width: 700px; height: 600px; float: left;"/>
-				<table class="table" style="width: 300px; float: none;">				
+			</div>
+				<table class="table" style="width: 400px; float: none;">				
 					<tbody>
 						<tr>
 							<th>번호</th>
@@ -57,9 +64,8 @@
 					</tbody>
 				</table>
 				
-				<button type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"">
-					장바구니 담기
-				</button>
+				<button type="button" class="btn btn-outline-primary btn-lg" onclick="location.href='../cart/add.jsp?goodsNo=<%=goodsNo%>';">장바구니 담기</button>
+				<button class="btn btn-primary btn-lg" type="submit">바로 구매</button>
 				
 				<div class="accordion mb-3" id="accordionExample">
   						<div class="accordion-item">
@@ -82,12 +88,15 @@
       					<% 
 							for(int i=1; i<=11; i++) {
 						%>
-					<div class="image-container" overflow: hidden; display: flex; text-align: center; align-items: center;>
+					<div class="image-container" style="overflow: hidden; text-align: center; align-items: center;">
 						<img src="../images/detail/<%=goods.getClubNo() %>/<%=i%>.JPG">
 					</div>
 				<% 
 					}
 				%>
+				
+				</div>
+				
     				</div>
 		</div>
 	</div>

@@ -63,7 +63,28 @@ public class ClubDao {
 		}, clubNo);
 	}
 	
-	
+	public List<Club> getAllClubs() throws SQLException{
+		String sql = "select * "
+				   + "from SOCCER_CLUBS ";
+		
+		return helper.selectList(sql, rs -> {
+			Club club = new Club();
+			club.setLeagueNo(rs.getInt("LEAGUE_NO"));
+			club.setClubNo(rs.getInt("CLUB_NO"));
+			club.setName(rs.getNString("CLUB_NAME"));
+			club.setRank(rs.getInt("CLUB_RANK"));
+			club.setFoundingDate(rs.getDate("FOUNDING_DATE"));
+			club.setOintment(rs.getNString("OINTMENT"));
+			club.setClubHome(rs.getNString("CLUB_HOME"));
+			club.setClubCoach(rs.getNString("CLUB_COACH"));
+			club.setWin(rs.getInt("CLUB_WIN"));
+			club.setDraw(rs.getInt("CLUB_DRAW"));
+			club.setDefeat(rs.getInt("CLUB_DEFEAT"));
+			club.setPoint(rs.getInt("CLUB_POINT"));
+			
+			return club;
+		});
+	}
 	
 	
 }

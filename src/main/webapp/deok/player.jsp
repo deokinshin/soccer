@@ -48,8 +48,9 @@
 		    padding-bottom: 8px;
 		    padding-left: 0;
 		    padding-right: 0;
+		    
       }
-    h1,h3 {
+    h1,h3,h5 {
 		font-family: 'GmarketSansBold';
 	}
 	@font-face {
