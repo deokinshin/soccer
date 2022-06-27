@@ -28,8 +28,12 @@
 				<li class="nav-item" id="nvab">
 					<a class="nav-link <%="league".equals(menu) ? "active" : "" %>" aria-current="page" href="/soccer/deok/league.jsp">LEAGUE</a>
 				</li>
-				<li class="nav-item" id="nvab">
-					<a class="nav-link <%="goods".equals(menu) ? "active" : "" %>" aria-current="page" href="/soccer/goods.jsp">GOODS</a>
+
+				<li class="nav-item">
+
+					<a class="nav-link <%="goods".equals(menu) ? "active" : "" %>" aria-current="page" href="/soccer/goods/goods.jsp">GOODS</a>
+
+
 				</li>
 				<li class="nav-item" id="nvab">
 					<a class="nav-link <%="news".equals(menu) ? "active" : "" %>" aria-current="page" href="/soccer/dowoo/news.jsp">NEWS</a>
