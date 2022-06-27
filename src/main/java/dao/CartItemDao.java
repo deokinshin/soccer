@@ -36,7 +36,7 @@ public class CartItemDao {
 				+ "            C.cart_item_updated_date = sysdate "
 				+ "when not matched then "
 				+ "    insert (cart_item_no, user_no, goods_no, cart_item_quantity) "
-				+ "    values (soccer_cartitems_seq.nextval, ?, ?, 1)";
+				+ "    values (soccer_cart_seq.nextval, ?, ?, 1)";
 		
 		Connection connection = ConnectionUtil.getConnection();
 		PreparedStatement pstmt = connection.prepareStatement(sql);
