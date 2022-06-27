@@ -22,7 +22,7 @@
 	%>
 <div class="container">
 	<h3>내 정보
-	<button type="submit" class="btn btn-outline-secondary float-end" onclick="location.href='/soccer/mypasswordform.jsp'">비밀번호 수정</button>
+	<button type="submit" class="btn btn-outline-secondary float-end" onclick="location.href='/soccer/mypasswordform.jsp'">비밀번호 변경</button>
 	<button type="submit" class="btn btn-outline-secondary float-end me-2" onclick="location.href='/soccer/mypageform.jsp'">정보 수정</button>
 	
 	</h3>
