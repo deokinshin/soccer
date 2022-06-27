@@ -46,13 +46,15 @@
 			<div class="card mb-2" style="max-width: 100%;">
 		  		<div class="row g-0">
 		    		<div class="col-md-4">
-		      			<img src="../news/<%=news.getNewsNo() %>.png" class="img-fluid rounded-start" style="width:100%" alt="<%=news.getNewsName() %>">
+		    			<div class ="card h-100">
+		      				<img src="../news/<%=news.getNewsNo() %>.png" class="img-fluid rounded-start" style="width:100%" alt="<%=news.getNewsName() %>">
+		    			</div>
 		    		</div>
 		   			 <div class="col-md-8">
 		      			<div class="card-body">
 		        			<h5 class="card-title"><strong><%=news.getNewsName() %></strong></h5>
 		        			<p class="card-text"><%=news.getNewsTitle() %></p>
-		       				<p class="card-text"><small class="text-muted"><%=news.getNewsCreatedDate() %></small></p>
+		       				<p class="card-text-bottom"><small class="text-muted"><%=news.getNewsCreatedDate() %></small></p>
 		      			</div>
 		    		</div>
 		  		</div>
@@ -62,7 +64,7 @@
 			}
 		%>
 		<div class="row justify-content-center">
-			<div class="col-2">
+			<div class="col-2" style= "padding: 5px; margin-left: 100px">
 				<nav>
 					<ul class="pagination">
 						<li class="page-item">
