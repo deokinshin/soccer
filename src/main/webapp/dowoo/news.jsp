@@ -63,36 +63,36 @@
 		<%
 			}
 		%>
-		<div class="row justify-content-center">
-			<div class="col-2" style= "padding: 5px; margin-left: 100px">
-				<nav>
-					<ul class="pagination">
-						<li class="page-item">
-							<a class="page-link <%=pagination.getCurrentPage() == 1 ? "disabled" : "" %>" href="javascript:clickPageNo(<%=pagination.getCurrentPage() - 1 %>)">이전</a>
-						</li>
-				<%
-					for (int num = pagination.getBeginPage(); num <= pagination.getEndPage(); num++) {
-				%>
-						<li class="page-item">
-							<a class="page-link <%=pagination.getCurrentPage() == num ? "active" : "" %>" href="javascript:clickPageNo(<%=num %>)"><%=num %></a>
-						</li>
-				<%
-					}
-				%>
-						<li class="page-item">
-							<a class="page-link <%=pagination.getCurrentPage() == pagination.getTotalPages() ? "disabled" : "" %>" href="javascript:clickPageNo(<%=pagination.getCurrentPage() + 1 %>)">다음</a>
-						</li>
-					</ul>
-				</nav>
-				<div class="col-4">
-					<form id="news-form" class="row g-3" method="get" action="news.jsp">
-						<input type="hidden" name="page" />
-					</form>
+			<div class="row">
+			<div class="col-5"></div>
+				<div class="col-3" style= "padding: 5px; margin-left: 100px">
+					<nav>
+						<ul class="pagination">
+							<li class="page-item">
+								<a class="page-link <%=pagination.getCurrentPage() == 1 ? "disabled" : "" %>" href="javascript:clickPageNo(<%=pagination.getCurrentPage() - 1 %>)">이전</a>
+							</li>
+					<%
+						for (int num = pagination.getBeginPage(); num <= pagination.getEndPage(); num++) {
+					%>
+							<li class="page-item">
+								<a class="page-link <%=pagination.getCurrentPage() == num ? "active" : "" %>" href="javascript:clickPageNo(<%=num %>)"><%=num %></a>
+							</li>
+					<%
+						}
+					%>
+							<li class="page-item">
+								<a class="page-link <%=pagination.getCurrentPage() == pagination.getTotalPages() ? "disabled" : "" %>" href="javascript:clickPageNo(<%=pagination.getCurrentPage() + 1 %>)">다음</a>
+							</li>
+						</ul>
+					</nav>
+					<div class="col">
+						<form id="news-form" class="row g-3" method="get" action="news.jsp">
+							<input type="hidden" name="page" />
+						</form>
+					</div>
 				</div>
 			</div>
 		</div>
-
-	</div>
 </div>
 <div class="container justify-content-center">
 </div>
