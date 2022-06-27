@@ -144,6 +144,27 @@ public class PlayerDao {
 		},position,beginIndex, endIndex);
 	}
 	
+	public List<Player> getAllPlayers() throws SQLException {
+		String sql = "select * "
+				   + "from SOCCER_PLAYERS ";
+		
+		return helper.selectList(sql, rs -> {
+			Player player = new Player();
+			
+			player.setPlayerNo(rs.getInt("PLAYER_NO"));
+			player.setClubNo(rs.getInt("CLUB_NO"));
+			player.setName(rs.getString("PLAYER_NAME"));
+			player.setUfNo(rs.getInt("PLAYER_UF_NO"));
+			player.setBirth(rs.getDate("PLAYER_BIRTH"));
+			player.setNationality(rs.getString("PLAYER_NATIONALITY"));
+			player.setGoal(rs.getInt("PLAYER_GOAL"));
+			player.setPosition(rs.getString("PLAYER_POSITION"));
+			player.setFileName(rs.getString("PLAYER_FILE_NAME"));
+
+			return player;
+		});
+		
+	}
 	
 	public Player getPlayerNoPlayer(int playerNo) throws SQLException {
 		String sql = "select * "

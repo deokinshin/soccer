@@ -1,3 +1,5 @@
+<%@page import="vo.League"%>
+<%@page import="dao.LeagueDao"%>
 <%@page import="util.StringUtil"%>
 <%@page import="vo.Club"%>
 <%@page import="java.util.List"%>
@@ -14,53 +16,7 @@
 <link href="https://webfontworld.github.io/NanumBarunGothic/NanumBarunGothic.css" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.0/assets/owl.carousel.min.css">
 <link href="/soccer/favicon.ico" rel="icon" type="image/x-icon" />
-
-<style type="text/css">
-	th,td {
-  color: #666;
-  font: 14px/24px "Open Sans", "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", Sans-Serif;
-}
-table {
-  border-collapse: separate;
-  border-spacing: 0;
-  width: 100%;
-}
-th,
-td {
-  padding: 6px 15px;
-  text-align: center;
-  
-}
-th {
-  background: #42444e;
-  color: #111;
-  text-align: center;
-}
-tr:first-child th:first-child {
-  border-top-left-radius: 6px;
-}
-tr:first-child th:last-child {
-  border-top-right-radius: 6px;
-}
-td {
-  border-right: 1px solid #c6c9cc;
-  border-bottom: 1px solid #c6c9cc;
-}
-td:first-child {
-  border-left: 1px solid #c6c9cc;
-}
-tr:nth-child(even) td {
-  background: #eaeaed;
-}
-tr:last-child td:first-child {
-  border-bottom-left-radius: 6px;
-}
-tr:last-child td:last-child {
-  border-bottom-right-radius: 6px;
-}
-
-
-</style>
+<link href="league.css" rel="stylesheet">
 </head>
 <body>
 <jsp:include page="../common/nav3.jsp">
@@ -76,14 +32,30 @@ tr:last-child td:last-child {
 	  		int leagueNo = StringUtil.stringToInt(request.getParameter("leagueNo"));
 	  		ClubDao clubDao = ClubDao.getInstance();
 	  		List<Club> clubList = clubDao.getLeagueNoClubs(leagueNo);
+	  		LeagueDao leagueDao = LeagueDao.getInstance();
+	  		League league = leagueDao.getLeagueNoLeague(leagueNo);
 	  %> 
 	<div class="row p-2"  >
-		<img alt="" src="../league/<%=leagueNo %>.jpg" style="height: 500px;  object-fit: contain;">
+		<figure class="snip1477">
+			<img alt="" src="../league/<%=leagueNo %>.jpg" style="height: 500px;  object-fit: contain;">
+			<div class="title">
+				<div>
+					<h2><%=league.getName() %></h2>
+					<h4>League</h4>
+				</div>
+			</div>
+			<figcaption>
+				<p><%=league.getInformation() %></p>
+			</figcaption>
+			<a href="#"></a>
+		</figure>
 	</div>
 	<div class="row">
 		<form id="search-form" class="row" method="get" action="league1.jsp">
 			<div class="col-1">
-			<p>리그 선택</p>
+			<p>리그 선택
+			
+			</p>
 			</div>
 			<select class="form-control form-control-sm w-25 float-end" name="leagueNo" onchange="changeLeagueNo()">
 				<option value="1" <%=leagueNo == 1 ? "selected" : "" %>> 프리미어리그</option>
@@ -93,7 +65,7 @@ tr:last-child td:last-child {
 				
 			</select>
 			<input type="hidden" name="leagueNo"/>
-		</form>
+		</form> 
 	
 	</div>
   <div class="table-responsive">
@@ -119,7 +91,7 @@ tr:last-child td:last-child {
 	  %>
 		    <tr>
 			      <th scope="row"><%=club.getRank() %></th>
-			      <td><img src="../club/<%=club.getClubNo() %>.png" width="32" height="32" alt="맨시티">  <a href="club.jsp?clubNo=<%=club.getClubNo() %>"><%=club.getName() %></a></td>
+			      <td><img src="../club/<%=club.getClubNo() %>.png" width="32" height="32" alt="<%=club.getName() %>">  <a href="club.jsp?clubNo=<%=club.getClubNo() %>"><%=club.getName() %></a></td>
 			      <td><%=club.getFoundingDate() %></td>
 			      <td><%=club.getOintment() %></td>
 			      <td><%=club.getClubHome() %></td>
@@ -143,6 +115,11 @@ function changeLeagueNo() {
 	
 	document.getElementById("search-form").submit();
 }
+$(".hover").mouseleave(
+		  function () {
+		    $(this).removeClass("hover");
+		  }
+		);
 </script>
 </body>
 </html>

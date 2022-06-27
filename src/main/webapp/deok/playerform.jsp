@@ -1,3 +1,8 @@
+<%@page import="vo.Player"%>
+<%@page import="dao.PlayerDao"%>
+<%@page import="java.util.List"%>
+<%@page import="vo.Club"%>
+<%@page import="dao.ClubDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -8,140 +13,7 @@
 <title>선수 등록</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
 <link href="/soccer/favicon.ico" rel="icon" type="image/x-icon" />
-
-<style type="text/css">
-	body {
-    background-color: #444442;
-    padding-top: 85px;
-	}
-	
-	h1 {
-	    font-family: 'Poppins', sans-serif, 'arial';
-	    font-weight: 600;
-	    font-size: 72px;
-	    color: white;
-	    text-align: center;
-	}
-	
-	h4 {
-	    font-family: 'Roboto', sans-serif, 'arial';
-	    font-weight: 400;
-	    font-size: 20px;
-	    color: #9b9b9b;
-	    line-height: 1.5;
-	}
-	
-	/* ///// inputs /////*/
-	
-	input:focus ~ label, textarea:focus ~ label, input:valid ~ label, textarea:valid ~ label {
-	    font-size: 0.75em;
-	    color: #999;
-	    top: -5px;
-	    -webkit-transition: all 0.225s ease;
-	    transition: all 0.225s ease;
-	}
-	
-	.styled-input {
-	    float: left;
-	    width: 293px;
-	    margin: 1rem 0;
-	    position: relative;
-	    border-radius: 4px;
-	}
-	
-	@media only screen and (max-width: 768px){
-	    .styled-input {
-	        width:100%;
-	    }
-	}
-	
-	.styled-input label {
-	    color: #999;
-	    padding: 1.3rem 30px 1rem 30px;
-	    position: absolute;
-	    top: 10px;
-	    left: 0;
-	    -webkit-transition: all 0.25s ease;
-	    transition: all 0.25s ease;
-	    pointer-events: none;
-	}
-	
-	.styled-input.wide { 
-	    width: 650px;
-	    max-width: 100%;
-	}
-	
-	input,
-	textarea {
-	    padding: 30px;
-	    border: 0;
-	    width: 100%;
-	    font-size: 1rem;
-	    background-color: #2d2d2d;
-	    color: white;
-	    border-radius: 4px;
-	}
-	
-	input:focus,
-	textarea:focus { outline: 0; }
-	
-	input:focus ~ span,
-	textarea:focus ~ span {
-	    width: 100%;
-	    -webkit-transition: all 0.075s ease;
-	    transition: all 0.075s ease;
-	}
-	
-	textarea {
-	    width: 100%;
-	    min-height: 15em;
-	}
-	
-	.input-container {
-	    width: 650px;
-	    max-width: 100%;
-	    margin: 20px auto 25px auto;
-	}
-	
-	.submit-btn {
-	    float: right;
-	    padding: 7px 35px;
-	    border-radius: 60px;
-	    display: inline-block;
-	    background-color: #4b8cfb;
-	    color: white;
-	    font-size: 18px;
-	    cursor: pointer;
-	    box-shadow: 0 2px 5px 0 rgba(0,0,0,0.06),
-	              0 2px 10px 0 rgba(0,0,0,0.07);
-	    -webkit-transition: all 300ms ease;
-	    transition: all 300ms ease;
-	}
-	
-	.submit-btn:hover {
-	    transform: translateY(1px);
-	    box-shadow: 0 1px 1px 0 rgba(0,0,0,0.10),
-	              0 1px 1px 0 rgba(0,0,0,0.09);
-	}
-	
-	@media (max-width: 767px) {
-	    .submit-btn {
-	        width:100%;
-	        float: none;
-	        text-align:center;
-	    }
-	}
-	
-	input[type=checkbox] + label {
-	  color: #ccc;
-	  font-style: italic;
-	} 
-	
-	input[type=checkbox]:checked + label {
-	  color: #f00;
-	  font-style: normal;
-	}
-</style>
+<link href="form.css" rel="stylesheet"/>
 </head>
 <body>
 <div class="container">
@@ -178,25 +50,23 @@
 				</div>
 				<div class="col-xs-6">
 					<label>클럽</label> 
+					<%
+						ClubDao clubDao = ClubDao.getInstance();
+						List<Club> clubList = clubDao.getAllClubs();
+						
+						
+					%>
 					<div class="styled-input wide">
 						<select class="form-select" name="clubNo">
 							<option value="" selected="selected" disabled="disabled"> 선택하세요</option>
-							<option value="1"> 맨시티</option>
-							<option value="2"> 리버풀</option>
-							<option value="3"> 첼시</option>
-							<option value="4"> 토트넘</option>
-							<option value="5"> 레알마드리드</option>
-							<option value="6"> 바르셀로나</option>
-							<option value="7"> AT 마드리드</option>
-							<option value="8"> 세비야</option>
-							<option value="9"> AC 밀란</option>
-							<option value="10"> 인테르나치오날레 밀라노</option>
-							<option value="11"> 나폴리</option>
-							<option value="12"> 유벤투스</option>
-							<option value="13"> 바이에른 뮌헨</option>
-							<option value="14"> 도르트문트</option>
-							<option value="15"> 레버쿠젠</option>
-							<option value="16"> 라이프치히</option>
+							<%
+								for (Club club : clubList) {
+									
+							%>
+							<option value="<%=club.getClubNo() %>"> <%=club.getName() %></option>
+							<%
+								}
+							%>
 						</select>
 					</div>
 				</div>
@@ -262,7 +132,12 @@
 			birthField.focus();
 			return false;
 		}
-		
+		let clubField = document.querySelector("input[name=clubNo]");
+		if (clubField.value === '') {
+			alert("클럽은 필수입력값입니다.");
+			clubField.focus();
+			return false;
+		}
 		return true;
 	}
 	function readURL(input) {
