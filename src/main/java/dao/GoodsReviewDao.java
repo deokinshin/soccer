@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import dto.GoodsReviewDto;
+import helper.DaoHelper;
 import util.ConnectionUtil;
 
 public class GoodsReviewDao {
@@ -17,6 +18,9 @@ public class GoodsReviewDao {
 	public static GoodsReviewDao getInstance() {
 		return instance;
 	}
+	
+	private DaoHelper helper = DaoHelper.getInstance();
+
 	
 	public List<GoodsReviewDto> getgoodsReviewDtos(int goodsNo) throws SQLException {
 		String sql = "select R.review_no, R.user_no, R.goods_no, R.review_content, R.review_created_date, U.user_no, U.user_name "
@@ -45,5 +49,39 @@ public class GoodsReviewDao {
 		connection.close();
 		
 		return reviews;
+	}
+	
+	public void insertReview(GoodsReviewDto review) throws SQLException {
+		String sql = "insert into SOCCER_GOODS_REVIEWS "
+				   + "(REVIEW_NO,USER_NO,USER_NAME,GOODS_NO,REVIEW_CONTENT) "
+				   + "values "
+				   + "(SOCCER_GOODS_REVIEWS_SEQ.nextval , ?, ?, ?, ?) ";
+		helper.insert(sql, review.getUserNo(), review.getUserName(),review.getGoodsNo(),review.getReviewCountent());
+	}
+	
+	public void updateReview(GoodsReviewDto review) throws SQLException {
+		String sql = "update SOCCER_GOODS_REVIEWS "
+				   + "set "
+				   + "  REVIEW_CONTENT = ?, "
+				   + "  REVIEW_UPDATED_DATE = sysdate "
+				   + "WHERE REVIEW_NO = ? ";
+		helper.update(sql, review.getReviewCountent(), review.getReviewNo());
+	}
+	
+	public GoodsReviewDto getReviewNoReview(int reviewNo) throws SQLException {
+		String sql = "select USER_NO,USER_NAME,GOODS_NO,REVIEW_CONTENT "
+				   + "from SOCCER_GOODS_REVIEWS "
+				   + "where REVIEW_NO = ? ";
+		
+		return helper.selectOne(sql, rs -> {
+			GoodsReviewDto review = new GoodsReviewDto();
+			
+			review.setGoodsNo(rs.getInt(reviewNo));
+			review.setUserNo(rs.getInt(reviewNo));
+			review.setReviewCountent(rs.getString(reviewNo));
+			review.setUserName(rs.getNString(reviewNo));
+			
+			return review;
+		}, reviewNo);
 	}
 }
