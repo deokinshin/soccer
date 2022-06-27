@@ -20,6 +20,7 @@
 
 
 </head>
+
 <body>
 <jsp:include page="../common/nav3.jsp">
 	<jsp:param name="menu" value="home"/>
@@ -45,12 +46,14 @@
 	<div class="container">
 		<div class=row>
 			<div class=col>
+			<div style="padding:10px">
 				<h1 class="text-start"><%=news.getNewsName() %></h1>
 				<h5>좋아요<span class="badge bg-secondary"><%=news.getNewsLikeCount() %></span>
 					싫어요<span class="badge bg-secondary"><%=news.getNewsDislikeCount() %></span>
 				</h5>	
 				<small class="text-end">입력 <%=news.getNewsCreatedDate() %></small>
 				<hr>
+			</div>
 			</div>		
 		</div>
 	</div>
@@ -65,9 +68,6 @@
 		
 	</div>
 </div>
-<div class="container">
-	<div class="row">
-		<div class="col">
 			<%
 				User user =(User) session.getAttribute("LOGINED_USER");
 				boolean isDisabled = true;
@@ -82,11 +82,21 @@
 					}
 				}
 			%>
-			<a href="like.jsp?no=<%=newsNo %>&page=<%=currentPage %>" class="btn btn-light float-center <%=isDisabled ? "disabled" : "" %>">추천</a>
-			<a href="like.jsp?no=<%=newsNo %>&page=<%=currentPage %>" class="btn btn-light float-center <%=isDisabled ? "disabled" : "" %>">비추천</a>
+<div class="container justify-content: center;">
+	<div class ="row">
+		<div class ="col-2">
+			<div class="card text-center" style="width: 25rem;">
+			  <div class="card-body">
+			    <h4 class="card-title; text-align: center;">이 기사가 마음에 드시나요?</h4>
+			    <p class="card-text">그렇다면 좋아요 또는 싫어요를 눌러주세요</p>
+			    <a href="like.jsp?no=<%=newsNo %>&page=<%=currentPage %>" class="btn btn-light float-center <%=isDisabled ? "disabled" : "" %>">좋아요</a>
+				<a href="dislike.jsp?no=<%=newsNo %>&page=<%=currentPage %>" class="btn btn-light float-center <%=isDisabled ? "disabled" : "" %>">싫어요</a>
+			  </div>
+			</div>
 		</div>
-	</div>	
+	</div>
 </div>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>
