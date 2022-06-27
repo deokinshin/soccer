@@ -126,16 +126,16 @@
 			nationalityField.focus();
 			return false;
 		}
+		let clubField = document.querySelector("select[name=clubNo]");
+		if (clubField.value === '') {
+			alert("클럽은 필수입력값입니다.");
+			clubField.focus();
+			return false;
+		}
 		let birthField = document.querySelector("input[name=birth]");
 		if (birthField.value === '') {
 			alert("생일은 필수입력값입니다.");
 			birthField.focus();
-			return false;
-		}
-		let clubField = document.querySelector("input[name=clubNo]");
-		if (clubField.value === '') {
-			alert("클럽은 필수입력값입니다.");
-			clubField.focus();
 			return false;
 		}
 		return true;

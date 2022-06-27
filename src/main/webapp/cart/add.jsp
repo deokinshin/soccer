@@ -1,3 +1,4 @@
+<%@page import="java.io.PrintWriter"%>
 <%@page import="util.StringUtil"%>
 <%@page import="dao.CartItemDao"%>
 <%@page import="vo.CartItem"%>
@@ -21,6 +22,7 @@
 	
 	CartItemDao cartItemDao = CartItemDao.getInstance();
 	cartItemDao.mergeCartItem(cartItem);
-	
 	response.sendRedirect("../goods/detail.jsp?goodsNo="+goodsNo);
+	
+	
 %>

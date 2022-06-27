@@ -230,10 +230,10 @@ h2 {
 </head>
 <body>
 <jsp:include page="../common/nav3.jsp">
-	<jsp:param name="menu" value="home"/>
+	<jsp:param name="menu" value="player"/>
 </jsp:include>
 <jsp:include page="../common/nav_home.jsp">
-	<jsp:param name="menu" value="home"/>
+	<jsp:param name="menu" value="player"/>
 </jsp:include>
 <%
 	int currentPage = StringUtil.stringToInt(request.getParameter("page"), 1); // 없으면 1
@@ -312,7 +312,7 @@ h2 {
 		}	
 	%>
 	</div>
-	<div class="row">
+	<div class="row justify-content-center">
 		<div class="col-4"></div>
 		<div class="col-4">
 			<nav>
