@@ -2,8 +2,11 @@
     pageEncoding="UTF-8"%>
     
 <style>
-ul li {
-	list-style-type: none; float: left; margin-left: 150px;
+.nav-item {
+	list-style-type: none; float: left; margin-left: 125px;
+}
+.navbar-nav {
+	list-style-type: none; float: left; margin-left: 125px;
 }
 </style>    
    <%
@@ -21,22 +24,20 @@ ul li {
 			</button>
 		</div>
 		<div class="collapse navbar-collapse" id="navbarNav">
-			<ul class="navbar-nav justify-content-around">
-				<li class="nav-item">
+			<ul class="navbar-nav justify-content-around nav-item" id="nvab">
+				<li class="nav-item" id="nvab">
 					<a class="nav-link <%="league".equals(menu) ? "active" : "" %>" aria-current="page" href="/soccer/deok/league.jsp">LEAGUE</a>
 				</li>
-				<li class="nav-item">
-
+				<li class="nav-item" id="nvab">
 					<a class="nav-link <%="goods".equals(menu) ? "active" : "" %>" aria-current="page" href="/soccer/goods.jsp">GOODS</a>
-
 				</li>
-				<li class="nav-item">
+				<li class="nav-item" id="nvab">
 					<a class="nav-link <%="news".equals(menu) ? "active" : "" %>" aria-current="page" href="/soccer/dowoo/news.jsp">NEWS</a>
 				</li>
-				<li class="nav-item">
+				<li class="nav-item" id="nvab">
 					<a class="nav-link <%="player".equals(menu) ? "active" : "" %>" aria-current="page" href="/soccer/deok/list.jsp">PLAYER</a>
 				</li>
-				<li class="nav-item">
+				<li class="nav-item" id="nvab">
 					<a class="nav-link <%="goal".equals(menu) ? "active" : "" %>" aria-current="page" href="/soccer/dowoo/goals.jsp">GOALS</a>
 				</li>
 			</ul>
