@@ -21,7 +21,7 @@
 					<a class="nav-link <%="news".equals(menu) ? "active" : "" %>" aria-current="page" href="/soccer/deok/league.jsp">LEAGUE</a>
 				</li>
 				<li class="nav-item">
-					<a class="nav-link <%="goal".equals(menu) ? "active" : "" %>" aria-current="page" href="/soccer/goods.jsp">GOODS</a>
+					<a class="nav-link <%="goal".equals(menu) ? "active" : "" %>" aria-current="page" href="/soccer/goods/goods.jsp">GOODS</a>
 				</li>
 				<li class="nav-item">
 					<a class="nav-link <%="goal".equals(menu) ? "active" : "" %>" aria-current="page" href="/soccer/dowoo/news.jsp">NEWS</a>
@@ -43,7 +43,7 @@
     			<ul class="dropdown-menu">
       				<li><a class="dropdown-item" href="/soccer/home.jsp">홈</a></li>
      				<li><a class="dropdown-item" href="/soccer/deok/league.jsp">리그</a></li>
-      				<li><a class="dropdown-item" href="/soccer/goods.jsp">굿즈</a></li>
+      				<li><a class="dropdown-item" href="/soccer/goods/goods.jsp">굿즈</a></li>
       				<li><a class="dropdown-item" href="/soccer/dowoo/news.jsp">뉴스</a></li>
       				<li><a class="dropdown-item" href="/soccer/deok/list.jsp">플레이어</a></li>
       				<li><a class="dropdown-item" href="/soccer/dowoo/goals.jsp">골</a></li>
