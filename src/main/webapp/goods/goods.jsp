@@ -1,3 +1,4 @@
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="vo.Pagination"%>
 <%@page import="util.StringUtil"%>
 <%@page import="java.util.List"%>
@@ -73,9 +74,10 @@
 			
          List<Goods> goodsList = goodsDao.getGoods(pagination.getBeginIndex(), pagination.getEndIndex());
          
-         for (Goods goods : goodsList) {
+         DecimalFormat decFormat = new DecimalFormat("###,###");
          
-        	 
+         for (Goods goods : goodsList) {
+          	 
       %>
    
    
@@ -87,7 +89,7 @@
 	            <div class="card-body">
 	               <p class="card-text"><small><strong>soccer.com</strong></small></p>
 	               <p class="card-text"><small><%=goods.getGoodsName() %></small></p>
-	               <p class="card-text"><strong><%=goods.getGoodsPrice() %> </strong>원</p>
+	               <p class="card-text"><strong><%=decFormat.format(goods.getGoodsPrice()) %> </strong>원</p>
 	               <h5 class="card-title"><small>membership price</small></h5>
 	            </div>
 	         </div>
