@@ -302,4 +302,24 @@ public class NewsDao {
 			
 		},replyNo);
 	}
+	
+	public List<News> getRankNoNews(int newsNo) throws SQLException {
+		String sql = "SELECT * "
+				   + "FROM (SELECT RANK() OVER (ORDER BY NEWS_VIEW_COUNT DESC) AS RANK, NEWS_NO, NEWS_NAME, NEWS_VIEW_COUNT "
+				   + 		"FROM SOCCER_NEWS1 ) "
+				   + "WHERE RANK <= 4 " ;
+		
+		return helper.selectList(sql, rs -> {
+			
+			News news = new News();
+			
+			news.setNewsNo(rs.getInt("NEWS_NO"));
+			news.setNewsName(rs.getString("NEWS_NAME"));
+			news.setNewsViewCount(rs.getInt("NEWS_VIEW_COUNT"));
+			news.setRank(rs.getInt("RANK"));
+			
+			return news;
+			
+		}, newsNo);
+	}
 }

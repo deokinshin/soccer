@@ -41,8 +41,10 @@
 		news.setNewsViewCount(news.getNewsViewCount() + 1);
 		newsDao.updateNews(news);
 		
-		List<News> newsList = newsDao.getLeagueNoNews(leagueNo);
-		List<NewsReply> replys = newsDao.getNewsReply(newsNo);
+		List<News> newsList = newsDao.getLeagueNoNews(leagueNo);		
+		List<NewsReply> replys = newsDao.getNewsReply(newsNo);		
+		
+		List<News> newsList1 = newsDao.getRankNoNews(newsNo);
 		
 	%>
 	<div class="container">
@@ -108,6 +110,36 @@
 		</div>
 	</div>
 </div>
+
+		<%
+			for (News news1 : newsList1) {
+		%>
+
+<div class="container">
+	<div class ="row justify-content-center">
+		<div class ="col-4">
+			<div class="card text-center" style="width: 25rem;">
+			  <div class="card-body">
+				<h4 class="card-title; text-align: center;">실시간 인기 기사</h4>
+				<hr>
+					<div class=row-4>
+						<img alt="<%=news1.getNewsName() %>" src="../news/<%=news1.getNewsNo() %>.png">
+					</div>
+			 		<div class="card-body">
+			 		</div>
+					<div class=row-2>
+				    	<span class="badge bg-secondary"><%=news.getNewsLikeCount() %></span>
+				    	<span class="badge bg-secondary"><%=news.getNewsDislikeCount() %></span>
+				    </div>
+			  </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+		<%
+			}
+		%>
 
 <div class="container">
 	<div class="row mb-3">
