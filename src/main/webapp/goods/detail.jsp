@@ -1,3 +1,6 @@
+<%@page import="vo.OrderGoods"%>
+<%@page import="vo.Order"%>
+<%@page import="dao.OrderDao"%>
 <%@page import="util.StringUtil"%>
 <%@page import="dto.GoodsReviewDto"%>
 <%@page import="java.util.List"%>
@@ -36,14 +39,16 @@
 			// localhost/soccer2/goods/detail.jsp?goodsNo=100
 			
 			int goodsNo = StringUtil.stringToInt(request.getParameter("goodsNo"));
-			String cartAddCompleted = request.getParameter("cartadd");	
+			String cartAddCompleted = request.getParameter("cartadd");
+			
 		
 			GoodsDao goodsDao = GoodsDao.getInstance();
-			Goods goods = goodsDao.getGoodsByNo(goodsNo);
+			Goods goods = goodsDao.getGoodsByNo(goodsNo);		
 			
 			GoodsReviewDao goodsReviewDao = GoodsReviewDao.getInstance();
 			List<GoodsReviewDto> reviews = goodsReviewDao.getgoodsReviewDtos(goodsNo);
 			
+		
 		%>  		
 			<div class="img mb-3">		
 				<img src="../images/<%=goods.getClubNo() %>/<%=goods.getGoodsNo() %>.JPG" alt="<%=goods.getGoodsNo() %>" style="width: 700px; height: 600px; float: left;"/>
@@ -66,7 +71,7 @@
 				</table>
 				
 				<a class="btn btn-outline-primary btn-lg" href="../cart/add.jsp?goodsNo=<%=goodsNo%>">장바구니 담기</a>
-				<button class="btn btn-primary btn-lg" type="submit">바로 구매</button>
+				<a class="btn btn-primary btn-lg" href="../order/form.jsp?goodsNo=<%=goodsNo%>">바로 구매</a>
 				
 				<div class="modal fade" id="cart-add-completed-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
 	  				<div class="modal-dialog">

@@ -1,12 +1,8 @@
 package dao;
 
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import util.ConnectionUtil;
-import vo.Order;
+import helper.DaoHelper;
 
 public class OrderDao {
 	
@@ -15,28 +11,15 @@ public class OrderDao {
 	public static OrderDao getInstance() {
 		return instance;
 	}
+	private DaoHelper helper = DaoHelper.getInstance();
 	
-	public Order getOrderByNo(int orderNo) throws SQLException {
-		String sql = "select * "
-				   + "from soccer_orders "
-				   + "where order_no = ? ";
+	public int getOrderByNo(int orderNo) throws SQLException {
+		String sql = "select soccer_orders_seq.nextval seq "
+				   + "from dual ";
 		
-		Order order = null;
-		
-		Connection connection = ConnectionUtil.getConnection();
-		PreparedStatement pstmt = connection.prepareStatement(sql);
-		pstmt.setInt(1, orderNo);
-		ResultSet rs = pstmt.executeQuery();
-		if (rs.next()) {
-			order = new Order();
-			order.setOrderNo(rs.getInt("order_no"));
-			order.setUserNo(rs.getInt("user_no"));
-			order.setOrderTotalPrice(rs.getInt("order_total_price"));
-		}
-		rs.close();
-		pstmt.close();
-		connection.close();
-		
-		return order;
+			return helper.selectOne(sql, rs -> {
+			
+			return rs.getInt("seq");
+		});
 	}
 }
