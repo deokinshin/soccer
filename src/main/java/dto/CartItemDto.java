@@ -35,7 +35,7 @@ public class CartItemDto {
 		this.goodsNo = goodsNo;
 	}
 
-	public String getGoodsName() {
+	public String getGoodsName() { 
 		return goodsName;
 	}
 

@@ -1,4 +1,8 @@
-<%@page import="vo.User"%>
+
+<%@page import="vo.OrderGoods"%>
+<%@page import="vo.Order"%>
+<%@page import="dao.OrderDao"%>
+
 <%@page import="util.StringUtil"%>
 <%@page import="dto.GoodsReviewDto"%>
 <%@page import="java.util.List"%>
@@ -42,6 +46,7 @@
    </div>
    <div class="row mb-3">
       <div class="col">
+
 
       <%
          // localhost/soccer2/goods/detail.jsp?goodsNo=100
@@ -186,7 +191,19 @@
       %>
       </div>
    </div>
+
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
+<script type="text/javascript">
+	let modal = new bootstrap.Modal(document.getElementById("cart-add-completed-modal"));
+	
+	<%
+		if ("YES".equals(cartAddCompleted)) {
+	%>
+			modal.show();
+	<%
+		}
+	%>
+</script>
 </body>
 </html>
