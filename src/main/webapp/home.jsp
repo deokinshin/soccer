@@ -110,13 +110,13 @@
 	      </div>
 	    </div>
 	    <div class="carousel-item">
-	    <a href="http://localhost/soccer/goods/detail.jsp?goodsNo=17">
+	    <a href="http://localhost/soccer/goods/detail.jsp?goodsNo=18">
 	      <img src="/soccer/images/uniform/home/acm.jpg" class="d-block w-100" height="670px" alt="goods3"></a>
 	      <div class="carousel-caption d-none d-md-block">
 	      </div>
 	    </div>
 	    <div class="carousel-item">
-	    <a href="http://localhost/soccer/goods/detail.jsp?goodsNo=25">
+	    <a href="http://localhost/soccer/goods/detail.jsp?goodsNo=26">
 	      <img src="/soccer/images/uniform/home/bay.jpg" class="d-block w-100" height="670px" alt="goods4"></a>
 	      <div class="carousel-caption d-none d-md-block">
 	      </div>
@@ -153,13 +153,13 @@
 	      </div>
 	    </div>
 	    <div class="carousel-item">
-	    <a href="http://localhost/soccer/goods/detail.jsp?goodsNo=18">
+	    <a href="http://localhost/soccer/goods/detail.jsp?goodsNo=17">
 	      <img src="/soccer/images/uniform/away/acm.jpg" class="d-block w-100" height="670px" alt="goods3"></a>
 	      <div class="carousel-caption d-none d-md-block">
 	      </div>
 	    </div>
 	    <div class="carousel-item">
-	    <a href="http://localhost/soccer/goods/detail.jsp?goodsNo=26">
+	    <a href="http://localhost/soccer/goods/detail.jsp?goodsNo=25">
 	      <img src="/soccer/images/uniform/away/bay.jpg" class="d-block w-100" height="670px" alt="goods4"></a>
 	      <div class="carousel-caption d-none d-md-block">
 	      </div>
