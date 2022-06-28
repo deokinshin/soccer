@@ -236,10 +236,10 @@ public class NewsDao {
 	
 	public void insertNewsReply(NewsReply newsReply) throws SQLException {
 		String sql = "insert into soccer_news_replys "
-				   + "(reply_no, user_no, reply_contents) "
+				   + "(reply_no, user_no, user_id, news_no, reply_contents) "
 				   + "values "
-				   + "(soccer_news_replys_seq.nextval, ?, ?)";
-		helper.insert(sql, newsReply.getUserNo(), newsReply.getContent());
+				   + "(soccer_news_replys_seq.nextval, ?, ?, ?, ?) ";
+		helper.insert(sql, newsReply.getUserNo(), newsReply.getUserId(), newsReply.getNewsNo(), newsReply.getContent());
 	}
 	
 	
@@ -254,7 +254,7 @@ public class NewsDao {
 			NewsReply newsReply = new NewsReply();
 			
 			newsReply.setReplyNo(rs.getInt("REPLY_NO"));
-			newsReply.setContent(rs.getLong("REPLY_CONTENTS"));
+			newsReply.setContent(rs.getString("REPLY_CONTENTS"));
 			newsReply.setCreatedDate(rs.getDate("REPLY_CREATED_DATE"));
 			newsReply.setUpdatedDate(rs.getDate("REPLY_UPDATED_DATE"));
 			

@@ -7,7 +7,7 @@ public class NewsReply {
 	private int replyNo;
 	private int userNo;
 	private String userId;
-	private Long content;
+	private String content;
 	private String deleted;
 	private Date createdDate;
 	private Date updatedDate;
@@ -48,11 +48,11 @@ public class NewsReply {
 		this.userId = userId;
 	}
 
-	public Long getContent() {
+	public String getContent() {
 		return content;
 	}
 
-	public void setContent(Long content) {
+	public void setContent(String content) {
 		this.content = content;
 	}
 
