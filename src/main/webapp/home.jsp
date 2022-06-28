@@ -98,22 +98,26 @@
 		</div>
 		<div class="carousel-inner" style="width: 404px; height: 670px;">
 	    <div class="carousel-item active">
-	      <img src="/soccer/images/uniform/home/rmd.jpg" class="d-block w-100" height="670px" alt="goods1">
+	      <a href="http://localhost/soccer/goods/detail.jsp?goodsNo=9">
+	      <img src="/soccer/images/uniform/home/rmd.jpg" class="d-block w-100" height="670px" alt="goods1"></a>
 	      <div class="carousel-caption d-none d-md-block">
 	      </div>
 	    </div>
 	    <div class="carousel-item">
-	      <img src="/soccer/images/uniform/home/mancity.jpg" class="d-block w-100" height="670px" alt="goods2">
+	   	 <a href="http://localhost/soccer/goods/detail.jsp?goodsNo=1">
+	      <img src="/soccer/images/uniform/home/mancity.jpg" class="d-block w-100" height="670px" alt="goods2"></a>
 	      <div class="carousel-caption d-none d-md-block">
 	      </div>
 	    </div>
 	    <div class="carousel-item">
-	      <img src="/soccer/images/uniform/home/acm.jpg" class="d-block w-100" height="670px" alt="goods3">
+	    <a href="http://localhost/soccer/goods/detail.jsp?goodsNo=17">
+	      <img src="/soccer/images/uniform/home/acm.jpg" class="d-block w-100" height="670px" alt="goods3"></a>
 	      <div class="carousel-caption d-none d-md-block">
 	      </div>
 	    </div>
 	    <div class="carousel-item">
-	      <img src="/soccer/images/uniform/home/bay.jpg" class="d-block w-100" height="670px" alt="goods4">
+	    <a href="http://localhost/soccer/goods/detail.jsp?goodsNo=25">
+	      <img src="/soccer/images/uniform/home/bay.jpg" class="d-block w-100" height="670px" alt="goods4"></a>
 	      <div class="carousel-caption d-none d-md-block">
 	      </div>
 	    </div>
@@ -137,22 +141,26 @@
 		</div>
 		<div class="carousel-inner" style="width: 404px; height: 670px;">
 	    <div class="carousel-item active">
-	      <img src="/soccer/images/uniform/away/rmd.jpg" class="d-block w-100" height="670px" alt="goods1">
+	    <a href="http://localhost/soccer/goods/detail.jsp?goodsNo=10">
+	      <img src="/soccer/images/uniform/away/rmd.jpg" class="d-block w-100" height="670px" alt="goods1"></a>
 	      <div class="carousel-caption d-none d-md-block">
 	      </div>
 	    </div>
 	    <div class="carousel-item">
-	      <img src="/soccer/images/uniform/away/mancity.jpg" class="d-block w-100" height="670px" alt="goods2">
+	    <a href="http://localhost/soccer/goods/detail.jsp?goodsNo=2">
+	      <img src="/soccer/images/uniform/away/mancity.jpg" class="d-block w-100" height="670px" alt="goods2"></a>
 	      <div class="carousel-caption d-none d-md-block">
 	      </div>
 	    </div>
 	    <div class="carousel-item">
-	      <img src="/soccer/images/uniform/away/acm.jpg" class="d-block w-100" height="670px" alt="goods3">
+	    <a href="http://localhost/soccer/goods/detail.jsp?goodsNo=18">
+	      <img src="/soccer/images/uniform/away/acm.jpg" class="d-block w-100" height="670px" alt="goods3"></a>
 	      <div class="carousel-caption d-none d-md-block">
 	      </div>
 	    </div>
 	    <div class="carousel-item">
-	      <img src="/soccer/images/uniform/away/bay.jpg" class="d-block w-100" height="670px" alt="goods4">
+	    <a href="http://localhost/soccer/goods/detail.jsp?goodsNo=26">
+	      <img src="/soccer/images/uniform/away/bay.jpg" class="d-block w-100" height="670px" alt="goods4"></a>
 	      <div class="carousel-caption d-none d-md-block">
 	      </div>
 	    </div>
@@ -166,6 +174,7 @@
 	    <span class="visually-hidden">Next</span>
 	  </button>
 	</div>
+</div>
 </div>
 </div>
 
