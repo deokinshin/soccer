@@ -1,3 +1,4 @@
+<%@page import="vo.NewsReply"%>
 <%@page import="vo.NewsDislikeUser"%>
 <%@page import="vo.NewsLikeUser"%>
 <%@page import="vo.User"%>
@@ -41,6 +42,7 @@
 		newsDao.updateNews(news);
 		
 		List<News> newsList = newsDao.getLeagueNoNews(leagueNo);
+		List<NewsReply> replys = newsDao.getNewsReply(newsNo);
 		
 	%>
 	<div class="container">
@@ -50,6 +52,7 @@
 				<h1 class="text-start"><%=news.getNewsName() %></h1>
 				<h5>좋아요<span class="badge bg-secondary"><%=news.getNewsLikeCount() %></span>
 					싫어요<span class="badge bg-secondary"><%=news.getNewsDislikeCount() %></span>
+					조회수<span class="badge bg-secondary"><%=news.getNewsViewCount() %></span>
 				</h5>	
 				<small class="text-end">입력 <%=news.getNewsCreatedDate() %></small>
 				<hr>
@@ -69,7 +72,7 @@
 	</div>
 </div>
 			<%
-				User user =(User) session.getAttribute("LOGINED_USER");
+				User user = (User) session.getAttribute("LOGINED_USER");
 				boolean isDisabled = true;
 				
 				isDisabled = true;
@@ -88,26 +91,88 @@
 		<div class ="col-4">
 			<div class="card text-center" style="width: 25rem;">
 			  <div class="card-body">
-			    <h4 class="card-title; text-align: center;">이 기사가 마음에 드시나요?</h4>
-			    <hr>
-			    <a href="like.jsp?no=<%=newsNo %>&page=<%=currentPage %>" class="btn btn-light float-center <%=isDisabled ? "disabled" : "" %>">
-			    	<i class="fa-solid fa-thumbs-up"></i>
-			    </a>
-				<a href="dislike.jsp?no=<%=newsNo %>&page=<%=currentPage %>" class="btn btn-light float-center <%=isDisabled ? "disabled" : "" %>">
-				<i class="fa-solid fa-thumbs-down"></i>
-				</a>
+				<h4 class="card-title; text-align: center;">이 기사가 마음에 드시나요?</h4>
+				<hr>
+					<div class=row-2>
+						<a href="like.jsp?no=<%=newsNo %>&page=<%=currentPage %>" class="btn btn-light float-center <%=isDisabled ? "disabled" : "" %>">
+					    	<i class="fa-solid fa-thumbs-up"></i></a>
+						<a href="dislike.jsp?no=<%=newsNo %>&page=<%=currentPage %>" class="btn btn-light float-center <%=isDisabled ? "disabled" : "" %>">
+						<i class="fa-solid fa-thumbs-down"></i></a>
+					</div>
+					<div class=row-2>
+				    	<span class="badge bg-secondary"><%=news.getNewsLikeCount() %></span>
+				    	<span class="badge bg-secondary"><%=news.getNewsDislikeCount() %></span>
+				    </div>
 			  </div>
 			</div>
 		</div>
 	</div>
 </div>
-<div class= container>
-	<div class= row>
-		<div class= col>
-			<div class = card>
-			
+<div class="row mb-3">
+	<div class="col">
+		<h3>댓글 목록</h3>
+			<div class="card-body">
+				<form class="row g-3" action="reply.jsp">
+					<input type="hidden" name="no" value="<%=newsNo %>">
+					<div class="col-11">
+					<%
+						String textContent;
+					
+						if (user == null) {
+							textContent = "로그인 후 댓글 작성이 가능합니다. ";
+						} else {
+							textContent = "댓글을 작성해 주세요 ";
+						}
+					%>					
+						<textarea rows="2" class="form-control" placeholder="<%=textContent %>" name="content"></textarea>		
+					</div>
+					<div class="col-1">
+						<button type="submit" class="btn btn-outline-secondary w-100 h-100 ">등록</button>
+					</div>
+				</form>
 			</div>
-		</div>
+			<%
+				if (replys.isEmpty()) {
+			%>
+			<div class="card mb-2">
+				<div class="card-body">
+					<p> 댓글이 없습니다.</p>
+				</div>
+			</div>
+			<%		
+				} else {
+					for (NewsReply reply : replys) {
+						
+				boolean isModify = false;
+				if (user != null && reply.getUserNo() == user.getNo() ) {
+					isModify = true;
+				}
+			%>
+				<div class = "card mb-2">
+					<div class = "card-body">
+						<div class = "d-flex justify-content-between">
+							<h6><%=reply.getUserId() %></h6>
+							<span><%=reply.getCreatedDate() %></span>
+						</div>
+						<form method="post" action="update.jsp">
+						<div class="row">
+							<input type ="hidden" name="replyNo" value="<%=reply.getReplyNo() %>"/>
+							<input type ="hidden" name="no" value="<%=newsNo %>"/>
+							<div class="col">
+								<textarea class= "mb-0 form-control border-0" name="content"><%=reply.getContent() %></textarea>
+							</div>
+							<div class="col-1 text-end">
+								<button class="btn btn-outline-secondary btn-sm <%=isModify ? "" :"disabled" %>">수정</button>
+								<a href="delete.jsp?replyNo=<%=reply.getReplyNo() %>&no=<%=newsNo %>" class="btn btn-outline-secondary btn-sm <%=isModify ? "" :"disabled" %>">X</a>
+							</div>
+						</div>
+						</form>
+					</div>
+				</div>
+			<%
+					}
+				}
+			%>
 	</div>
 </div>
 

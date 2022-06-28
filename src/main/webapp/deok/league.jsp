@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" errorPage="soccer/error/500.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -65,10 +65,10 @@
 </head>
 <body>
 <jsp:include page="../common/nav3.jsp">
-	<jsp:param name="menu" value="home"/>
+	<jsp:param name="menu" value="league"/>
 </jsp:include>
 <jsp:include page="../common/nav_home.jsp">
-	<jsp:param name="menu" value="home"/>
+	<jsp:param name="menu" value="league"/>
 </jsp:include>
 <div class="container1">
 	<div class="box" style=" cursor: pointer;" onclick="location.href='league1.jsp?leagueNo=1';">
