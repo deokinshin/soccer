@@ -8,7 +8,7 @@
 <%
 	User user = (User)session.getAttribute("LOGINED_USER");
 
-	int newsNo = StringUtil.stringToInt(request.getParameter("newsNo"));
+	int newsNo = StringUtil.stringToInt(request.getParameter("no"));
 	String content = request.getParameter("content");
 	
 	NewsDao newsDao = NewsDao.getInstance();
@@ -22,6 +22,6 @@
 	
 	newsDao.insertNewsReply(newsReply);
 	
-	response.sendRedirect("article.jsp?newsNo="+ newsNo);
+	response.sendRedirect("article.jsp?no="+ newsNo);
 
 %>

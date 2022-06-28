@@ -13,7 +13,6 @@ import vo.NewsDislikeUser;
 import vo.NewsLikeUser;
 import vo.NewsReply;
 import vo.Player;
-import vo.User;
 
 
 public class NewsDao {
@@ -97,6 +96,7 @@ public class NewsDao {
 
 			news.setNewsLikeCount(rs.getInt("NEWS_LIKE_COUNT"));
 			news.setNewsDislikeCount(rs.getInt("NEWS_DISLIKE_COUNT"));
+			news.setNewsViewCount(rs.getInt("NEWS_VIEW_COUNT"));
 				
 			
 			return news;
@@ -122,6 +122,7 @@ public class NewsDao {
 			news.setNewsUpdatedDate(rs.getDate("NEWS_UPDATED_DATE"));
 			news.setNewsLikeCount(rs.getInt("NEWS_LIKE_COUNT"));
 			news.setNewsDislikeCount(rs.getInt("NEWS_DISLIKE_COUNT"));
+			news.setNewsViewCount(rs.getInt("NEWS_VIEW_COUNT"));
 				
 			
 			return news;
@@ -147,6 +148,7 @@ public class NewsDao {
 			news.setNewsUpdatedDate(rs.getDate("NEWS_UPDATED_DATE"));
 			news.setNewsLikeCount(rs.getInt("NEWS_LIKE_COUNT"));
 			news.setNewsDislikeCount(rs.getInt("NEWS_DISLIKE_COUNT"));
+			news.setNewsViewCount(rs.getInt("NEWS_VIEW_COUNT"));
 			
 			
 			return news;
@@ -244,9 +246,10 @@ public class NewsDao {
 	
 	
 	public List<NewsReply> getNewsReply(int newsNo) throws SQLException {
-		String sql = "select R.reply_no, R.reply_contents, U.user_no, U.user_id, R.reply_created_date, R.reply_updated_date "
+		String sql = "select R.reply_no, R.reply_contents, U.user_no, U.user_id, R.reply_created_date, R.reply_updated_date, R.reply_deleted "
 				   + "from soccer_news_replys R, soccer_users U "
 				   + "where R.user_no = U.user_no "
+				   + "and R.reply_deleted = 'N' "
 				   + "and R.news_no = ? ";
 		
 		return helper.selectList(sql, rs -> {
@@ -257,12 +260,10 @@ public class NewsDao {
 			newsReply.setContent(rs.getString("REPLY_CONTENTS"));
 			newsReply.setCreatedDate(rs.getDate("REPLY_CREATED_DATE"));
 			newsReply.setUpdatedDate(rs.getDate("REPLY_UPDATED_DATE"));
-			
-			User user  = new User();
-			
-			user.setNo(rs.getInt("USER_NO"));
-			user.setId(rs.getString("USER_ID"));
-			newsReply.setUser(user);
+			newsReply.setUserId(rs.getString("USER_ID"));
+			newsReply.setUserNo(rs.getInt("USER_NO"));
+			newsReply.setDeleted(rs.getString("REPLY_DELETED"));
+
 			
 			return newsReply;
 			
@@ -274,9 +275,31 @@ public class NewsDao {
 				   + "set "
 				   + "		reply_updated_date = sysdate, "
 				   + "		reply_contents = ?, "
-				   + "where news_no = ? " ;
+				   + "		reply_deleted = ? "
+				   + "where reply_no = ? " ;
 		
-		helper.update(sql, newsReply.getUpdatedDate(), newsReply.getContent(), newsReply.getNewsNo() );
+		helper.update(sql, newsReply.getContent(), newsReply.getDeleted(), newsReply.getReplyNo() );
 	}
 	
+	public NewsReply getReplyNo(int replyNo) throws SQLException {
+		String sql = "select USER_NO, USER_ID, NEWS_NO, REPLY_CONTENTS, REPLY_CREATED_DATE, REPLY_UPDATED_DATE, REPLY_DELETED, REPLY_NO "
+				   + "from SOCCER_NEWS_REPLYS "
+				   + "where REPLY_NO = ? " ;
+		
+		return helper.selectOne(sql,rs -> {
+			NewsReply reply = new NewsReply();
+			
+			reply.setUserNo(rs.getInt("USER_NO"));
+			reply.setUserId(rs.getString("USER_ID"));
+			reply.setNewsNo(rs.getInt("NEWS_NO"));
+			reply.setContent(rs.getString("REPLY_CONTENTS"));
+			reply.setCreatedDate(rs.getDate("REPLY_CREATED_DATE"));
+			reply.setUpdatedDate(rs.getDate("REPLY_UPDATED_DATE"));
+			reply.setDeleted(rs.getString("REPLY_DELETED"));
+			reply.setReplyNo(rs.getInt("REPLY_NO"));
+			
+			return reply;
+			
+		},replyNo);
+	}
 }

@@ -11,18 +11,10 @@ public class NewsReply {
 	private String deleted;
 	private Date createdDate;
 	private Date updatedDate;
-	private User user;
 	private int newsNo;
 	
 	public NewsReply() {}
 	
-	public User getUser() {
-		return user;
-	}
-
-	public void setUser(User user) {
-		this.user = user;
-	}
 
 	public int getReplyNo() {
 		return replyNo;
