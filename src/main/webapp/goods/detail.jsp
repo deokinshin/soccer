@@ -1,3 +1,4 @@
+<%@page import="vo.User"%>
 <%@page import="util.StringUtil"%>
 <%@page import="dto.GoodsReviewDto"%>
 <%@page import="java.util.List"%>
@@ -13,6 +14,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>GOODS DETAIL</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+<style>
+	#accordion-header{
+	width:600px;
+	margin:auto;
+	}
+	#headingOne{
+	 width:fit-content;
+	 margin:auto;
+	}
+</style>
 </head>
 <body>
 <jsp:include page="../common/nav3.jsp">
@@ -90,17 +101,8 @@
             <div class="accordion mb-3" id="accordionExample">
                     <div class="accordion-item">
                       <h2 class="accordion-header" id="headingOne">
-                      <style>
-                         #accordion-header{
-                         width:600px;
-                         margin:auto;
-                         }
-                         #headingOne{
-                          width:fit-content;
-                          margin:auto;
-                         }
-                        </style>
-                           <button class="accordion-button justify-content-center" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne"">
+                      
+                           <button class="accordion-button justify-content-center" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
                              상세페이지 펼쳐보기
                             </button>
                       </h2>
@@ -148,7 +150,14 @@
          </div>
       <%
       } else {
+    	  	User user = (User) session.getAttribute("LOGINED_USER");
+    	  
             for (GoodsReviewDto review : reviews) {
+            	
+            	boolean isModify = false;
+            	if (user != null && review.getUserNo() == user.getNo()) {
+            		isModify = true;
+            	}
       %>
                <div class="card mb-2">
                   <div class="card-body">
@@ -156,16 +165,19 @@
                         <h6><%=review.getUserName() %></h6>
                         <span><%=review.getReviewCreatedDate() %></span>
                      </div>
+                     	<form method="post" action="modify.jsp">
                      <div class="row">
+                     		<input type="hidden" name="reviewNo" value="<%=review.getReviewNo() %>"/>
+                     		<input type="hidden" name="goodsNo" value="<%=goodsNo %>"/>
                         <div class="col-11">
-                           <p class="mb-0"><%=review.getReviewCountent() %></p>
+                           <textarea class="mb-0 form-control border-0" name="content"><%=review.getReviewCountent() %></textarea>
                         </div>
                         <div class="col-1 text-end">
-                           <a href="updated.jsp?<%=review.getReviewNo() %>" class="btn btn-outline-secondary btn-sm">수정</a>
-                           <a href="../goods/delete.jsp" class="btn btn-outline-secondary btn-sm">X</a>
-                           
+                           <button class="btn btn-outline-secondary btn-sm  <%=isModify ? "" : "disabled"%>">수정</button>
+                           <a href="delete.jsp?reviewNo=<%=review.getReviewNo() %>&goodsNo=<%=goodsNo %>" class="btn btn-outline-secondary btn-sm   <%=isModify ? "" : "disabled"%>">X</a>
                         </div>
                      </div>
+                        </form>
                   </div>
                </div>
       <%   
