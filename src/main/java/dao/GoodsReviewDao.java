@@ -26,7 +26,8 @@ public class GoodsReviewDao {
 		String sql = "select R.review_no, R.user_no, R.goods_no, R.review_content, R.review_created_date, U.user_no, U.user_name "
 				   + "from soccer_goods_reviews R, soccer_users U "
 				   + "where R.user_no = U.user_no "
-				   + "and R.goods_no = ? ";
+				   + "and R.goods_no = ? "
+				   + "and REVIEW_DELETED = 'N' ";
 		
 		List<GoodsReviewDto> reviews = new ArrayList<>();
 		
@@ -63,24 +64,28 @@ public class GoodsReviewDao {
 		String sql = "update SOCCER_GOODS_REVIEWS "
 				   + "set "
 				   + "  REVIEW_CONTENT = ?, "
+				   + "  USER_NAME = ?, "
+				   + "  USER_NO = ?, "
+				   + "  REVIEW_DELETED = ?, "
 				   + "  REVIEW_UPDATED_DATE = sysdate "
 				   + "WHERE REVIEW_NO = ? ";
-		helper.update(sql, review.getReviewCountent(), review.getReviewNo());
+		helper.update(sql, review.getReviewCountent(),review.getUserName(),review.getUserNo(),review.getReviewDeletes() , review.getReviewNo());
 	}
 	
 	public GoodsReviewDto getReviewNoReview(int reviewNo) throws SQLException {
-		String sql = "select USER_NO,USER_NAME,GOODS_NO,REVIEW_CONTENT "
+		String sql = "select USER_NO,USER_NAME,GOODS_NO,REVIEW_CONTENT,REVIEW_DELETED,REVIEW_NO "
 				   + "from SOCCER_GOODS_REVIEWS "
 				   + "where REVIEW_NO = ? ";
 		
 		return helper.selectOne(sql, rs -> {
 			GoodsReviewDto review = new GoodsReviewDto();
 			
-			review.setGoodsNo(rs.getInt(reviewNo));
-			review.setUserNo(rs.getInt(reviewNo));
-			review.setReviewCountent(rs.getString(reviewNo));
-			review.setUserName(rs.getNString(reviewNo));
-			
+			review.setUserNo(rs.getInt("USER_NO"));
+			review.setUserName(rs.getNString("USER_NAME"));
+			review.setGoodsNo(rs.getInt("GOODS_NO"));
+			review.setReviewCountent(rs.getString("REVIEW_CONTENT"));
+			review.setReviewDeletes(rs.getString("REVIEW_DELETED"));
+			review.setReviewNo(rs.getInt("REVIEW_NO"));
 			return review;
 		}, reviewNo);
 	}

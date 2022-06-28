@@ -4,7 +4,7 @@
 <%@page import="vo.Club"%>
 <%@page import="dao.ClubDao"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" errorPage="soccer/error/500.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>

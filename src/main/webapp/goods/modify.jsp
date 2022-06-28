@@ -10,6 +10,8 @@
 	throw new RuntimeException("게시글 수정은 로그인 후 사용가능한 서비스 입니다.");
 	}
 	int reviewNo = StringUtil.stringToInt(request.getParameter("reviewNo"));
+	int goodsNo = StringUtil.stringToInt(request.getParameter("goodsNo"));
+	String content = request.getParameter("content");
 	
 	GoodsReviewDao goodsReviewDao = GoodsReviewDao.getInstance();
 	GoodsReviewDto review = goodsReviewDao.getReviewNoReview(reviewNo);
@@ -22,6 +24,10 @@
 		throw new RuntimeException("다른 사용자가 작성한 게시글은 수정할 수 업습니다.");
 	}	
 	
+	review.setReviewCountent(content);
 	
+	goodsReviewDao.updateReview(review);
+	
+	response.sendRedirect("detail.jsp?goodsNo="+goodsNo);
 
 %>

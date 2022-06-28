@@ -52,6 +52,7 @@
 				<h1 class="text-start"><%=news.getNewsName() %></h1>
 				<h5>좋아요<span class="badge bg-secondary"><%=news.getNewsLikeCount() %></span>
 					싫어요<span class="badge bg-secondary"><%=news.getNewsDislikeCount() %></span>
+					조회수<span class="badge bg-secondary"><%=news.getNewsViewCount() %></span>
 				</h5>	
 				<small class="text-end">입력 <%=news.getNewsCreatedDate() %></small>
 				<hr>
