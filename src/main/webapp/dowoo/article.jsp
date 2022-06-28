@@ -52,6 +52,7 @@
 				<h1 class="text-start"><%=news.getNewsName() %></h1>
 				<h5>좋아요<span class="badge bg-secondary"><%=news.getNewsLikeCount() %></span>
 					싫어요<span class="badge bg-secondary"><%=news.getNewsDislikeCount() %></span>
+					조회수<span class="badge bg-secondary"><%=news.getNewsViewCount() %></span>
 				</h5>	
 				<small class="text-end">입력 <%=news.getNewsCreatedDate() %></small>
 				<hr>
@@ -71,7 +72,7 @@
 	</div>
 </div>
 			<%
-				User user =(User) session.getAttribute("LOGINED_USER");
+				User user = (User) session.getAttribute("LOGINED_USER");
 				boolean isDisabled = true;
 				
 				isDisabled = true;
@@ -112,7 +113,7 @@
 		<h3>댓글 목록</h3>
 			<div class="card-body">
 				<form class="row g-3" action="reply.jsp">
-					<input type="hidden" name="newsNo" value="<%=newsNo %>">
+					<input type="hidden" name="no" value="<%=newsNo %>">
 					<div class="col-11">
 					<%
 						String textContent;
@@ -123,7 +124,7 @@
 							textContent = "댓글을 작성해 주세요 ";
 						}
 					%>					
-						<textarea rows="2" class="form-control" placeholder="<%=textContent %>"></textarea>		
+						<textarea rows="2" class="form-control" placeholder="<%=textContent %>" name="content"></textarea>		
 					</div>
 					<div class="col-1">
 						<button type="submit" class="btn btn-outline-secondary w-100 h-100 ">등록</button>
@@ -138,9 +139,14 @@
 					<p> 댓글이 없습니다.</p>
 				</div>
 			</div>
-			<%
+			<%		
 				} else {
 					for (NewsReply reply : replys) {
+						
+				boolean isModify = false;
+				if (user != null && reply.getUserNo() == user.getNo() ) {
+					isModify = true;
+				}
 			%>
 				<div class = "card mb-2">
 					<div class = "card-body">
@@ -148,14 +154,19 @@
 							<h6><%=reply.getUserId() %></h6>
 							<span><%=reply.getCreatedDate() %></span>
 						</div>
+						<form method="post" action="update.jsp">
 						<div class="row">
+							<input type ="hidden" name="replyNo" value="<%=reply.getReplyNo() %>"/>
+							<input type ="hidden" name="no" value="<%=newsNo %>"/>
 							<div class="col">
-								<p class="mb-0"><%=reply.getContent() %></p>
+								<textarea class= "mb-0 form-control border-0" name="content"><%=reply.getContent() %></textarea>
 							</div>
 							<div class="col-1 text-end">
-									<a href="delete.jsp" class="btn btn-outline-secondary btn-sm">X</a>
+								<button class="btn btn-outline-secondary btn-sm <%=isModify ? "" :"disabled" %>">수정</button>
+								<a href="delete.jsp?replyNo=<%=reply.getReplyNo() %>&no=<%=newsNo %>" class="btn btn-outline-secondary btn-sm <%=isModify ? "" :"disabled" %>">X</a>
 							</div>
 						</div>
+						</form>
 					</div>
 				</div>
 			<%
