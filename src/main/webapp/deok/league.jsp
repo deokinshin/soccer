@@ -18,8 +18,8 @@
 	  padding: 4% 2%;
 	  box-sizing: border-box;
 	  height: 100vh;
-	}
-	
+	 }
+	  
 	.box {
 	  flex: 1;
 	  overflow: hidden;

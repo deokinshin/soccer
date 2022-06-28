@@ -19,7 +19,7 @@
 	  
 	if (newsReply == null) {
 		throw new RuntimeException("댓글이 존재하지 않습니다. ");
-	}
+	}    
 	
 	if (newsReply.getUserNo() != user.getNo()) {
 		throw new RuntimeException("다른 사용자의 댓글은 수정할 수 없습니다. ");
