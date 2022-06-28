@@ -108,71 +108,74 @@
 		</div>
 	</div>
 </div>
-<div class="row mb-3">
-	<div class="col">
-		<h3>댓글 목록</h3>
-			<div class="card-body">
-				<form class="row g-3" action="reply.jsp">
-					<input type="hidden" name="no" value="<%=newsNo %>">
-					<div class="col-11">
-					<%
-						String textContent;
-					
-						if (user == null) {
-							textContent = "로그인 후 댓글 작성이 가능합니다. ";
-						} else {
-							textContent = "댓글을 작성해 주세요 ";
-						}
-					%>					
-						<textarea rows="2" class="form-control" placeholder="<%=textContent %>" name="content"></textarea>		
-					</div>
-					<div class="col-1">
-						<button type="submit" class="btn btn-outline-secondary w-100 h-100 ">등록</button>
-					</div>
-				</form>
-			</div>
-			<%
-				if (replys.isEmpty()) {
-			%>
-			<div class="card mb-2">
+
+<div class="container">
+	<div class="row mb-3">
+		<div class="col">
+			<h3>댓글 목록</h3>
 				<div class="card-body">
-					<p> 댓글이 없습니다.</p>
-				</div>
-			</div>
-			<%		
-				} else {
-					for (NewsReply reply : replys) {
+					<form class="row g-3" action="reply.jsp">
+						<input type="hidden" name="no" value="<%=newsNo %>">
+						<div class="col-11">
+						<%
+							String textContent;
 						
-				boolean isModify = false;
-				if (user != null && reply.getUserNo() == user.getNo() ) {
-					isModify = true;
-				}
-			%>
-				<div class = "card mb-2">
-					<div class = "card-body">
-						<div class = "d-flex justify-content-between">
-							<h6><%=reply.getUserId() %></h6>
-							<span><%=reply.getCreatedDate() %></span>
+							if (user == null) {
+								textContent = "로그인 후 댓글 작성이 가능합니다. ";
+							} else {
+								textContent = "댓글을 작성해 주세요 ";
+							}
+						%>					
+							<textarea rows="2" class="form-control" placeholder="<%=textContent %>" name="content"></textarea>		
 						</div>
-						<form method="post" action="update.jsp">
-						<div class="row">
-							<input type ="hidden" name="replyNo" value="<%=reply.getReplyNo() %>"/>
-							<input type ="hidden" name="no" value="<%=newsNo %>"/>
-							<div class="col">
-								<textarea class= "mb-0 form-control border-0" name="content"><%=reply.getContent() %></textarea>
-							</div>
-							<div class="col-1 text-end">
-								<button class="btn btn-outline-secondary btn-sm <%=isModify ? "" :"disabled" %>">수정</button>
-								<a href="delete.jsp?replyNo=<%=reply.getReplyNo() %>&no=<%=newsNo %>" class="btn btn-outline-secondary btn-sm <%=isModify ? "" :"disabled" %>">X</a>
-							</div>
+						<div class="col-1">
+							<button type="submit" class="btn btn-outline-secondary w-100 h-100 ">등록</button>
 						</div>
-						</form>
+					</form>
+				</div>
+				<%
+					if (replys.isEmpty()) {
+				%>
+				<div class="card mb-2">
+					<div class="card-body">
+						<p> 댓글이 없습니다.</p>
 					</div>
 				</div>
-			<%
+				<%		
+					} else {
+						for (NewsReply reply : replys) {
+							
+					boolean isModify = false;
+					if (user != null && reply.getUserNo() == user.getNo() ) {
+						isModify = true;
 					}
-				}
-			%>
+				%>
+					<div class = "card mb-2">
+						<div class = "card-body">
+							<div class = "d-flex justify-content-between">
+								<h6><%=reply.getUserId() %></h6>
+								<span><%=reply.getCreatedDate() %></span>
+							</div>
+							<form method="post" action="update.jsp">
+							<div class="row">
+								<input type ="hidden" name="replyNo" value="<%=reply.getReplyNo() %>"/>
+								<input type ="hidden" name="no" value="<%=newsNo %>"/>
+								<div class="col">
+									<textarea class= "mb-0 form-control border-0" name="content"><%=reply.getContent() %></textarea>
+								</div>
+								<div class="col-1 text-end">
+									<button class="btn btn-outline-secondary btn-sm <%=isModify ? "" :"disabled" %>">수정</button>
+									<a href="delete.jsp?replyNo=<%=reply.getReplyNo() %>&no=<%=newsNo %>" class="btn btn-outline-secondary btn-sm <%=isModify ? "" :"disabled" %>">X</a>
+								</div>
+							</div>
+							</form>
+						</div>
+					</div>
+				<%
+						}
+					}
+				%>
+		</div>
 	</div>
 </div>
 
