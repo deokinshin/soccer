@@ -78,9 +78,9 @@
                 </tr>
             </thead>
             <tbody>
-                <tr><%order.getOrderNo() %></tr>
+                <tr><%=order.getOrderNo() %></tr>
                 <tr><% %></tr>
-                <tr><% %>orderGoods.</tr>
+                <tr><% %></tr>
                 <tr><% %></tr>
                 <tr><% %></tr>
                 <tr><% %></tr>

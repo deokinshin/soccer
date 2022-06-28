@@ -1,4 +1,5 @@
 
+<%@page import="vo.User"%>
 <%@page import="vo.OrderGoods"%>
 <%@page import="vo.Order"%>
 <%@page import="dao.OrderDao"%>
@@ -52,6 +53,7 @@
          // localhost/soccer2/goods/detail.jsp?goodsNo=100
          
          int goodsNo = StringUtil.stringToInt(request.getParameter("goodsNo"));
+      	 String cartAddCompleted = request.getParameter("cartadd");
          
          GoodsDao goodsDao = GoodsDao.getInstance();
          Goods goods = goodsDao.getGoodsByNo(goodsNo);
@@ -80,26 +82,27 @@
                </tbody>
             </table>
             
-            <button type="button" class="btn btn-outline-primary btn-lg" onclick="location.href='../cart/add.jsp?goodsNo=<%=goodsNo%>';">
-              장바구니 담기
-            </button>
-            <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">알림</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-                    선택하신 상품이 장바구니에 담겼습니다.
-                  </div>
-                  <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">쇼핑 계속하기</button>
-                    <button type="button" class="btn btn-primary">구매</button>
-                  </div>
-                </div>
-              </div>
+            <a class="btn btn-outline-primary btn-lg" href="../cart/add.jsp?goodsNo=<%=goodsNo%>">장바구니 담기</a>
+            <a class="btn btn-primary btn-lg" href="../order/form.jsp?goodsNo=<%=goodsNo%>">바로 구매</a>
+            
+            <div class="modal fade" id="cart-add-completed-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                 <div class="modal-dialog">
+                   <div class="modal-content">
+                     <div class="modal-header">
+                       <h5 class="modal-title" id="exampleModalLabel">알림</h5>
+                       <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                     </div>
+                     <div class="modal-body">
+                       선택하신 상품이 장바구니에 담겼습니다.
+                     </div>
+                     <div class="modal-footer">
+                       <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">계속 쇼핑하기</button>
+                       <button type="button" class="btn btn-primary">구매</button>
+                     </div>
+                   </div>
+                 </div>
             </div>
+
 
             <button class="btn btn-primary btn-lg" type="submit">바로 구매</button>
             
