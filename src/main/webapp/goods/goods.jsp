@@ -101,11 +101,10 @@
       <%
          }
       %>
-      
-      
-		
+      		
 	</div>
-	<div class="row">
+	
+	<div class="row mb-3">
       <div class="col-4"></div>
       <div class="col-4">
          <nav>
@@ -127,18 +126,22 @@
                </li>
             </ul>
          </nav>
+         
          <div class="col-4">
             <form id="goods" class="row g-3" method="get" action="goods.jsp">
-               <input type="hidden" name="page" />
-               
+               <input type="hidden" name="page" />               
             </form>
          </div>
+         
       </div>
+      
       <div class="col-4">
       </div>
-   </div>
-	
+   </div>	
 </div>
+<jsp:include page="../common/footer.jsp">
+	<jsp:param name="menu" value="league"/>
+</jsp:include>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript">
 

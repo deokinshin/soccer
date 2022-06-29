@@ -1,3 +1,5 @@
+<%@page import="dao.CartItemDao"%>
+<%@page import="vo.User"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -18,14 +20,31 @@
 </jsp:include>
 
 <div class="container">
+	<%
+		 User user = (User) session.getAttribute("LOGINED_USER");
+		 if (user == null) {
+			response.sendRedirect("../loginform.jsp?fail=deny");
+			return;
+		 }
+		 
+		 int userNo = user.getNo();
+		 CartItemDao cartItemDao = CartItemDao.getInstance();
+		 cartItemDao.userNoDelete(userNo);
+		 
+		 response.sendRedirect("../goods/goods.jsp");
+     %>
+     
 	<div class="p-5 mb-4 bg-light rounded-3">
-		<div class="container-fluid py-3">
+		<div class="container-fluid py-3" style=" text-align: center;">
 			<h1 class="display-5 fw-bold">구매 완료</h1>
 			<p class="fs-4">구매가 완료되었습니다.</p>
-			<a href="../goods/goods.jsp" class="btn btn-primary btn-lg">계속 쇼핑하기</a>
+			<a href="../goods/goods.jsp" class="btn btn-primary btn-lg" onclick="location.href='../goods/allDelete.jsp'">계속 쇼핑하기</a>
 		</div>
 	</div>
 </div>
+<jsp:include page="../common/footer.jsp">
+	<jsp:param name="menu" value="league"/>
+</jsp:include>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

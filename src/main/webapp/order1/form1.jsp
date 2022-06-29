@@ -1,3 +1,4 @@
+<%@page import="dao.GoodsDao"%>
 <%@page import="java.text.DecimalFormat"%>
 <%@page import="dto.CartItemDto"%>
 <%@page import="java.util.List"%>
@@ -70,6 +71,7 @@
 		 CartItemDao cartItemDao = CartItemDao.getInstance();
 		 List<CartItemDto> cartItemDtos = cartItemDao.getCartItemsByUserNo(userNo);
 		 
+		 
      %>
      
      <h1>구매하기</h1>
@@ -100,7 +102,9 @@
                 	<td><%=cartItemDto.getCartItemQuantity() %></td>
                 	<td><%=decFormat.format(cartItemDto.getGoodsPrice()*cartItemDto.getCartItemQuantity()) %></td>
                 	<td>
-    					<button type="button" onclick="deleteCartItem(int itemNo);">X</button>
+                		<div style=" text-align: center;">
+    					<button type="button" class="btn btn-outline-dark btn-sm" style=" display: inline-block;" onclick="location.href='../goods/delete.jsp?goodsNo=<%=cartItemDto.getGoodsNo()%>';">X</button>
+    					</div>
     				</td>
                 </tr>
             <%
@@ -114,13 +118,38 @@
                 </tr>
             </tfoot>
         </table>
-</div>
+        
+        <!-- Button trigger modal -->
+    <div class="d-grid gap-2">
+	<button type="button" class="btn btn-dark mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
+  		구매하기
+	</button>
+	</div>
+
+	<!-- Modal -->
+	<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  	<div class="modal-dialog">
+    	<div class="modal-content">
+      	<div class="modal-header">
+        	<h5 class="modal-title" id="exampleModalLabel">알림</h5>
+        	<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      	</div>
+      	<div class="modal-body">
+        	상품을 구매하시겠습니까?
+      	</div>
+      	<div class="modal-footer">
+        	<button type="button" class="btn btn-light" data-bs-dismiss="modal" onclick="location.href='complete1.jsp';">예</button>
+        	<button type="button" class="btn btn-dark" onclick="location.href='../goods/goods.jsp';">아니오</button>
+      	</div>
+    	</div>
+  	</div>
+	</div>
+	</div>
+<jsp:include page="../common/footer.jsp">
+	<jsp:param name="menu" value="league"/>
+</jsp:include>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js">
-function deleteCartItem(int itemNo){
-    var ths = $(itemNo);
-    
-    ths.parents("tr").remove();
-}
+
 </script>
 </body>
 </html>

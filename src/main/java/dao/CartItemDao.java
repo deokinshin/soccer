@@ -52,11 +52,11 @@ public class CartItemDao {
 	
 	/**
 	 * 지정된 장바구니 아이템번호와 일치하는 장바구니 아이템정보를 반환한다.
-	 * @param itemNo 아이템번호
+	 * @param goodsNo 굿즈넘버
 	 * @return 장바구니 아이템 정보
 	 * @throws SQLException
 	 */
-	public CartItem getCartItemByItemNo(int itemNo) throws SQLException {
+	public CartItem getCartItemByItemNo(int goodsNo) throws SQLException {
 		String sql = "select * "
 				   + "from soccer_carts "
 				   + "where cart_item_no = ? ";
@@ -65,7 +65,7 @@ public class CartItemDao {
 		
 		Connection connection = ConnectionUtil.getConnection();
 		PreparedStatement pstmt = connection.prepareStatement(sql);
-		pstmt.setInt(1, itemNo);
+		pstmt.setInt(1, goodsNo);
 		ResultSet rs = pstmt.executeQuery();
 		if (rs.next()) {
 			item = new CartItem();
@@ -85,17 +85,35 @@ public class CartItemDao {
 	}
 
 	/**
-	 * 지정된 장바구니 아이템번호와 일치하는 장바구니 아이템정보를 삭제한다.
-	 * @param itemNo 장바구니 아이템번호
+	 * 지정된 굿즈넘버와 일치하는 장바구니 굿즈정보를 삭제한다.
+	 * @param goodsNo 장바구니 굿즈넘버
 	 * @throws SQLException
 	 */
-	public void deleteCartItem(int itemNo) throws SQLException {
+	public void deleteCartItem(int goodsNo) throws SQLException {
 		String sql = "delete from soccer_carts "
-				   + "where cart_item_no = ? ";
+				   + "where goods_no = ? ";
 		
 		Connection connection = ConnectionUtil.getConnection();
 		PreparedStatement pstmt = connection.prepareStatement(sql);
-		pstmt.setInt(1, itemNo);
+		pstmt.setInt(1, goodsNo);
+		pstmt.executeUpdate();
+		
+		pstmt.close();
+		connection.close();
+	}
+	
+	/**
+	 * 지정된 사용자 번호와 일치하는 장바구니 굿즈정보를 삭제한다.
+	 * @param userNo 사용자 번호
+	 * @throws SQLException
+	 */
+	public void userNoDelete(int userNo) throws SQLException {
+		String sql = "delete from soccer_carts "
+				   + "where user_no=? ";
+		
+		Connection connection = ConnectionUtil.getConnection();
+		PreparedStatement pstmt = connection.prepareStatement(sql);
+		pstmt.setInt(1, userNo);
 		pstmt.executeUpdate();
 		
 		pstmt.close();
