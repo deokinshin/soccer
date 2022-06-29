@@ -312,7 +312,7 @@ h2 {
 		}	
 	%>
 	</div>
-	<div class="row justify-content-center">
+	<div class="row justify-content-center mb-3">
 		<div class="col-4"></div>
 		<div class="col-4">
 			<nav>
@@ -345,7 +345,9 @@ h2 {
 		</div>
 	</div>
 </div>
- 
+<jsp:include page="../common/footer.jsp">
+	<jsp:param name="menu" value="player"/>
+</jsp:include> 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript">
 	function changePositions() {
