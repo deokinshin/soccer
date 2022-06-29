@@ -1,6 +1,6 @@
 package dto;
 
-public class orderDto {
+public class OrderDto {
 
 	private int orderNo;
 	private String goodsName;
@@ -8,7 +8,7 @@ public class orderDto {
 	private int orderGoodsQuantity;
 	private int orderGoodsPrice;
 	
-	public orderDto() {}
+	public OrderDto() {}
 
 	public int getOrderNo() {
 		return orderNo;
