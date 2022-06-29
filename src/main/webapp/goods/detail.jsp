@@ -86,7 +86,7 @@
             
             <a class="btn btn-outline-primary btn-lg" href="../cart/add.jsp?goodsNo=<%=goodsNo%>">장바구니 담기</a>
 
-            <a class="btn btn-primary btn-lg" href="../order/form.jsp">바로 구매</a>
+            <a class="btn btn-primary btn-lg" href="../order1/form1.jsp">바로 구매</a>
 
             
             <div class="modal fade" id="cart-add-completed-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -102,7 +102,7 @@
                      <div class="modal-footer">
                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">계속 쇼핑하기</button>
 
-                       <button type="button" class="btn btn-primary" onclick="location.href='../order/form.jsp';">구매</button>
+                       <button type="button" class="btn btn-primary" onclick="location.href='../order1/form1.jsp';">구매</button>
 
                      </div>
                    </div>
