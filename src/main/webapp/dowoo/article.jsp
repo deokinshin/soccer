@@ -9,7 +9,7 @@
 <%@page import="vo.News"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" errorPage="../error/500.jsp"%>
 <!DOCTYPE html>
 <html lang="ko">
 
