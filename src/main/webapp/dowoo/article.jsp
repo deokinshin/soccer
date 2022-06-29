@@ -44,7 +44,7 @@
 		List<News> newsList = newsDao.getLeagueNoNews(leagueNo);		
 		List<NewsReply> replys = newsDao.getNewsReply(newsNo);		
 		
-		List<News> newsList1 = newsDao.getRankNoNews(newsNo);
+		List<News> newsList1 = newsDao.getRankNoNews();
 		
 	%>
 	<div class="container">
@@ -111,35 +111,28 @@
 	</div>
 </div>
 
+
+<hr>
+	<div class="row p-4 mb-4 bg-light rounded-3" >
+		<h3 class="mb-3">실시간 인기 뉴스</h3>
 		<%
 			for (News news1 : newsList1) {
 		%>
-
-<div class="container">
-	<div class ="row justify-content-center">
-		<div class ="col-4">
-			<div class="card text-center" style="width: 25rem;">
-			  <div class="card-body">
-				<h4 class="card-title; text-align: center;">실시간 인기 기사</h4>
-				<hr>
-					<div class=row-4>
-						<img alt="<%=news1.getNewsName() %>" src="../news/<%=news1.getNewsNo() %>.png">
-					</div>
-			 		<div class="card-body">
-			 		</div>
-					<div class=row-2>
-				    	<span class="badge bg-secondary"><%=news.getNewsLikeCount() %></span>
-				    	<span class="badge bg-secondary"><%=news.getNewsDislikeCount() %></span>
-				    </div>
-			  </div>
+		<div class="col-3 mb-3">		
+			<div class="card">
+				<a href="article.jsp?no=<%=news1.getNewsNo() %>">
+					<img alt="" src="../news/<%=news1.getNewsNo() %>.png" class="card-img-top" width="200px" height="300px">
+				</a>
+				<div class="card-body">
+					<h5 class="card-title"><%=news1.getNewsName() %></h5>
+				</div>
 			</div>
-		</div>
-	</div>
-</div>
-
+		</div>	
 		<%
 			}
 		%>
+	</div>
+
 
 <div class="container">
 	<div class="row mb-3">
