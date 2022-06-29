@@ -27,7 +27,7 @@
 </head>
 
 <body>
-<main>
+
 <jsp:include page="common/nav_home.jsp">
 	<jsp:param name="menu" value="home"/>
 </jsp:include>
@@ -178,26 +178,9 @@
 </div>
 </div>
 
-</main>
-
- <footer id="footer">
-  <div class="footer-bottom-wrap">
-
-      <div class="footer-right">
-        <div class="footer-contact">
-          <address>
-            <span>CREATORS : 신덕인, 김도우, 이예석, 김정찬</span></br>
-            <span>서울특별시 종로구 율곡로10길 105 디아망 4F(봉익동 10-1 디아망 4F)</span>
-            <span>TEL : 070-8240-3211~3</span>
-            <span>FAX : 02-777-5407</span><br class="mb_none"/>
-          </address>
-        </div>
-        <p><strong>COPYRIGHT(C) SOCCER CO. ALL RIGHTS RESERVED.</strong></p>
-      </div>
-    </div>
-
-
-</footer>
+<jsp:include page="/common/footer.jsp">
+	<jsp:param name="menu" value="club"/>
+</jsp:include>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
