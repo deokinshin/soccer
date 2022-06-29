@@ -15,6 +15,6 @@
 	CartItemDao cartItemDao = CartItemDao.getInstance();	
 	cartItemDao.userNoDelete(user.getNo());
 
-	response.sendRedirect("../goods/goods.jsp");
+	response.sendRedirect("../order1/complete1.jsp");
 
 %>	
