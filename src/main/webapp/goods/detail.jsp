@@ -186,7 +186,7 @@
                         </div>
                         <div class="col-1 text-end">
                            <button class="btn btn-outline-secondary btn-sm  <%=isModify ? "" : "disabled"%>">수정</button>
-                           <a href="delete.jsp?reviewNo=<%=review.getReviewNo() %>&goodsNo=<%=goodsNo %>" class="btn btn-outline-secondary btn-sm   <%=isModify ? "" : "disabled"%>">X</a>
+                           <a href="reviewdel.jsp?reviewNo=<%=review.getReviewNo() %>&goodsNo=<%=goodsNo %>" class="btn btn-outline-secondary btn-sm   <%=isModify ? "" : "disabled"%>">X</a>
                         </div>
                      </div>
                         </form>
