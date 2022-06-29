@@ -9,7 +9,7 @@ public class News {
 	private int leagueNo;
 	private String newsName;
 	private String newsTitle;
-
+	private int rank;
 	private String newsContent1;
 	private String newsContent2;
 	private Date newsCreatedDate;
@@ -117,6 +117,14 @@ public class News {
 
 	public void setNewsContent2(String newsContent2) {
 		this.newsContent2 = newsContent2;
+	}
+
+	public int getRank() {
+		return rank;
+	}
+
+	public void setRank(int rank) {
+		this.rank = rank;
 	}
 
 	
