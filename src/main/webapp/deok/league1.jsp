@@ -20,10 +20,10 @@
 </head>
 <body>
 <jsp:include page="../common/nav3.jsp">
-	<jsp:param name="menu" value="home"/>
+	<jsp:param name="menu" value="league"/>
 </jsp:include>
 <jsp:include page="../common/nav_home.jsp">
-	<jsp:param name="menu" value="home"/>
+	<jsp:param name="menu" value="league"/>
 </jsp:include>
 <div class="container">
 
@@ -108,6 +108,9 @@
     </table>
   </div>
 </div>
+<jsp:include page="../common/footer.jsp">
+	<jsp:param name="menu" value="league"/>
+</jsp:include>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"></script>
 <script type="text/javascript">
 function changeLeagueNo() {

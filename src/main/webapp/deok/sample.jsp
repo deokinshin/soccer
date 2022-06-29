@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+    pageEncoding="UTF-8" errorPage="soccer/error/500.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -159,6 +159,8 @@ figure.snip1477.hover figcaption {
 </head>
 <body>
 <div class="container">
+<div class="p-3">
+
 <figure class="snip1477">
   <img src="https://s3-us-west-2.amazonaws.com/s.cdpn.io/331810/sample38.jpg" alt="sample38" />
   <div class="title">
