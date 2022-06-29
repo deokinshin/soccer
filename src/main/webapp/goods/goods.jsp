@@ -21,7 +21,7 @@
 </jsp:include>
 
 <jsp:include page="../common/nav_home.jsp">
-	<jsp:param name="menu" value="home"/>
+	<jsp:param name="menu" value="goods"/>
 </jsp:include>
 
 <div id="carouselExampleCaptions" class="carousel slide mb-3" data-bs-ride="carousel">
