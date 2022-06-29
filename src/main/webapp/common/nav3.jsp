@@ -35,7 +35,8 @@
 	      	} else {
 	      %>
 	      	<div class="text-end" style="float:right">
-	      	<img src="/soccer/images/cart.png" width="40px" height="40px" style="margin-right:10px; marign-left:10px">
+	      	<a href="http://localhost/soccer/order1/form1.jsp">
+	      	<img src="/soccer/images/cart.png" width="40px" height="40px" style="margin-right:10px; marign-left:10px"></a>
 	        <button type="button" class="btn btn-outline-secondary" onclick="location.href='/soccer/myinfo.jsp'">MyPage</button>
 	      	<button type="button" class="btn btn-outline-secondary me-2" onclick="location.href='/soccer/logout.jsp'">Logout</button>
       		</div>
