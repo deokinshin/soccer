@@ -13,7 +13,7 @@ public class OrderDao {
 	}
 	private DaoHelper helper = DaoHelper.getInstance();
 	
-	public int getOrderByNo(int orderNo) throws SQLException {
+	public int getOrderByNo() throws SQLException {
 		String sql = "select soccer_orders_seq.nextval seq "
 				   + "from dual ";
 		
@@ -22,4 +22,8 @@ public class OrderDao {
 			return rs.getInt("seq");
 		});
 	}
+	
+	
+	
+	
 }

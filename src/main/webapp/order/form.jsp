@@ -27,7 +27,9 @@
             }
             thead th {                          
                 background-color: #333;
+
                 color: black;
+
             }
             tbody tr:nth-child(even) {         
                 background-color: #ddd;
@@ -62,7 +64,9 @@
                     <th>가격</th>
                     <th>수량</th>
                     <th>구매가격</th>
+
                     <th></th>
+
                 </tr>
             </thead>
             <tbody>
@@ -78,11 +82,13 @@
                 	<td><%=decFormat.format(cartItemDto.getGoodsPrice()) %></td>
                 	<td><%=cartItemDto.getCartItemQuantity() %></td>
                 	<td><%=decFormat.format(cartItemDto.getGoodsPrice()*cartItemDto.getCartItemQuantity()) %></td>
+
                 	<td>
                 		<button type ="button" onclick="fnCalCount('p',this);">+</button>
         				<input type="text" name="pop_out" value="0" readonly="readonly" style="text-align:center;"/>
         				<button type="button" onclick="fnCalCount('m', this);">-</button>
                 	</td>
+
                 </tr>
             <%
             	}
