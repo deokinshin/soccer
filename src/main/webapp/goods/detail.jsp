@@ -1,4 +1,5 @@
 
+<%@page import="java.text.DecimalFormat"%>
 <%@page import="vo.User"%>
 <%@page import="vo.OrderGoods"%>
 <%@page import="vo.Order"%>
@@ -61,6 +62,7 @@
          GoodsReviewDao goodsReviewDao = GoodsReviewDao.getInstance();
          List<GoodsReviewDto> reviews = goodsReviewDao.getgoodsReviewDtos(goodsNo);
          
+         DecimalFormat decFormat = new DecimalFormat("###,###");
       %>        
          <div class="img mb-3">      
             <img src="../images/<%=goods.getClubNo() %>/<%=goods.getGoodsNo() %>.JPG" alt="<%=goods.getGoodsNo() %>" style="width: 700px; height: 600px; float: left;"/>
@@ -77,14 +79,14 @@
                   </tr>
                   <tr>
                      <th>가격</th>
-                     <td><%=goods.getGoodsPrice()%> 원</td>
+                     <td><%=decFormat.format(goods.getGoodsPrice()) %> 원</td>
                   </tr>
                </tbody>
             </table>
             
             <a class="btn btn-outline-primary btn-lg" href="../cart/add.jsp?goodsNo=<%=goodsNo%>">장바구니 담기</a>
 
-            <a class="btn btn-primary btn-lg" href="../order/form.jsp?goodsNo=<%=goodsNo%>">바로 구매</a>
+            <a class="btn btn-primary btn-lg" href="../order/form.jsp">바로 구매</a>
 
             
             <div class="modal fade" id="cart-add-completed-modal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

@@ -74,10 +74,12 @@
 			
          List<Goods> goodsList = goodsDao.getGoods(pagination.getBeginIndex(), pagination.getEndIndex());
          
-       	 DecimalFormat decFormat = new DecimalFormat("###,###");
-       	 
+
+         DecimalFormat decFormat = new DecimalFormat("###,###");
+         
          for (Goods goods : goodsList) {
-        	 
+          	 
+
       %>
    
    
