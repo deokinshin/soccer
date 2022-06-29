@@ -303,11 +303,11 @@ public class NewsDao {
 		},replyNo);
 	}
 	
-	public List<News> getRankNoNews(int newsNo) throws SQLException {
+	public List<News> getRankNoNews() throws SQLException {
 		String sql = "SELECT * "
 				   + "FROM (SELECT RANK() OVER (ORDER BY NEWS_VIEW_COUNT DESC) AS RANK, NEWS_NO, NEWS_NAME, NEWS_VIEW_COUNT "
 				   + 		"FROM SOCCER_NEWS1 ) "
-				   + "WHERE RANK <= 4 " ;
+				   + "WHERE RANK <= 4 ";
 		
 		return helper.selectList(sql, rs -> {
 			
@@ -320,6 +320,6 @@ public class NewsDao {
 			
 			return news;
 			
-		}, newsNo);
+		});
 	}
 }
