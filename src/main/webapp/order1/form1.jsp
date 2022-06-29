@@ -25,19 +25,39 @@
                 padding: 8px;                
                 text-align: left;             
             }
-            thead th {                          
+            thead th {
+            	border: 1px solid #333;                          
                 background-color: #333;
-                color: black;
+                color: #ddd;
             }
-            tbody tr:nth-child(even) {         
+            thead tr {
+            	border: 1px solid #333;
+            	background-color: #333;
+                color: #ddd;
+            }
+            tbody tr:nth-child(even) {
+            	border: 1px solid #333;         
                 background-color: #ddd;
             }
-            tfoot td {                          
+            tfoot td {
+            	border: 1px solid #333;                          
                 font-weight: bolder;
+            }
+            tr {
+            	border: 1px solid #333;
             }
 </style>
 </head>
 <body>
+
+<jsp:include page="../common/nav3.jsp">
+   <jsp:param name="menu" value="goods"/>
+</jsp:include>
+
+<jsp:include page="../common/nav_home.jsp">
+	<jsp:param name="menu" value="home"/>
+</jsp:include>
+
 <div class="container">
 	<%
 		 User user = (User) session.getAttribute("LOGINED_USER");
@@ -49,6 +69,7 @@
 		 int userNo = user.getNo();
 		 CartItemDao cartItemDao = CartItemDao.getInstance();
 		 List<CartItemDto> cartItemDtos = cartItemDao.getCartItemsByUserNo(userNo);
+		 
      %>
      
      <h1>구매하기</h1>
@@ -79,10 +100,8 @@
                 	<td><%=cartItemDto.getCartItemQuantity() %></td>
                 	<td><%=decFormat.format(cartItemDto.getGoodsPrice()*cartItemDto.getCartItemQuantity()) %></td>
                 	<td>
-                		<button type ="button" onclick="fnCalCount('p',this);">+</button>
-        				<input type="text" name="pop_out" value="0" readonly="readonly" style="text-align:center;"/>
-        				<button type="button" onclick="fnCalCount('m', this);">-</button>
-                	</td>
+    					<button type="button" onclick="deleteCartItem(int itemNo);">X</button>
+    				</td>
                 </tr>
             <%
             	}
@@ -90,14 +109,18 @@
             </tbody>
             <tfoot>
                 <tr>
-                    <td colspan="4">총구매금액</td>
+                    <td colspan="5">총구매금액</td>
                     <td><%=decFormat.format(totalCost) %>원</td>
                 </tr>
             </tfoot>
         </table>
 </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js">
-
+function deleteCartItem(int itemNo){
+    var ths = $(itemNo);
+    
+    ths.parents("tr").remove();
+}
 </script>
 </body>
 </html>
